@@ -1,0 +1,19 @@
+.header
+  .header__top-contents
+    = link_to root_path, class: "title-logo" do
+      = image_tag "logo/logo.png", alt: "title-logo", class: "title-logo__image", width: "140px"
+    .search
+      %input.search_field{type: "text", placeholder: "キーワードから探す"}
+      %input.search_btn{type: "submit", value: "検索"}
+  .header__bottom-contents
+    .header__bottom-contents--left
+      %ul.pulldown-list
+        カテゴリー
+        %li.pulldown-list__item
+      %ul.pulldown-list
+        ブランド
+    .header__bottom-contents--right
+      = link_to "#", class: "user-box" do
+        ログイン
+      = link_to "#", class: "user-box" do
+        新規会員登録
