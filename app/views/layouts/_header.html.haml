@@ -3,8 +3,10 @@
     = link_to root_path, class: "title-logo" do
       = image_tag "logo/logo.png", alt: "title-logo", class: "title-logo__image", width: "140px"
     .search
-      %input.search_field{type: "text", placeholder: "キーワードから探す"}
-      %input.search_btn{type: "submit", value: "検索"}
+      %input.search__field{type: "text", placeholder: "キーワードから探す"}
+      %label.search__btn
+        = image_tag "icon/icon-search 1.png", alt: "serch", class: "search__btn--icon"
+        %input.search__btn--submit{type: "submit", value: "検索"}
   .header__bottom-contents
     .header__bottom-contents--left
       %ul.pulldown-list
