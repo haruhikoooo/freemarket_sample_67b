@@ -1,8 +1,7 @@
-
 .header{
-  max-width: 1040px;
+  max-width: 1160px;
   width: 100vw;
-  height: 100px;
+  height: 110px;
   margin: 0 auto;
   &__top-contents{
     height: 50px;
@@ -40,9 +39,10 @@
   }
   &__bottom-contents{
     display: flex;
-    padding: 0 60px;
     justify-content: space-between;
-    height: 30px;
+    height: 60px;
+    padding: 0 60px;
+    font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", YuGothic, sans-serif;
     &--left{
       display: flex;
       .pulldown-list{
@@ -50,6 +50,9 @@
         font-size: 14px;
         width: 115px;
         line-height: 25px;
+        &:hover{
+          color: orange;
+        }
       }
     }
     &--right{
