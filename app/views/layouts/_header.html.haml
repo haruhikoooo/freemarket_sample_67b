@@ -1,7 +1,6 @@
 .header
   .header__top-contents
-    = link_to root_path, class: "title-logo" do
-      = image_tag "logo/logo.png", alt: "title-logo", class: "title-logo__image", width: "140px"
+    = link_to image_tag("logo/logo.png", alt: "title-logo", width: "140px"), root_path, class: "title-logo"
     .search
       %input.search__field{type: "text", placeholder: "キーワードから探す"}
       %label.search__btn
