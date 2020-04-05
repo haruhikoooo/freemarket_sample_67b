@@ -181,3 +181,30 @@
     }
   }
 }
+
+.exhibition-box{
+  display: block;
+  background-color: #3CCACE;
+  width: 120px;
+  height: 120px;
+  border-radius: 5px;
+  text-decoration: none;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &__text{
+    color: #ffffff;
+    font-size: 18px;
+    margin: 5px auto;
+  }
+  &__image{
+    width: 55px;
+  }
+  &:hover{
+    opacity: 0.9;
+  }
+}
