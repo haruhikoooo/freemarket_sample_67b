@@ -1,0 +1,143 @@
+.user_registration__header{
+  width: 100%;
+  height: calc(62px);
+  background-color: #f8f8f8;
+  padding: 33px 0 33px;
+  &__logo{
+    width: 214px;
+    margin: 0 auto;
+  }
+}
+.user_registration__main{
+  width: 100%;
+  background-color: #f8f8f8;
+  &__form{
+    width: 700px;
+    background-color: #ffffff;
+    margin: 0 auto;
+    &__title{
+      padding: 32px;
+      height: 33px;
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      border-bottom: solid 1.2px #f8f8f8;
+    }
+    &__contents{
+      padding: 40px 40px 62px 40px;
+      &__field--middle{
+        width: 343px;
+        height: 100px;
+        margin: 0 auto;
+        margin-top: 32px;
+      }
+      &__field--long{
+          width: 343px;
+          height: 150px;
+          margin: 0 auto;
+          margin-top: 32px;
+      }
+      &__field{
+        width: 343px;
+        height: 80px;
+        margin: 0 auto;
+        margin-top: 32px;
+        &__label{
+          font: 14px sans-serif;
+          font-weight: 600;
+        }
+        &__require{
+          font: 12px arial;
+          color: #ffffff;
+          background-color:#ea352d;
+          margin-left: 8px;
+          padding: 2px 4px;
+          border-radius: 2px;
+          vertical-align: top;
+        }
+        &__input{
+          display: flex;
+          &--one{
+            width: 309px;
+            height: 28px;
+            padding: 10px 16px 8px 16px;
+            margin-top: 8px;
+            border: solid 1px #cccccc;
+            border-radius: 5px;
+          }
+          &--two{
+            width: 131.5px;
+            height: 28px;
+            padding: 10px 16px 8px 16px;
+            margin-top: 8px;
+            margin-right: 8px;
+            border: solid 1px #cccccc;
+            border-radius: 5px;
+          }
+          
+        }
+        
+        &__notice-gray{
+          width: 343px;
+          height: 21px;
+          margin-top: 8px;
+          color: #888888;
+          font-size: 12px;
+        }
+        &__notice-title{
+          height: 16px;
+          font-size: 16px;
+          font-weight: 600;
+        }
+        &__notice-text{
+          font-size: 14px;
+          margin-top: 8px;
+        }
+      }
+      &__submit{
+        width: 341px;
+        height: 48px;
+        margin: 0 auto;
+        margin-top: 32px;
+        &__btn{
+        width: 341px;
+        height: 48px;
+        margin: 0 auto;
+        background-color: #EA342D;
+        color: #ffffff;
+        }
+      }
+    }
+  }
+}
+
+.year{
+  width: 74px;
+  height: 46px;
+  margin-top: 8px;
+  border: solid 1px #cccccc;
+  border-radius: 5px;
+  font-size: 12px;
+}
+.month,.day{
+  width: 74px;
+  height: 46px;
+  margin-top: 8px;
+  margin-left: 4px;
+  border: solid 1px #cccccc;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.user_registration__footer{
+  width: 100%;
+  height: 220px;
+  background-color: #f8f8f8;
+  &__contents{
+  width: 456px;
+  height: 140px;
+  padding: 40px 0 40px 0;
+  background-color: #f8f8f8;
+  margin: 0 auto;
+  }
+}
