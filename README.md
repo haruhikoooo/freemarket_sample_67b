@@ -23,6 +23,20 @@ Things you may want to cover:
 |furigana_family|string|null: false|
 |furigana_first|string|null: false|
 |birthday|date|null: false|
+### Association
+- has_one :payment, dependent: :destroy
+- has_one :address, dependent: :destroy
+- has_many :goods, dependent: :destroy
+- has_many :likes
+- has_many :goods_likes, through: :likes, source: :good, dependent: :destroy
+- has_many :comments
+- has_many :goods_comments, through: :comments, source: :good, dependent: :destroy
+- has_many :trannsactions
+- has_many :goods_transactions, through: :transactions, source: :good, dependent: :destroy
+
+## addressesテーブル
+|Column|Type|Options|
+|------|----|-------|
 |destination_family_name|string|null: false|
 |destination_first_name|string|null: false|
 |destination_furinaga_family|string|null: false|
@@ -34,24 +48,15 @@ Things you may want to cover:
 |apartment_name|string||
 |tel|string||
 ### Association
-- belongs_to :prefecture
-- has_one :payment
-- has_many :goods
-- has_many :likes
-- has_many :goods_likes, through: :likes, source: :good
-- has_many :comments
-- has_many :goods_comments, through: :comments, source: :good
-- has_many :trannsactions
-- has_many :goods_transactions, through: :transactions, source: :good
+- belongs_to :user
+- belongs_to_active_hash :prefecture
 
 ## goodsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 |explanation|text|null: false|
-|first_category_id|integer|null: false, foreign_key: true|
-|second_category_id|integer|null: false, foreign_key: true|
-|third_category_id|integer|null: false, foreign_key: true|
+|category_id|integer|null: false, foreign_key: true|
 |size_id|integer|null: false, foreign_key: true|
 |brand_id|integer|foreign_key: true|
 |condition|integer|null: false, foreign_key: true|
@@ -62,24 +67,22 @@ Things you may want to cover:
 |transaction_status_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- belongs_to :first_category
-- belongs_to :second_category
-- belongs_to :third_category 
-- belongs_to :size
+- belongs_to :category
+- belongs_to_active_hash :size
 - belongs_to :brand
-- belongs_to :condition
-- belongs_to :derivery_cost
-- belongs_to :derivery_day
-- belongs_to :transaction_status
-- belongs_to :prefecture
+- belongs_to_active_hash :condition
+- belongs_to_active_hash :derivery_cost
+- belongs_to_active_hash :derivery_day
+- belongs_to_active_hash :transaction_status
+- belongs_to_active_hash :prefecture
 - has_one :transaction
-- has_one :user, through: :transactions
-- has_one :payment, through: :transactions
-- has_many :images
+- has_one :user, through: :transactions, dependent: :destroy
+- has_one :payment, through: :transactions, dependent: :destroy
+- has_many :images, dependent: :destroy
 - has_many :likes
-- has_many :users_likes, through: :likes, source: :user
+- has_many :users_likes, through: :likes, source: :user, dependent: :destroy
 - has_many :comments
-- has_many :users_comments, through: :comments, source: :user
+- has_many :users_comments, through: :comments, source: :user, dependent: :destroy
 
 ## imagesテーブル
 |Column|Type|Options|
@@ -131,85 +134,32 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :good
 
-## prefecturesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|prefecture|string|null: false, unique: true|
-### Association
-- has_many :users
-- has_many :goods
-
-## first_categoriesテーブル
+## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false unique: true|
+|ancestry|string|null: false unique: true|
 ### Association
 - has_many :goods
 - has_many :brands
-- has_many :second_categories
-
-## second_categoriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false unique: true|
-|first_category_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :first_category
-- has_many :goods
-- has_many :third_categories
-
-## third_categoriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false unique: true|
-|second_category_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :second_category
-- has_many :goods
-
-## sizesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|size|string|null: false unique: true|
-### Association
-- has_many :goods
 
 ## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false unique: true|
-|first_category_id|integer|null: false, foreign_key: true|
+|category_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :first_category
+- belongs_to :category
 - has_many :goods
 
-## conditionsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|condition|string|null: false unique: true|
-### Association
-- has_many :goods
+## active_hash
+- prefecture
+- size
+- condition
+- derivery_cost
+- derivery_day
+- transaction_status
 
-## derivery_costテーブル
-|Column|Type|Options|
-|------|----|-------|
-|derivery_cost|string|null: false unique: true|
-### Association
-- has_many :goods
-
-## derivery_dayテーブル
-|Column|Type|Options|
-|------|----|-------|
-|derivery_day|string|null: false unique: true|
-### Association
-- has_many :goods
-
-## transaction_statusテーブル
-|Column|Type|Options|
-|------|----|-------|
-|transaction_status|string|null: false unique: true|
-### Association
-- has_many :goods
 
 * Database initialization
 
