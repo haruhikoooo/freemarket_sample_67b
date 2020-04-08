@@ -197,7 +197,6 @@
     &--blue{
       color: #3CCACE;
       font-size: 24px;
-      text-decoration: none;
     }
   }
   &__contents{
@@ -206,7 +205,6 @@
     display: flex;
     padding-bottom: 60px;
     .goods-content{
-      text-decoration: none;
       background-color: #ffffff;
       display: block;
       width: 220px;
@@ -250,7 +248,6 @@
   width: 120px;
   height: 120px;
   border-radius: 5px;
-  text-decoration: none;
   position: fixed;
   bottom: 30px;
   right: 30px;
