@@ -75,4 +75,5 @@ group :development, :test do
 end
 
 gem 'carrierwave'
+gem 'mini_magick'
 gem 'fog-aws'
