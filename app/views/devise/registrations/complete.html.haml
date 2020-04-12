@@ -1,6 +1,6 @@
 %header.user_registration__header
   %h1.user_registration__header__logo
-    = link_to "#" do
+    = link_to root_path do
       = image_tag "logo-d3d78326971d78b06e3d6f0ba666d025a8ad681286b4d9e00e7dbe8673bcfd23.svg"
 %main.user_registration__main
   .user_registration__main__form
@@ -12,7 +12,7 @@
         会員登録が完了しました。
       -# 機能実装後は以下のlink_toメソッドは削除します。
       .user_registration__main__form__contents__submit
-        = link_to new_user_registration_path do
+        = link_to root_path, method: :get do
           .user_registration__main__form__contents__submit__btn フリマをはじめる
 %footer.user_registration__footer
   .user_registration__footer__contents
