@@ -1,0 +1,210 @@
+!!!
+%zhtml{:lang => "ja-JP"}
+  %head 
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charaset => "UTF-8"}/
+    %title mercari
+    %link{:href => "goods.css", :rel => "stylesheet"}/
+  %body.color
+    %noscript
+      "
+      %iframe{:height => "0", :src => "https://www.googletagmanager.com/ns.html?id=GTM-KLPT5L5", :style => "display:none;visibility:hidden", :title => "googletagmanager", :width => "0"}>
+      "
+    #all
+      .all-contents
+        .header
+          %a.header__rogo{:href => "/j.p/"}
+            %img.header__mercarirogo{:alt => "mercariの画像", :src => "https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg"}/
+        .contents1
+          .contents1__1
+            .contents1__2
+              %div{:name => "contents1__photos"}
+              .goodspicblock
+                %label.goodspicblock__1 出品画像
+                %span.goodspicblock__2 必須
+            %p.saidai10block
+              最大10枚までアップロードできます
+              / 
+            .camerablock
+              .camerablock__inner{"data-test" => "sell-upload-container"}
+                .camerablock__contents-ex{:tabindex => "0"}
+                  .camerablock__contents-in
+                    %input.faile{:accept => "image/png,image/jpeg", :autocomplete => "off", :multiple => "multiple", :style => "display:none", :tabindex => "-1", :type => "file"}/
+                    %svg.camerablock__path{"aria-hidden" => "true", :fill => "#222222", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
+                      %path{:d => "M19.3,5H16.73l-.8-1.61A.7.7,0,0,0,15.3,3H8.7a.7.7,0,0,0-.63.39L7.27,5H4.7A2.7,2.7,0,0,0,2,7.7V18.3A2.7,2.7,0,0,0,4.7,21H19.3A2.7,2.7,0,0,0,22,18.3V7.7A2.7,2.7,0,0,0,19.3,5ZM12,17.3A4.3,4.3,0,1,1,16.3,13,4.31,4.31,0,0,1,12,17.3Z"}
+                    %p.camerablock__comments
+                      "ドラッグアンドドロップ"
+                      %br/
+                      "またはクリックしてファイルをアップロード"
+        %hr.line/
+        .contentsggg
+          .contents2
+            .contents2__aaa
+              .contents2__bbb
+                %div{:name => "name"}
+                  .contents2__productsnameblock
+                    %label 商品名
+                    %span.contents2__productsnamehissu 必須
+                .contents2__productsname40box
+                  .contents2__productsname40boxin
+                    %input{:autocomplete => "off", :name => "name", :placeholder => "40文字まで", :style => "width:585px; height: 46px;", :type => "text", :value => ""}/
+            .contents2-a
+              .contents2-a__b
+                %div{:name => "description"}
+                  .contents2-a__c
+                    %label 商品の説明
+                    %span.contents2-a__d 必須
+                %textarea.contents2-a__e{:name => "description", :placeholder => "商品の説明（必須 1,000文字以内）\n  （色、素材、重さ、定価、注意点など）\n\n  例）2010年頃に1万円で購入したジャケットです。ライトグレー\n  で傷はありません。あわせやすいのでおすすめです。  ", :rows => "7"}
+                .contents2-a__f
+                  %span 0
+                  \/
+                  / 
+                  1000
+          %hr.contents3-line/
+          .contents3a
+            %p.contents3a__b 商品の詳細
+            .contents3a__c
+              .contents3a__d
+                %div{:name => "categoryid"}
+                  .contents3a__e
+                    %label カテゴリー
+                    %span.contents3a__f 必須
+                .contents3a__g
+                  .contents3a__h
+                    %select{:name => "categoryid", :style => "width:580px; height:46px;"}
+                      %option{"aria-selected" => "true", :label => "選択してください", :selected => "selected", :value => ""} 選択してください
+                      %svg{"aria-hidden" => "true", :fill => "#888888", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "23"}
+                        %path{:d => "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+            .threea1
+              .threea1__2
+                .threea1__3
+                  %label ブランド
+                  %span.threea1__span 任意
+                .threea1__4
+                  .threea1__5
+                    %input{:autocomplete => "off", :name => "brandname", :placeholder => "例）シャネル", :style => "width:560px; height:30px;", :type => "text", :value => ""}/
+                %ul.threea1__6
+                  %ul
+            .threebottom1
+              .threebottom1__2
+                .threebottom1__3
+                  .threebottom1__4
+                    %label 商品の状態
+                    %span.threebottom1__5 必須
+                .threebottom1__box1
+                  .threebottom1__box2
+                    %select{:name => "threebottom1__box3", :style => "width:600px; height:30px;"}
+                      %option{"aria-selected" => "true", :label => "選択してください", :selected => "selected", :value => ""}
+                        選択してください
+                        %svg{"aria-hidden" => "true", :fill => "#888888", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
+                          %path{:d => "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+          %hr.line-line/
+          .four1
+            %p.four1__2
+              配送について
+              %a{:href => "/jp/help_center/article/68/", :rel => "noopener noreferrer", :target => "_blank"}
+                %svg.four1__3{"aria-hidden" => "true", :fill => "#222222", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
+                  %path{:d => "M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18.6A8.6,8.6,0,1,1,20.6,12,8.61,8.61,0,0,1,12,20.6Z"}
+                  %path{:d => "M14.18,7.52A2.72,2.72,0,0,0,13.25,7a3.16,3.16,0,0,0-1.17-.2A3.12,3.12,0,0,0,10,7.43,2.92,2.92,0,0,0,9,9.27c0,.12,0,.18.12.19l1.4.22c.09,0,.15,0,.17-.13a1.63,1.63,0,0,1,.44-.91A1.2,1.2,0,0,1,12,8.31a1.17,1.17,0,0,1,.88.33,1.15,1.15,0,0,1,.33.83,1.62,1.62,0,0,1-.12.61,3.46,3.46,0,0,1-.41.67l-1.23,1.67a2.53,2.53,0,0,0-.31.58,2.51,2.51,0,0,0-.09.75v.63a.14.14,0,0,0,.16.16h1.44a.14.14,0,0,0,.16-.16v-.45a1.7,1.7,0,0,1,.07-.56,1.31,1.31,0,0,1,.24-.42l1.22-1.67A2.93,2.93,0,0,0,15,9.46a2.62,2.62,0,0,0-.22-1.09A2.43,2.43,0,0,0,14.18,7.52Z"}
+                  %circle{:cx => "12", :cy => "16.24", :r => "1"}
+            .four1__4
+              .four1__5
+                .four1__6
+                  .four1__7
+                    %label 配送料の負担
+                    %span.four1__8 必須
+                .four1__9
+                  .four1__10
+                    %select{:name => "shippingpayer", :style => "width: 620px; height: 30px;"}
+                      %option{"aria-selected" => "true", :label => "選択してください", :selected => "selected", :value => ""} 選択してください
+                      %option{"aria-selected" => "false", :label => "送料込み(出品者負担)", :value => "2"} 送料込み(出品者負担)
+                      %option{"aria-selected" => "false", :label => "着払い(購入者負担)", :value => "1"} 着払い(購入者負担)
+                      %svg{"aria-hidden" => "true", :fill => "#888888", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
+                        %path{:d => "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+            .four1__2-1
+              .four1__2-2
+                %div{:name => "shippingfromareafour1__2-3"}
+                  .four1__2-4
+                    %label 発送元の地域
+                    %span.four1__2-5 必須
+                .four1__2-6
+                  .four1__2-7
+                    %select{:name => "shippingfromarea2-3", :style => "width: 620px; height: 30px;"}
+                      %option{"aria-selected" => "true", :label => "選択してください", :selected => "selected", :value => ""} 選択してください
+                      %option{"aria-selected" => "false", :label => "北海道", :value => "1"} 北海道
+                      %svg{"aria-hidden" => "true", :fill => "#888888", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
+                        %path{:d => "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+            .four1__last1
+              .four1__last2
+                .four1__last3
+                  .four1__last4
+                    %label 発送までの日数
+                    %span.four1__last5 必須
+                .four1__last6
+                  .four1__last7
+                    %select{:name => "shippingduration", :style => "width: 620px; height: 30px;"}
+                      %option{"aria-selected" => "true", :label => "選択してください", :selected => "selected", :value => ""} 選択してください
+                      %svg{"aria-hidden" => "true", :fill => "#888888", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
+                        %path{:d => "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+          %hr.fiveline/
+          .fivebox
+            %p.fivebox__3
+              価格 (¥300
+              / 
+              / 
+              \~
+              
+              9,999,999
+              / 
+              )
+              %a{:href => "/jp/help_center/article/64/", :rel => "noopener noreferrer", :target => "_blank"}
+                %svg.fivebox__4{"aria-hidden" => "true", :fill => "#222222", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
+                  %path{:d => "M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18.6A8.6,8.6,0,1,1,20.6,12,8.61,8.61,0,0,1,12,20.6Z"}
+                  %path{:d => "M14.18,7.52A2.72,2.72,0,0,0,13.25,7a3.16,3.16,0,0,0-1.17-.2A3.12,3.12,0,0,0,10,7.43,2.92,2.92,0,0,0,9,9.27c0,.12,0,.18.12.19l1.4.22c.09,0,.15,0,.17-.13a1.63,1.63,0,0,1,.44-.91A1.2,1.2,0,0,1,12,8.31a1.17,1.17,0,0,1,.88.33,1.15,1.15,0,0,1,.33.83,1.62,1.62,0,0,1-.12.61,3.46,3.46,0,0,1-.41.67l-1.23,1.67a2.53,2.53,0,0,0-.31.58,2.51,2.51,0,0,0-.09.75v.63a.14.14,0,0,0,.16.16h1.44a.14.14,0,0,0,.16-.16v-.45a1.7,1.7,0,0,1,.07-.56,1.31,1.31,0,0,1,.24-.42l1.22-1.67A2.93,2.93,0,0,0,15,9.46a2.62,2.62,0,0,0-.22-1.09A2.43,2.43,0,0,0,14.18,7.52Z"}
+                  %circle{:cx => "12", :cy => "16.24", :r => "1"}
+            .fivebox__5
+              .fivebox__6
+                .fivebox__7
+                  .fivebox__8
+                    %label 販売価格
+                    %span.fivebox__9 必須
+                %span.fivebox__10 ¥
+                .fivebox__11
+                  .fivebox__12
+                    %input{:autocomplete => "off", :name => "price", :placeholder => "0", :style => "width: 250px; height: 46px; text-align: right;", :type => "number", :value => ""}/
+              .fivebox__13
+                .fivebox__14{"data-test" => "fee-label"}
+                  %div{:style => "padding-bottom: 15px;"} 販売手数料（10%）
+                %span.fivebox__15{"data-test" => "fee-value"} -
+              %hr.lastline/
+              .fivebox__last1
+                .fivebox__last2 販売利益
+                %span.fivebox__last3{"data-test" => "total-value"} -
+            .fivebox__last4
+              %button.fivebox__redbtn{:tabindex => "0", :type => "submit"} 出品する
+              %button.fivebox__last5{:tabindex => "0", :type => "submit"} 下書きに保存
+              %a.fivebox__last6{:href => "/jp/"} もどる
+            %p.fivebox__last7
+              禁止されている
+              %a.fivebox__last8{:href => "/jp/help_center/getting_started/prohibited_conduct/", :rel => "noopener noreferrer", :target => "_blank"} 行為
+              および
+              %a.fivebox__last9{:href => "/jp/help_center/getting_started/prohibited_conduct/", :rel => "noopener noreferrer", :target => "_blank"} 出品物
+              を必ずご確認ください。
+              %a.fivebox__last10{:href => "/jp/help_center/getting_started/counterfeit_goods/", :rel => "noopener noreferrer", :target => "_blank"} 偽ブランド品
+              や
+              %a.fivebox__last11{:href => "/jp/help_center/getting_started/report_counterfeit_goods/", :rel => "noopener noreferrer", :target => "_blank"} 盗品物
+              などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして
+              %a.fivebox__last12{:href => "/jp/seller_terms/", :rel => "noopener noreferrer", :target => "_blank"} 加盟店規約
+              に同意したことになります。
+      .footer1
+        .footer1__block2
+          %ul.footer1__3
+            %li.footer1__4
+              %a.privacy{:href => "/j.p/privacy/"} プライバシーポリシー
+            %li.footer1__5
+              %a.mercari{:href => "/j.p/tos/"} メルカリ利用規約
+            %li.footer1__6
+              %a.tokutei{:href => "/j.p/tokutei"} 特定商法に関する表記
+        %a.footer1__7{:href => "/jp/"}
+          %img.footer1__mercarirogolast{:alt => "Mercari", :src => "https://web-jp-assets.mercdn.net/_next/static/images/logotype-gray-432385160bc60aa0002854fccdef2caf.svg", :style => "width: 70px;"}/
+        %p.footerp © Mercari, Inc.
