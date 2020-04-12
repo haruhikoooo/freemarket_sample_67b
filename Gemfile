@@ -14,7 +14,7 @@ gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'mini_racer', platforms: :ruby
+gem 'mini_racer'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -65,8 +65,6 @@ gem 'haml-rails'
 gem 'font-awesome-sass'
 gem 'jquery-rails'
 
-
-
 group :production do
   gem 'unicorn', '5.4.1'
 end
@@ -79,6 +77,9 @@ group :development, :test do
   gem 'capistrano3-unicorn'
 end
 
+gem 'haml-rails'
+gem 'font-awesome-sass'
+gem 'jquery-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
