@@ -1,26 +1,61 @@
 $(function(){
+  var opentimer
+  var closetimer
+  var openList
+  var openListThird
   $('#category').on({
     'mouseover': function(){
-      $('.category-list').removeClass('hidden');
+      clearTimeout(closetimer)
+      opentimer = setTimeout(function(){
+        $('.category-list').removeClass('hidden');
+      }, 500)
     },
     'mouseout': function(){
-      $('.category-list').addClass('hidden');
+      clearTimeout(opentimer)
+      closetimer = setTimeout(function(){
+        $('.category-list').addClass('hidden');
+        $('.second-category-list').not('hidden').addClass('hidden');
+        $('.third-category-list').not('hidden').addClass('hidden');
+      }, 400)
     }
   })
+  var opentimerSecond
+  var closetimerSecond
   $('.category-list__item').on({
     'mouseover': function(){
-      $(this).find('.second-category-list').removeClass('hidden');
+      clearTimeout(closetimerSecond)
+      openList = $(this).find('.second-category-list')
+      opentimerSecond = setTimeout(function(){
+        $('.second-category-list').not('hidden').addClass('hidden');
+        $(openList).removeClass('hidden');
+      }, 500)
     },
     'mouseout': function(){
-      $(this).find('.second-category-list').addClass('hidden');
+      clearTimeout(opentimerSecond);
+      var closeList = $(this).find('.second-category-list')
+      closetimerSecond = setTimeout(function(){
+        $(closeList).addClass('hidden');
+        if(openListThird) $(openListThird).addClass('hidden');
+      }, 400)
     }
   })
+  var opentimerThird
+  var closetimerThird
   $('.second-category-list__item').on({
     'mouseover': function(){
-      $(this).find('.third-category-list').removeClass('hidden');
+      clearTimeout(closetimerThird)
+      openListThird = $(this).find('.third-category-list')
+      opentimerThird = setTimeout(function(){
+        $('.third-category-list').not('hidden').addClass('hidden');
+        $(openListThird).removeClass('hidden');
+      }, 500)
     },
     'mouseout': function(){
-      $(this).find('.third-category-list').addClass('hidden');
+      clearTimeout(opentimerThird);
+      var closeListThird = $(this).find('.third-category-list')
+      closetimerThird = setTimeout(function(){
+        $(closeListThird).addClass('hidden');
+      }, 400)
     }
   })
 })
