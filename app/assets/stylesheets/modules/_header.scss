@@ -1,0 +1,118 @@
+.header{
+  max-width: 1160px;
+  width: 100vw;
+  height: 110px;
+  margin: 0 auto;
+  &__top-contents{
+    height: 50px;
+    padding: 15px 60px 5px;
+    display: flex;
+    justify-content: space-between;
+    .title-logo{
+      margin-right: 30px;
+    }
+    .search{
+      width: 100%;
+      margin-top: 5px;
+      height: 36px;
+      display: flex;
+      &__field{
+        width: calc(100% - 36px);
+        height: 36px;
+        line-height: 36px;
+        box-sizing: border-box;
+      }
+      &__btn{
+        background-color: #3CCACE;
+        width: 36px;
+        height: 36px;
+        &--icon{
+          height: 20px;
+          line-height: 36px;
+          margin: 8px;
+        }
+        &--submit{
+          display: none;
+        }
+      }
+    }
+  }
+  &__bottom-contents{
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    padding: 0 60px;
+    font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", YuGothic, sans-serif;
+    &--left{
+      display: flex;
+      .pulldown-list{
+        color: #333;
+        font-size: 14px;
+        width: 115px;
+        line-height: 25px;
+        position: relative;
+        .hidden{
+          display: none;
+        }
+        &__link:hover{
+          color: orange;
+        }
+      }
+        .category-list{
+          color: #333;
+          position: absolute;
+          left: 0;
+          top: 40px;
+          z-index: 1;
+          &__item{
+            width: 250px;
+            height: 38px;
+            line-height: 38px;
+            background-color: white;
+            border-bottom: 1px solid #f5f5f5;
+            padding-left: 5px;
+            &--link:hover{
+              color: orange;
+            }
+            .second-category-list{
+              position: absolute;
+              left: 250px;
+              top: 0;
+              &__item{
+                width: 250px;
+                height: 35px;
+                line-height: 35px;
+                background-color: white;
+                border-bottom: 1px solid #f5f5f5;
+                padding-left: 5px;
+                .third-category-list{
+                  position: absolute;
+                  left: 250px;
+                  top: 0;
+                  &__item{
+                    width: 300px;
+                    height: 32px;
+                    line-height: 32px;
+                    background-color: white;
+                    border-bottom: 1px solid #f5f5f5;
+                    padding-left: 5px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    &--right{
+      display: flex;
+      width: 155px;
+      justify-content: space-between;
+      .user-box{
+        display: block;
+        color: #333;
+        font-size: 14px;
+        line-height: 25px;
+      }
+    }
+  }
+}

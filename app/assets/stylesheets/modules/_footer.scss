@@ -1,0 +1,85 @@
+.third-image{
+  background-image: image-url("pict/bg-appBanner-pict.jpg");
+  background-size: cover;
+  background-position: 50% 0%;
+  height: 360px;
+  &__contents{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", YuGothic, sans-serif;
+    text-shadow: 0 0 5px #7f7878;
+    &--top{
+      font-size: 24px;
+      color: white;
+      font-weight: bold;
+    }
+    &--center{
+      color: white;
+      font-size: 34px;
+      margin-bottom: 25px;
+    }
+    &--bottom{
+      .app-store{
+        width: 180px;
+        &:hover{
+          opacity: 0.5;
+        }
+      }
+      .google-play{
+        width: 180px;
+        margin-left: 5px;
+        &:hover{
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}
+
+.footer{
+  width: 100vw;
+  background-color: #272727;
+  padding: 60px 0;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__lists{
+    width: 100%;
+    max-width: 840px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    .footer-list{
+      width: 180px;
+      &__title{
+        width: 100%;
+        font-weight: bold;
+        font-size: 15px;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      &__contents{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &--link{
+          color: white;
+          font-size: 12px;
+          line-height: 36px;
+          &:hover{
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+  &__copyright{
+    font-size: 14px;
+    line-height: 5px;
+  }
+}
