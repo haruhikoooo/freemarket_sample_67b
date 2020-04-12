@@ -1,2 +1,9 @@
 @import "reset";
-@import "modules/user"
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+@import "config/variables.scss";
+@import "modules/header";
+@import "modules/toppage";
+@import "modules/goods_index";
+@import "modules/footer";
+@import "modules/user";

@@ -7,4 +7,8 @@ Rails.application.routes.draw do
     get 'users/complete' => 'users/registrations#complete'
   end
 
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'goods#index'
+
+  resources :goods, only: [:index]
 end
