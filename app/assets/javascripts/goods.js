@@ -3,17 +3,18 @@ $(function(){
   var closetimer
   var openList
   var openListThird
+  var categoryList = $('.category-list')
   $('#category').on({
     'mouseover': function(){
       clearTimeout(closetimer)
       opentimer = setTimeout(function(){
-        $('.category-list').removeClass('hidden');
+        categoryList.removeClass('hidden');
       }, 500)
     },
     'mouseout': function(){
       clearTimeout(opentimer)
       closetimer = setTimeout(function(){
-        $('.category-list').addClass('hidden');
+        categoryList.addClass('hidden');
         $('.second-category-list').not('hidden').addClass('hidden');
         $('.third-category-list').not('hidden').addClass('hidden');
       }, 400)
