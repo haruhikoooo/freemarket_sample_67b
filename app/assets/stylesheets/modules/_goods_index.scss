@@ -1,190 +1,6 @@
-.first-image{
-  background-image: image-url("pict/bg-mainVisual-pict_pc.jpg");
-  background-size: cover;
-  background-position: 50% 0%;
-  height: 560px;
-  position: relative;
-  &__contents{
-    position: absolute;
-    top: 200px;
-    left: 60px;
-    font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", YuGothic, sans-serif;
-    text-shadow: 0 0 5px #7f7878;
-    &--top{
-      font-size: 60px;
-      color: white;
-      margin-bottom: 15px;
-    }
-    &--center{
-      color: white;
-      line-height: 32px;
-      font-size: 18px;
-      margin-bottom: 25px;
-    }
-    &--bottom{
-      .app-store{
-        width: 180px;
-        &:hover{
-          opacity: 0.5;
-        }
-      }
-      .google-play{
-        width: 180px;
-        margin-left: 5px;
-        &:hover{
-          opacity: 0.5;
-        }
-      }
-    }
-  }
-}
-
-.introduce-section{
-  width: 100vw;
-  max-width: 1060px;
-  margin: 0 auto;
-  padding: 50px 0;
-  font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", YuGothic, sans-serif;
-  &__title{
-    text-align: center;
-    font-size: 26px;
-    font-weight: bold;
-  }
-  &__line{
-    width: 70px;
-    height: 5px;
-    background-color: #3CCACE;
-    margin: 7px auto;
-  }
-  &__contents{
-    display: flex;
-    width: 100%;
-    margin-top: 40px;
-    .introduce-content{
-      padding: 0 20px;
-      width: calc(100% / 3);
-      &__top{
-        position: relative;
-        &--number{
-          position: absolute;
-          top: 0;
-          left: 0;
-          background-color: #3CCACE;
-          width: 60px;
-          height: 60px;
-          font-size: 30px;
-          color: #ffffff;
-          text-align: center;
-          line-height: 60px;
-        }
-      }
-      &__title{
-        font-size: 24px;
-        font-weight: bold;
-        display: table;
-        margin: 0 auto;
-        margin-top: 20px;
-        &--blue{
-          color: #3CCACE;
-        }
-      }
-      &__text{
-        font-size: 18px;
-        margin-top: 20px;
-      }
-    }
-  }
-}
-
-.second-image{
-  background-image: image-url("pict/bg-topMiddleDl-pict.jpg");
-  background-size: cover;
-  background-position: 50% 100%;
-  height: 560px;
-  position: relative;
-  height: 400px;
-  &__contents{
-    position: absolute;
-    top: 100px;
-    left: 60px;
-    font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", YuGothic, sans-serif;
-    text-shadow: 0 0 5px #7f7878;
-    &--top{
-      font-size: 30px;
-      font-weight: bold;
-      color: white;
-      margin-bottom: 15px;
-    }
-    &--center{
-      color: white;
-      line-height: 32px;
-      font-size: 18px;
-      margin-bottom: 25px;
-    }
-    &--bottom{
-      .app-store{
-        width: 180px;
-        &:hover{
-          opacity: 0.5;
-        }
-      }
-      .google-play{
-        width: 180px;
-        margin-left: 5px;
-        &:hover{
-          opacity: 0.5;
-        }
-      }
-    }
-  }
-}
-
-.feature-section{
-  width: calc(100vw - 140px);
-  max-width: 1060px;
-  margin: 0 auto;
-  padding: 50px 70px;
-  font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", YuGothic, sans-serif;
-  &__title{
-    text-align: center;
-    font-size: 26px;
-    font-weight: bold;
-  }
-  &__line{
-    width: 70px;
-    height: 5px;
-    background-color: #3CCACE;
-    margin: 7px auto;
-  }
-  &__contents{
-    display: flex;
-    width: 100%;
-    margin-top: 40px;
-    .feature-content{
-      padding: 0 20px 40px;
-      width: calc(100% / 3);
-      &__top{
-        padding: 0 35px;
-        width: calc(100% - 70px);
-      }
-      &__title{
-        font-size: 20px;
-        font-weight: bold;
-        display: table;
-        margin: 0 auto;
-        margin-top: 20px;
-      }
-      &__text{
-        font-size: 16px;
-        margin-top: 20px;
-      }
-    }
-  }
-}
-
 .goods-list{
   background-color: #f8f8f8;
-  font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", YuGothic, sans-serif;
+  font-family: $main-font;
   &__title{
     width: 100vw;
     text-align: center;
@@ -195,7 +11,7 @@
       font-size: 26px;
     }
     &--blue{
-      color: #3CCACE;
+      color: $main-color;
       font-size: 24px;
     }
   }
@@ -205,7 +21,7 @@
     display: flex;
     padding-bottom: 60px;
     .goods-content{
-      background-color: #ffffff;
+      background-color: $white;
       display: block;
       width: 220px;
       margin: 0 20px 20px;
@@ -244,7 +60,7 @@
 
 .exhibition-box{
   display: block;
-  background-color: #3CCACE;
+  background-color: $main-color;
   width: 120px;
   height: 120px;
   border-radius: 5px;
@@ -256,7 +72,7 @@
   justify-content: center;
   align-items: center;
   &__text{
-    color: #ffffff;
+    color: $white;
     font-size: 18px;
     margin: 0 auto 5px;
   }
