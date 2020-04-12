@@ -6,7 +6,6 @@
   .user_registration__main__form
     %h2.user_registration__main__form__title 送付先情報入力
     = form_for(@user, url: users_step2_path,html: {class: 'user_registration__main__form__contents'}) do |f|
-      = render "devise/shared/error_messages", resource: resource
       .user_registration__main__form__contents__field
         = f.label :destination_name, class:"user_registration__main__form__contents__field__label"
         %span.user_registration__main__form__contents__field__require 必須

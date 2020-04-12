@@ -9,7 +9,6 @@
       =link_to new_user_registration_path do
         .user_registration__main__form__contents__submit__btn--blue 新規会員登録
     = form_for(resource, as: resource_name, url: session_path(resource_name),html: {class: 'user_registration__main__form__contents'}) do |f|
-      = render "devise/shared/error_messages", resource: resource
       .user_registration__main__form__contents__field--login
         = f.email_field :email, autocomplete: "email", placeholder: "メールアドレス", class:"user_registration__main__form__contents__field__input--one"
       .user_registration__main__form__contents__field--login
