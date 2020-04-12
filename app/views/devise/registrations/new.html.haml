@@ -16,7 +16,7 @@
         = f.label :email, class:"user_registration__main__form__contents__field__label"
         %span.user_registration__main__form__contents__field__require 必須
         %br/
-        = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可", class:"user_registration__main__form__contents__field__input--one"
+        = f.email_field :email, autocomplete: "email", placeholder: "PC・携帯どちらでも可", class:"user_registration__main__form__contents__field__input--one"
       .user_registration__main__form__contents__field
         = f.label :password, class:"user_registration__main__form__contents__field__label"
         %span.user_registration__main__form__contents__field__require 必須
@@ -26,7 +26,7 @@
         = f.label :password_confirmation, class:"user_registration__main__form__contents__field__label"
         %span.user_registration__main__form__contents__field__require 必須
         %br/
-        = f.password_field :password_confirmation, placeholder: "入力", class:"user_registration__main__form__contents__field__input--one"
+        = f.password_field :password_confirmation, placeholder: "", class:"user_registration__main__form__contents__field__input--one"
         %p.user_registration__main__form__contents__field__notice-gray ※ 英字と数字の両方を含めて設定してください
       .user_registration__main__form__contents__field
         %p.user_registration__main__form__contents__field__notice-title 本人確認
@@ -36,23 +36,24 @@
         %span.user_registration__main__form__contents__field__require 必須
         %br/
         .user_registration__main__form__contents__field__input
-          = f.text_field :email, autocomplete: "new-password", placeholder: "入力", class:"user_registration__main__form__contents__field__input--two"
-          = f.text_field :email, autocomplete: "new-password", placeholder: "入力", class:"user_registration__main__form__contents__field__input--two"
+          = f.text_field :email, autocomplete: "new-password", placeholder: "例）不離間", class:"user_registration__main__form__contents__field__input--two"
+          = f.text_field :email, autocomplete: "new-password", placeholder: "例）太郎", class:"user_registration__main__form__contents__field__input--two"
       .user_registration__main__form__contents__field
         = f.label :furigana, class:"user_registration__main__form__contents__field__label"
         %span.user_registration__main__form__contents__field__require 必須
         %br/
         .user_registration__main__form__contents__field__input
-          = f.text_field :email, autocomplete: "new-password", placeholder: "入力", class:"user_registration__main__form__contents__field__input--two"
-          = f.text_field :email, autocomplete: "new-password", placeholder: "入力", class:"user_registration__main__form__contents__field__input--two"
+          = f.text_field :email, autocomplete: "new-password", placeholder: "例）フリマ", class:"user_registration__main__form__contents__field__input--two"
+          = f.text_field :email, autocomplete: "new-password", placeholder: "例）タロウ", class:"user_registration__main__form__contents__field__input--two"
       .user_registration__main__form__contents__field--long
         = f.label :birth_day, class:"user_registration__main__form__contents__field__label"
         %span.user_registration__main__form__contents__field__require 必須
         %br/
         != sprintf(f.date_select(:birth_day, use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 0), default: Date.new(1989, 1, 1),with_css_classes:"",date_separator:'%s'),'年','月')+'日'
         %p.user_registration__main__form__contents__field__notice-gray ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+      -# 機能実装後は以下のlink_toメソッドは削除します。
       .user_registration__main__form__contents__submit
-        = f.submit "登録する",class:"user_registration__main__form__contents__submit__btn"
-
+        =link_to users_step2_path do 
+          = f.submit "次へ進む",class:"user_registration__main__form__contents__submit__btn"  
 %footer.user_registration__footer
   .user_registration__footer__contents

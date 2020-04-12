@@ -8,6 +8,14 @@ ja:
         name: お名前（全角）
         furigana: お名前カナ(全角) 
         birth_day: 生年月日 
+        destination_name: 送付先氏名（全角）
+        destination_furigana: 送付先氏名カナ（全角）
+        zipcode: 郵便番号
+        prefecture: 都道府県
+        city: 市区町村
+        house_number: 番地
+        apartment_name: マンション名
+        tel: 電話
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
         confirmed_at: パスワード確認時刻

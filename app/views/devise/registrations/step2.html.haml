@@ -1,0 +1,59 @@
+%header.user_registration__header
+  %h1.user_registration__header__logo
+    = link_to "#" do
+      = image_tag "logo-d3d78326971d78b06e3d6f0ba666d025a8ad681286b4d9e00e7dbe8673bcfd23.svg"
+%main.user_registration__main
+  .user_registration__main__form
+    %h2.user_registration__main__form__title 送付先情報入力
+    = form_for(@user, url: users_step2_path,html: {class: 'user_registration__main__form__contents'}) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .user_registration__main__form__contents__field
+        = f.label :destination_name, class:"user_registration__main__form__contents__field__label"
+        %span.user_registration__main__form__contents__field__require 必須
+        %br/
+        .user_registration__main__form__contents__field__input
+          = f.text_field :email, autofocus: true, placeholder: "例）不離間", class:"user_registration__main__form__contents__field__input--two"
+          = f.text_field :email, placeholder: "例）太郎", class:"user_registration__main__form__contents__field__input--two"
+      .user_registration__main__form__contents__field
+        = f.label :destination_furigana, class:"user_registration__main__form__contents__field__label"
+        %span.user_registration__main__form__contents__field__require 必須
+        %br/
+        .user_registration__main__form__contents__field__input
+          = f.text_field :email, placeholder: "例）フリマ", class:"user_registration__main__form__contents__field__input--two"
+          = f.text_field :email, placeholder: "例）タロウ", class:"user_registration__main__form__contents__field__input--two"
+      .user_registration__main__form__contents__field
+        = f.label :zipcode, class:"user_registration__main__form__contents__field__label"
+        %span.user_registration__main__form__contents__field__require 必須
+        %br/
+        = f.text_field :email, placeholder: "", class:"user_registration__main__form__contents__field__input--one"
+      .user_registration__main__form__contents__field
+        = f.label :prefecture, class:"user_registration__main__form__contents__field__label"
+        %span.user_registration__main__form__contents__field__require 必須
+        %br/
+        = f.collection_select:email, User.all, :id, :name, {include_blank: true},{class:"user_registration__main__form__contents__field__input--prefecture"}
+      .user_registration__main__form__contents__field
+        = f.label :city, class:"user_registration__main__form__contents__field__label"
+        %span.user_registration__main__form__contents__field__require 必須
+        %br/
+        = f.text_field :email, placeholder: "", class:"user_registration__main__form__contents__field__input--one"
+      .user_registration__main__form__contents__field
+        = f.label :house_number, class:"user_registration__main__form__contents__field__label"
+        %span.user_registration__main__form__contents__field__require 必須
+        %br/
+        = f.text_field :email, placeholder: "", class:"user_registration__main__form__contents__field__input--one"
+      .user_registration__main__form__contents__field
+        = f.label :apartment_name, class:"user_registration__main__form__contents__field__label"
+        %span.user_registration__main__form__contents__field__optional 任意
+        %br/
+        = f.text_field :email, placeholder: "", class:"user_registration__main__form__contents__field__input--one"
+      .user_registration__main__form__contents__field
+        = f.label :tel, class:"user_registration__main__form__contents__field__label"
+        %span.user_registration__main__form__contents__field__optional 任意
+        %br/
+        = f.text_field :email, placeholder: "", class:"user_registration__main__form__contents__field__input--one"
+      -# 機能実装後は以下のlink_toメソッドは削除します。
+      .user_registration__main__form__contents__submit
+        =link_to users_complete_path do
+          = f.submit "登録する",class:"user_registration__main__form__contents__submit__btn"
+%footer.user_registration__footer
+  .user_registration__footer__contents
