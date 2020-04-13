@@ -1,36 +1,30 @@
-.third-image
-  .third-image__contents
-    .third-image__contents--top
-      だれでもかんたん、人生を変えるフリマアプリ
-    .third-image__contents--center
-      今すぐ無料ダウンロード！
-    .third-image__contents--bottom
-      = link_to image_tag("icon/app-store.svg", alt: "app-store", class: "app-store"), "#"
-      = link_to image_tag("icon/google-play.svg", alt: "google-play", class: "google-play"), "#"
 
-.footer
-  .footer__lists
-    .footer-list
-      .footer-list__title
-        FURIMAについて
-      .footer-list__contents
-        = link_to "会社概要（運営会社）", "#", class: "footer-list__contents--link"
-        = link_to "プライバシーポリシー", "#", class: "footer-list__contents--link"
-        = link_to "FURIMA利用規約", "#", class: "footer-list__contents--link"
-        = link_to "ポイントに関する特約", "#", class: "footer-list__contents--link"
-    .footer-list
-      .footer-list__title
-        FURIMAを見る
-      .footer-list__contents
-        = link_to "カテゴリー一覧", "#", class: "footer-list__contents--link"
-        = link_to "ブランド一覧", "#", class: "footer-list__contents--link"
-    .footer-list
-      .footer-list__title
-        ヘルプ&ガイド
-      .footer-list__contents
-        = link_to "FURIMAガイド", "#", class: "footer-list__contents--link"
-        = link_to "FURIMAロゴ利用ガイドライン", "#", class: "footer-list__contents--link"
-        = link_to "お知らせ", "#", class: "footer-list__contents--link"
-  = link_to image_tag("logo/logo-white.png", alt: "footer-logo", width: "160px"), root_path, class: "footer__logo"
-  .footer__copyright
-    © FURIMA
+
+    .chat 
+  .header
+    .left-header 
+      .left-header__title
+        =@group.name         
+      %ul.left-header__members
+        Member :
+        %li.member
+          - @group.users.each do |group|
+            = group.name
+            
+
+
+    .right-header
+      .right-header__button
+        = link_to "Edit", edit_group_path(@group)
+
+  .messages
+    = render @messages
+ 
+  .form
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+      .form__mask
+        = f.label :image, class: 'form__mask__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'form__submit'
