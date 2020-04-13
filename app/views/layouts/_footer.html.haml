@@ -34,32 +34,3 @@
   = link_to image_tag("logo/logo-white.png", alt: "footer-logo", width: "160px"), root_path, class: "footer__logo"
   .footer__copyright
     © FURIMA
-
-    .chat 
-  .header
-    .left-header 
-      .left-header__title
-        =@group.name         
-      %ul.left-header__members
-        Member :
-        %li.member
-          - @group.users.each do |group|
-            = group.name
-            
-
-
-    .right-header
-      .right-header__button
-        = link_to "Edit", edit_group_path(@group)
-
-  .messages
-    = render @messages
- 
-  .form
-    = form_for [@group, @message] do |f|
-      = f.text_field :content, class: 'form__message', placeholder: 'type a message'
-      .form__mask
-        = f.label :image, class: 'form__mask__image' do
-          = icon('fas', 'image', class: 'icon')
-          = f.file_field :image, class: 'hidden'
-      = f.submit 'Send', class: 'form__submit'
