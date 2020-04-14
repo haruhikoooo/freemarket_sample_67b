@@ -1,7 +1,4 @@
-%header.user_registration__header
-  %h1.user_registration__header__logo
-    = link_to root_path do
-      = image_tag "logo/logo.svg"
+= render "devise/shared/header"
 %main.user_registration__main
   .user_registration__main__form
     %h2.user_registration__main__form__title 会員情報入力
@@ -54,5 +51,4 @@
       .user_registration__main__form__contents__submit
         =link_to users_step2_path,method: :get do 
           = f.submit "次へ進む",class:"user_registration__main__form__contents__submit__btn"  
-%footer.user_registration__footer
-  .user_registration__footer__contents
+= render "devise/shared/footer"
