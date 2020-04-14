@@ -1,0 +1,203 @@
+.user_registration__header{
+  width: 100%;
+  height: calc(62px);
+  background-color: $background-gray;
+  padding: 33px 0 33px;
+  &__logo{
+    width: 214px;
+    margin: 0 auto;
+  }
+}
+.user_registration__main{
+  width: 100%;
+  background-color: $background-gray;
+  &__form{
+    width: 700px;
+    background-color: $white;
+    margin: 0 auto;
+    &__title{
+      padding: 32px;
+      height: 33px;
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      border-bottom: solid 1.2px $background-gray;
+      &--login{
+      padding: 32px;
+      height: 60px;
+      font-size: 14px;
+      text-align: center;
+      border-bottom: solid 1.2px $background-gray;
+      }
+    }
+    &__contents{
+      padding: 40px 40px 62px 40px;
+      &__field--middle{
+        width: 343px;
+        height: 100px;
+        margin: 0 auto;
+        margin-top: 32px;
+      }
+      &__field--login{
+        width: 343px;
+        height: 50px;
+        margin: 0 auto;
+        margin-top: 10px;
+      }
+      &__field--long{
+          width: 343px;
+          height: 150px;
+          margin: 0 auto;
+          margin-top: 32px;
+      }
+      &__field{
+        width: 343px;
+        height: 80px;
+        margin: 0 auto;
+        margin-top: 32px;
+        &--complete{
+          text-align: center;
+        }
+        &__label{
+          font: 14px sans-serif;
+          font-weight: 600;
+        }
+        &__require{
+          font: 12px arial;
+          color: $white;
+          background-color:#ea352d;
+          margin-left: 8px;
+          padding: 2px 4px;
+          border-radius: 2px;
+          vertical-align: top;
+        }
+        &__optional{
+          font: 12px arial;
+          color: $white;
+          background-color:$border-gray;
+          margin-left: 8px;
+          padding: 2px 4px;
+          border-radius: 2px;
+          vertical-align: top;
+        }
+        &__input{
+          display: flex;
+          &--one{
+            width: 309px;
+            height: 28px;
+            padding: 10px 16px 8px 16px;
+            margin-top: 8px;
+            border: solid 1px $border-gray;
+            border-radius: 5px;
+          }
+          &--two{
+            width: 131.5px;
+            height: 28px;
+            padding: 10px 16px 8px 16px;
+            margin-top: 8px;
+            margin-right: 8px;
+            border: solid 1px $border-gray;
+            border-radius: 5px;
+          }
+          &--prefecture{
+            width: 342px;
+            height: 50px;
+            margin-top: 8px;
+            border: solid 1px $border-gray;
+            border-radius: 5px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: image-url("icon/icon_arrow_bottom.png");
+            background-repeat: no-repeat;
+            background-size: 15px 15px;
+            background-position: right 10px center;
+          }
+        }
+        
+        &__notice-gray{
+          width: 343px;
+          height: 21px;
+          margin-top: 8px;
+          color: #888888;
+          font-size: 12px;
+        }
+        &__notice-title{
+          height: 16px;
+          font-size: 16px;
+          font-weight: 600;
+        }
+        &__notice-text{
+          font-size: 14px;
+          margin-top: 8px;
+        }
+      }
+      &__submit{
+        width: 341px;
+        height: 48px;
+        margin: 0 auto;
+        margin-top: 32px;
+        &__btn{
+        width: 341px;
+        height: 48px;
+        margin: 0 auto;
+        background-color: #EA342D;
+        color: $white;
+        text-align: center;
+        line-height: 48px;
+        &--blue{
+        width: 341px;
+        height: 48px;
+        margin: 8px auto;
+        background-color: #2199e8;
+        color: $white;
+        text-align: center;
+        line-height: 48px;
+        }
+        }
+      }
+    }
+  }
+}
+
+.year{
+  width: 74px;
+  height: 46px;
+  margin-top: 8px;
+  border: solid 1px $border-gray;
+  border-radius: 5px;
+  font-size: 12px;
+}
+.month,.day{
+  width: 74px;
+  height: 46px;
+  margin-top: 8px;
+  margin-left: 4px;
+  border: solid 1px $border-gray;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.year,.month,.day{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: image-url("icon/icon_arrow_bottom.png");
+  background-repeat: no-repeat;
+  background-size: 15px 15px;
+  background-position: right 5px center;
+  text-indent: 20%;
+}
+
+.user_registration__footer{
+  width: 100%;
+  height: 220px;
+  background-color: $background-gray;
+  &__contents{
+  width: 456px;
+  height: 140px;
+  padding: 40px 0 40px 0;
+  background-color: $background-gray;
+  margin: 0 auto;
+  }
+}
