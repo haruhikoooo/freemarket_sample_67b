@@ -2,7 +2,7 @@
 %main.user_registration__main
   .user_registration__main__form
     %h2.user_registration__main__form__title 送付先情報入力
-    = form_for(@user, url: users_step2_path,html: {class: 'user_registration__main__form__contents'}) do |f|
+    = form_with model:@user, url: users_step2_path, class: 'user_registration__main__form__contents', local: true do |f|
       .user_registration__main__form__contents__field
         = f.label :destination_name, class:"user_registration__main__form__contents__field__label"
         %span.user_registration__main__form__contents__field__require 必須
