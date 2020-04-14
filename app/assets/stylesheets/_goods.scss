@@ -17,21 +17,23 @@
   font-size: 14px;
   line-height: 1;
 }
+
 .header {
   background-color: rgb(245, 245, 245);
   text-align: center;
-  
+  width: 100%;
 
   &__mercarirogo {
       height: 85px;
       width: 145px;
+      display: inline-block;  
   }
 }
 
 .color {
   background-color: rgb(245, 245, 245);
 }
-.contents1 {
+.contents1-all {
   background-color: white;
   padding: 40px;
   height: 218px;
@@ -62,12 +64,13 @@
   }
 }
 
-.saidai10block {
+.saidai {
   margin-top: 16px;
   background-color: white;
   text-align: start;
   font-size: 14px;
   line-height: 1.4em;
+  padding-bottom: 10px;
 }
 
 .camerablock {
@@ -96,15 +99,10 @@
     border-image: initial;
     transition: all 0.5s ease-out 0s;
   }
-  &__path {
-   
-    
-
-  }
   &__comments {
     text-align: center;
+    width: 100%;
   }
-
 }
 
 .contents2 {
@@ -134,7 +132,6 @@
     line-height: 1.4em;
     margin: 0;
   }
- 
 }
 
 .contents2__productsname40box {
@@ -142,30 +139,18 @@
   width: 586px;
   height: 70px;
 }
-.contents2-a {
+
+.description-a {
   margin-top: 32px;
   width: 620px;
-  height: 230px;
+  height: 30px;
   margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4em;
+  margin-top: 15px;
 
-  &__b {
-    width: 620px;
-    vertical-align: baseline;
-    margin: 0px;
-    padding: 0px;
-    border-width: 0px;
-    border-style: initial;
-    border-color: initial;
-    border-image: initial;
-    font: inherit;
-  }
-  &__c {
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 1.4em;
-    margin-top: 15px;
-  }
-  &__d{
+  .description-b{
     margin-left: 8px;
     font-size: 12px;
     padding: 0 4px;
@@ -178,7 +163,8 @@
     line-height: 1.4em;
     margin: 0;
   }
-  &__e {
+}
+  .contents2-description-example {
     margin-top: 16px;
     width: 100%;
     border: 1px solid #ccc;
@@ -190,38 +176,21 @@
     padding: 13px 16px;
     resize: vertical;
     vertical-align: middle;
-  }
-  &__f {
+}
+  .thousand {
     text-align: right;
     color: #888;
     font-size: 12px;
     line-height: 1.4em;
     font-size: 4px;
     margin-top: 16px;
-  }
-  &__name {
-    width: 585px;
-    height: 46px;
-  }
-
 }
-
 
 input[type=text]{
   height:20px;
   padding: 0 16px;
   }
 
-
-
-
-.input {
-  width: 620px;
-  height: 45px;
-}
-
-
- 
 .contents3-line {
   border-top-color: #efefef;
   border-left: 0 solid #efefef;
@@ -231,13 +200,13 @@ input[type=text]{
   margin: 0;
 }
 
-.contents3a {
+.contents3-all {
   background-color: white;
   padding: 40px;
   height: 360px;
   width: 620px;
-
-  &__b {
+}
+  .contents3-details {
     margin-bottom: 24px;
     color: rgb(136, 136, 136);
     font-size: 14px;
@@ -251,9 +220,9 @@ input[type=text]{
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     text-align: start;
-  }
+}
 
-    &__e {
+.contents3-categoryid-in{
     font-size: 14px;
     font-weight: 600;
     line-height: 1.4em;
@@ -265,7 +234,7 @@ input[type=text]{
     border: 1 1px;
     }
   
-    &__f {
+    .contents3-category-redbtn {
     font-size: 12px;
     padding: 0 4px;
     background-color: #ff0211;
@@ -277,7 +246,7 @@ input[type=text]{
     line-height: 1.4em;
     margin-left: 8px;
   }
-    &__h {
+    .contents3-choice-a {
     height: 48px;
     line-height: 1;
     margin: 0;
@@ -285,7 +254,7 @@ input[type=text]{
     padding: 0 56px 0 16px;
     width: 100%;
   }
-}
+
 
 
 .line-line {
@@ -298,19 +267,14 @@ input[type=text]{
   border-top-width: 1px;
 }
 
-
-.select.categoryid {
-  width: 500px;
-}
-
-.threea1__3 {
+.brand-box {
   font-size: 14px;
   font-weight: 600;
   line-height: 1.4em;
   margin-top: 15px;
   margin-bottom: 10px;
   }
-  .threea1__span {
+  .brand-box__1 {
   border-radius: 2px;
   display: inline-block;
   font-style: normal;
@@ -323,14 +287,14 @@ input[type=text]{
   padding: 0 4px;
 }
 
-.threebottom1__4 {
+.threebottom-goods-status {
   margin-top: 15px;
   margin-bottom: 10px;
   font-size: 14px;
   font-weight: 600;
   line-height: 1.4em;
 
-  .threebottom1__5 {
+   .threebottom-goods-status__2 {
   font-size: 12px;
   padding: 0 4px;
   background-color: #ff0211;
@@ -342,41 +306,18 @@ input[type=text]{
   line-height: 1.4em;
   margin: 0;
   }
- 
-}
-.contents4 {
-  padding: 40px;
-  height: 400px;
-  width: 620px;
-}
-.contents5 {
-  padding: 40px;
-  height: 200px
-}
-.footer {
-  width: 865px;
-  height: 140px;
-  padding-top: 40px;
-  padding-bottom: 40px;
-}
-.footer-top {
-  width: 867px;
-  height: 54px;
-}
-.three {
-  width: auto;
-  height: 30px;
-  margin: 16px;
-  text-align: center;
 }
 
-.four1 {
+.four-all {
   background-color: white;
-  padding: 40px;
+  padding-top: 40px;
+  padding-right: 40px; 
+  padding-bottom: 20px;
+  padding-left: 40px;
   width: 620px;
   height: 361px;
-
-  &__2 {
+}
+.four__delivery {
   color: rgb(136, 136, 136);
   font-size: 14px;
   font-weight: 600;
@@ -385,14 +326,14 @@ input[type=text]{
   background-color: white;
   text-align: start;
   }
-  &__3 {
+  .four-delivery__1 {
   fill: rgb(0, 149, 238);
   height: 16px;
   margin-left: 4px;
   vertical-align: -3px;
   width: 16px;
   }
-  &__7 {
+  .four-delivery-charge-box {
     margin-top: 15px;
     margin-bottom: 10px;
     align-items: center;
@@ -403,8 +344,8 @@ input[type=text]{
     font-size: 14px;
     font-weight: 600;
     line-height: 1.4em;
-  }
-  &__8 {
+  
+  .four-delivery-charge-box-1 {
     margin-left: 8px;
     font-size: 12px;
     padding: 0 4px;
@@ -418,14 +359,16 @@ input[type=text]{
     margin: 0;
     margin-left: 6px;
   }
-  &__2-4 {
+}
+
+  .area-box__1 {
     font-size: 14px;
     font-weight: 600;
     line-height: 1.4em;
     margin-top: 15px;
     margin-bottom: 10px;
-  }
-    &__2-5 {
+  
+  .area-box__2 {
     margin-left: 8px;
     font-size: 12px;
     padding: 0 4px;
@@ -438,10 +381,11 @@ input[type=text]{
     line-height: 1.4em;
     margin: 0;
   }
-  &__last1 {
+}
+  .four-shipping-days {
     margin-top: 15px;
-  }
-  &__last4 {
+}
+  .four-shipping-days-box {
     font-size: 14px;
     font-weight: 600;
     line-height: 1.4em;
@@ -452,9 +396,7 @@ input[type=text]{
     margin-bottom: 32px;
     margin-right: 130px;
     
-    }
-
-    &__last5 {
+    .four-shipping-days-box__1{
     margin-left: 8px;
     font-size: 12px;
     padding: 0 4px;
@@ -467,14 +409,14 @@ input[type=text]{
     line-height: 1.4em;
     margin: 0;
     }
-
-    &__last6 {
-      text-decoration: none;
-      word-break: keep-all;
-      width: 360px;
-      height: 20px;
-      }
 }
+  .four-shipping-days-choice {
+    text-decoration: none;
+    word-break: keep-all;
+    width: 360px;
+    height: 20px;
+}
+
 
 
 .fiveline {
@@ -486,36 +428,47 @@ input[type=text]{
   margin: 0;
   
 }
-.fivebox {
+.fivebox-all {
   background-color: white;
   width: 620px;
   height: 530px;
   padding-top: 40px;
   padding-right: 40px;
-  padding-bottom: 60px;
+  padding-bottom: 20px;
   padding-left: 40px;
-
-  .fivebox__3 {
+}
+.five-price-box {
   text-align: start;
   color: rgb(136, 136, 136);
   font-size: 14px;
   font-weight: 600;
   line-height: 1.4em;
   margin-bottom: 24px;
-  }
-  &__4 {
+}
+  .five-hatena {
     fill: rgb(0, 149, 238);
     height: 16px;
     margin-left: 4px;
     vertical-align: -3px;
     width: 16px;
-  }
-  &__8 {
+}
+  .pricebox-all {
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-between;
+  
+}
+  .price {
+    width: 135px;
+    height: 20px;
+}
+
+  .price__1 {
     font-size: 14px;
     font-weight: 600;
     line-height: 1.4em;
-  }
-    &__9 {
+
+  .price__2 {
     margin-left: 8px;
     font-size: 12px;
     padding: 0 4px;
@@ -528,33 +481,54 @@ input[type=text]{
     line-height: 1.4em;
     margin: 0;
   }
-    &__10 {
-    padding-left: 240px;
-    padding-right: 10px;
-    padding-top: 15px;
+}
+  .en {
+    width: 12px;
+    height: 20px;
+    padding-left: 170px;
+    margin-top: 20px;
   }
-  &__13 {
+  .en-all {
+    display: inline-flex;
+    width: 285px;
+    height: 50px;
+
+  &__1 {
+    display:inline;
+  }
+}
+  .fee-box-all {
     display: flex;
     justify-content: space-between;
-  }
-  &__redbtn {
-    background-color: #ea352d;
-    color: #fff;
-    width: 100%;
-    font-size: 17px;
-    min-height: 48px;
-    padding: 0 24px;
-    width: 310px;
-    height: 45px;
-    padding: 0, 24px;
-    border: 1 1 1 1px;
-    margin-bottom: 24px;
-    }
-  &__last1 {
+}
+
+
+    .sales-profit {
   display: flex;
   justify-content: space-between;
+  margin-top: 15px;
   }
-  &__last5 {
+
+  .exhibition-all {
+    text-align: center;
+    margin-top: 40px;
+}
+.exhibition-red-btn {
+  background-color: #ea352d;
+  color: #fff;
+  width: 100%;
+  font-size: 17px;
+  min-height: 48px;
+  padding: 0 24px;
+  width: 310px;
+  height: 45px;
+  padding: 0, 24px;
+  border: 1 1 1 1px;
+  margin-bottom: 24px;
+  display: inline-block; 
+}
+
+  .exhibition-save-btn {
     background-color: #ccc;
     border-color: transparent;
     color: #222;
@@ -568,12 +542,14 @@ input[type=text]{
     padding: 0, 24px;
     border: 1px;
     margin-bottom: 24px;
+    display: inline-block;
+    
   }
-  &__last6 {
+
+  .back-btn {
     display: flex;
     box-sizing: border-box;
     padding-bottom: 12px;
-
     color: #0095ee;
     display: flex;
     width: 100%;
@@ -587,37 +563,34 @@ input[type=text]{
   }
 
   
-  
-  
-
-  
-  &__last7 {
+  .precautions {
     width: 500px;
     margin: 0 auto;
+    margin-top: 20px;
   
   }
-    &__last8 {
+  .precautions__1 {
     color: #0095ee;
     text-decoration: none;
     word-break: keep-all;
   }
-    &__last9 {
+  .precautions__2 {
     color: #0095ee;
     text-decoration: none;
     word-break: keep-all;
   }
-    &__last10 {
+  .precautions__3 {
     color: #0095ee;
     text-decoration: none;
     word-break: keep-all;
   }
-    &__last11 {
+  .precautions__4 {
     color: #0095ee;
     text-decoration: none;
     word-break: keep-all;
   }
  
-    &__last12 {
+  .precautions__5 {
     color: #0095ee;
     text-decoration: none;
     word-break: keep-all;
@@ -631,18 +604,8 @@ input[type=text]{
   border-top-style: solid;
   margin: 0;
 }
-.privacy {
-  display: inline;
-  text-decoration: none;
-}
-.mercari {
-  display: inline;
-  text-decoration: none;
-}
-.tokutei {
-  display: inline;
-  text-decoration: none;
-}
+
+
 .last {
   width: 620px;
   height: 33px;
@@ -650,55 +613,40 @@ input[type=text]{
   text-align: center;
   background-color: rgb(245, 245, 245);
 }
- 
 
-.footer1 {
+.footer-all {
   text-align: center;
+  width: 100%;
+  display: inline;
+}
 
-  .footer1__3 {
-    padding-top: 30px;
-    width: 1600px;
-    height: 60px;
-    margin-left: 160px;
-    margin: 0 auto;
-   
-
-  }
-  .footer1__4 {
-    display: inline-block;
-  }
-  .footer1__5 {
-    display: inline-block;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-  .privacy {
-    color: black;
-    text-decoration: none;
-    
-  }
-   
-  .mercari {
-    color: black;
-  }
-  .tokutei {
-    color: black;
-  }
-  .footer1__6 {
-    display: inline-block;
-  }
-
+.footer-top {
+width: 100%;
+margin-top: 30px;
  
 }
-}
 
-  .footer1__mercarirogolast {
-    margin: auto;
+.footer-topcontents {
+  padding-top: 30px;
+  height: 60px;
+  display: inline;
+ 
+  &__1 {
+    display: inline;
+    margin-right: 10px;
   }
-  .footerp {
+  &__2 {
+    display: inline;
+    margin-right: 10px;
+  }
+  &__3 {
+    display: inline;
+  }
+}
+.footer-bottom {
   background-color: rgb(245, 245, 245);
   height: 20px;
   padding-bottom: 45px;
-  text-align: center;
-  
+  margin: auto;
+  width: 100%;
 }
