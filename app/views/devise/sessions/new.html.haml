@@ -1,0 +1,17 @@
+= render "devise/shared/header"
+%main.user_registration__main
+  .user_registration__main__form
+    .user_registration__main__form__title--login
+      アカウントをお持ちでない方はこちら
+      =link_to new_user_registration_path do
+        .user_registration__main__form__contents__submit__btn--blue 新規会員登録
+    = form_with model:@user, url: user_session_path, class: 'user_registration__main__form__contents', local: true do |f|
+      .user_registration__main__form__contents__field--login
+        = f.email_field :email, autocomplete: "email", placeholder: "メールアドレス", class:"user_registration__main__form__contents__field__input--one"
+      .user_registration__main__form__contents__field--login
+        = f.password_field :password, autocomplete: "new-password", placeholder: "パスワード", class:"user_registration__main__form__contents__field__input--one"
+      -# 機能実装後は以下のlink_toメソッドは削除します。
+      .user_registration__main__form__contents__submit
+        =link_to root_path, method: :get do 
+          = f.submit "ログイン",class:"user_registration__main__form__contents__submit__btn"  
+= render "devise/shared/footer"
