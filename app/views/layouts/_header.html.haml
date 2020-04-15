@@ -1,10 +1,11 @@
 .header
   .header__top-contents
-    = link_to image_tag("logo/logo.png", alt: "title-logo", width: "140px"), root_path, class: "title-logo"
+    = link_to  root_path, class: "title-logo" do
+      = image_tag("logo/logo.png", alt: "title-logo", width: "140px")
     .search
       %input.search__field{type: "text", placeholder: "キーワードから探す"}
       %label.search__btn
-        = image_tag "icon/icon-search 1.png", alt: "serch", class: "search__btn--icon"
+        = image_tag "icon/icon-search_1.png", alt: "serch", class: "search__btn--icon"
         %input.search__btn--submit{type: "submit", value: "検索"}
   .header__bottom-contents
     .header__bottom-contents--left
@@ -107,7 +108,7 @@
       .pulldown-list#bland
         = link_to "ブランド", "#", class: "pulldown-list__link"
     .header__bottom-contents--right
-      = link_to "#", class: "user-box" do
+      = link_to new_user_session_path, class: "user-box" do
         ログイン
-      = link_to "#", class: "user-box" do
+      = link_to new_user_registration_path, class: "user-box" do
         新規会員登録

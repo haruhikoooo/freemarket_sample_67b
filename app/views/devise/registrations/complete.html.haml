@@ -1,0 +1,14 @@
+= render "devise/shared/header"
+%main.user_registration__main
+  .user_registration__main__form
+    %h2.user_registration__main__form__title 会員登録完了
+    .user_registration__main__form__contents
+      .user_registration__main__form__contents__field--complete
+        ありがとうございます。
+        %br/
+        会員登録が完了しました。
+      -# 機能実装後は以下のlink_toメソッドは削除します。
+      .user_registration__main__form__contents__submit
+        = link_to root_path, method: :get do
+          .user_registration__main__form__contents__submit__btn フリマをはじめる
+= render "devise/shared/footer"
