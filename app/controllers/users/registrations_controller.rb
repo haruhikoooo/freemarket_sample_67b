@@ -60,11 +60,45 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 
-  def step2
+  def new
     @user = User.new
   end
 
-  def complete
+  def step2
+    session[:nickname] = user_params[:nickname]
+    session[:email] = user_params[:email]
+    session[:password] = user_params[:password]
+    session[:password_comfirmation] = user_params[:password_comfirmation]
+    session[:family_name] = user_params[:family_name]
+    session[:first_name] = user_params[:first_name]
+    session[:furigana_family] = user_params[:furigana_family]
+    session[:furigana_first] = user_params[:furigana_first]
+    session[:birthday] = user_params[:birthday]
+    @address = Address.new
   end
+
+  def complete
+    session[:destination_family_name] = address_params[:destination_family_name]
+    session[:destination_first_name] = address_params[:destination_first_name]
+    session[:destination_furigana_family] = address_params[:destination_furigana_family]
+    session[:destination_furigana_first] = address_params[:destination_furigana_first]
+    session[:zipcode] = address_params[:zipcode]
+    session[:prefecture_id] = address_params[:prefecture_id]
+    session[:city] = address_params[:city]
+    session[:house_number] = address_params[:house_number]
+    session[:apartment_name] = address_params[:apartment_name]
+    session[:tel] = address_params[:tel]
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:nickname, :email, :password, :family_name, :first_name, :furigana_family, :furigana_first, :birthday)
+  end
+
+  def address_params
+    params.require(:user).permit(:destination_family_name, :destination_first_name, :destination_furigana_family, :destination_furigana_first, :zipcode, :prefecture_id, :city, :house_number, :apartment_name, :tel)
+  end
+
 
 end
