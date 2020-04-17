@@ -10,9 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_02_133532) do
+ActiveRecord::Schema.define(version: 2020_04_17_095238) do
+
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "destination_family_name", null: false
+    t.string "destination_first_name", null: false
+    t.string "destination_furigana_family", null: false
+    t.string "destination_furigana_first", null: false
+    t.string "zipcode", null: false
+    t.integer "prefecture_id", null: false
+    t.string "city", null: false
+    t.string "house_number", null: false
+    t.string "apartment_name"
+    t.string "string"
+    t.string "tel"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -20,12 +37,12 @@ ActiveRecord::Schema.define(version: 2020_04_02_133532) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "nickname"
-    t.string "family_name"
-    t.string "first_name"
-    t.string "furigana_family"
-    t.string "furigana_first"
-    t.datetime "birth_day"
+    t.string "nickname", null: false
+    t.string "family_name", null: false
+    t.string "first_name", null: false
+    t.string "furigana_family", null: false
+    t.string "furigana_first", null: false
+    t.date "birthday", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
