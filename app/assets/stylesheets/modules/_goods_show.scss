@@ -1,29 +1,127 @@
-.sub {
-  width: 100%;
-  position: relative;
-  padding: 0 60px;
-  border-top: 1px solid #eee;
-  box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.16);
-  box-sizing: border-box;
-  .sub-main {
+.body {
+  font-family: $show-font;
+  margin: 0;
+  padding: 0;
+  .sub {
     width: 100%;
-    padding: 17px 0 16px;
-    max-width: 1040px;
-    margin: 0 auto;
-    font-size: 14px;
-    &__categories {
-      display: inline-block;
-      padding: 0 10px 0 0;
-      
+    position: relative;
+    padding: 0 60px;
+    border-top: 1px solid #eee;
+    box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.16);
+    box-sizing: border-box;
+    .sub-main {
+      width: 100%;
+      padding: 17px 0 16px;
+      max-width: 1040px;
+      margin: 0 auto;
+      font-size: 14px;
+      &__categories {
+        display: inline-block;
+        padding: 0 10px 0 0;
+        &--name {
+          font-weight: bold;
+          display: inline-block;
+        }
+      }
+      &__icon {
+        display: inline-block;
+        padding: 0 10px 0 0;
+      }
+      a {
+        text-decoration: none;
+        color: #333
+      }
     }
-    &__icon {
-      display: inline-block;
-      padding: 0 10px 0 0;
-      
-    }
-    a {
-      text-decoration: none;
-      color: #333
+  }
+  .main {
+    background-color: $background-gray;
+    box-sizing: border-box;
+    &__show {
+      padding: 40px;
+      margin: 0 auto;
+      .main-content {
+        width: 700px;
+        margin: 0 auto;
+        &__top {
+          margin: 0;
+          padding: 0;
+          .goodsbox {
+            background-color: #fff;
+            padding: 24px 40px 40px;
+            &__name {
+              text-align: center;
+              font-size: 24px;
+              font-weight: bold;
+            }
+            .picture {
+              margin: 16px 0 0;
+              &__main {
+                display: flex;
+                position: relative;
+                &--top {
+                  flex-direction: column;
+                  display: flex;
+                  width: 560px;
+                  align-items: center;
+                  margin: 0 auto;
+                  .box-picture {
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 10px;
+                    &__left {
+                      width: 25%;
+                      margin: 0 10px 0 0;
+                    }
+                    &__middle {
+                      width: 25%;
+                      margin: 0 10px 0 0;
+                    }
+                    &__right {
+                      width: 25%;
+                      margin: 0 10px 0 0;
+                    }
+                  }
+                }
+              }
+            }
+            .goodsbox__price {
+              margin: 24px 0 24px;
+              text-align: center;
+              display: flex;
+              flex-direction: column;
+              &--money {
+                font-size: 46px;
+                font-weight: bold;
+                margin: 0 10px 0 0;
+              }
+              &--in {
+                margin: 0;
+                padding: 0;
+                &--taxincluded {
+                  font-size: 16px;
+                }
+                &--postageincluded {
+                  font-size: 16px;
+                }
+              }
+            }
+            .goods--detail {
+              font-size: 18px;
+              margin-bottom: 30px;
+            }
+            .table {
+              margin-bottom: 20px;
+              &__body {
+                width: 100%;
+                height: 375px;
+                &--box {
+                  
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

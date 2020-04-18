@@ -1,53 +1,108 @@
-= render "layouts/header"
+.body
+  = render "layouts/header"
+  .sub
+    %ul.sub-main
+      %li.sub-main__categories
+        = link_to "FURIMA", "#" 
+      %li.sub-main__icon
+        %i.fa.fa-angle-right
+      %li.sub-main__categories
+        = link_to "ベビー・キッズ", "#"
+      %li.sub-main__icon
+        %i.fa.fa-angle-right
+      %li.sub-main__categories
+        = link_to "ベビー服(男女兼用) ~95cm", "#"
+      %li.sub-main__icon
+        %i.fa.fa-angle-right 
+      %li.sub-main__categories
+        = link_to "アウター", "#"
+      %li.sub-main__icon
+        %i.fa.fa-angle-right 
+      %p.sub-main__categories--name
+        product３
 
-.sub
-  %ul.sub-main
-    %li.sub-main__categories
-      = link_to "FURIMA", "#" 
-    %li.sub-main__icon
-      %i.fa.fa-angle-right
-    %li.sub-main__categories
-      = link_to "ベビー・キッズ", "#"
-    %li.sub-main__icon
-      %i.fa.fa-angle-right
-    %li.sub-main__categories
-      = link_to "ベビー服(男女兼用) ~95cm", "#"
-    %li.sub-main__icon
-      %i.fa.fa-angle-right 
-    %li.sub-main__categories
-      = link_to "アウター", "#"
-    %li.sub-main__icon
-      %i.fa.fa-angle-right 
-    %p.sub-main__categories
-      product３
-
-.main
-  .showmain
-    .content
-      .topcontent
-        .goodsbox
-          %h2.goodsbox__name
-            product3
-          .boxbody
-            %ul.boxbody__picture
-              %li.boxbody__second--picture
-                = image_tag "sample/sample_01", alt: "sample_01", width: "10%"
-              %li.boxbody__thirtht--picture
-                = image_tag "sample/sample_02", alt: "sample_02", width: "10%"
-              %li.boxbody__fourth--picture
-                = image_tag "sample/sample_03", alt: "sample_03", width: "10%"
-          .goodsbox__price
-            %span
-            ¥30000
-            .goodsbox__price--tax
-              %span
-              税込
-              %span
-              送料込み
-          .goods--detail
-            親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の
-            二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をし
-            たと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を
-            出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降
-            りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰
-            って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
+  .main
+    .main__show
+      .main-content
+        .main-content__top
+          .goodsbox
+            %h2.goodsbox__name
+              product3
+            .picture
+              %ul.picture__main
+                %li.picture__main--top
+                  = image_tag "sample/sample_01", alt: "sample_01", width: "100%" , height: "346px"
+                  %ul.box-picture
+                    %li.box-picture__left
+                      = image_tag "sample/sample_01", alt: "sample_01", width: "100%" , height: "87px"
+                    %li.box-picture__middle
+                      = image_tag "sample/sample_02", alt: "sample_02", width: "100%" , height: "87px"
+                    %li.box-picture__right
+                      = image_tag "sample/sample_03", alt: "sample_03", width: "100%" , height: "87px"
+            .goodsbox__price
+              %span.goodsbox__price--money ¥30000
+              .goodsbox__price--in
+                %span.goodsbox__price--in--taxincluded (税込)
+                %span.goodsbox__price--in--postageincluded 送料込み
+            .goods--detail
+              親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の
+              二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をし
+              たと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を
+              出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降
+              りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰
+              って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
+            .table
+              .table__body
+                .table__body--box
+                  %tr
+                    %th
+                      出品者
+                    %td
+                      hoge
+                  %tr
+                    %th
+                      カテゴリー
+                    %td
+                      = link_to "ベビー・キッズ", "#", class: ""
+                      %br/
+                      = link_to "ベビー服(男女兼用) ~95cm", "#", class: ""
+                      %br/
+                      = link_to "アウター", "#", class: ""
+                  %tr
+                    %th
+                      ブランド
+                    %td
+                  %tr
+                    %th
+                      商品のサイズ
+                    %td
+                  %tr
+                    %th
+                      商品の状態
+                    %td
+                      未使用に近い
+                  %tr
+                    %th
+                      配送料の負担
+                    %td
+                    　送料込み(出品者負担)
+                  %tr
+                    %th
+                      発送元の地域
+                    %td
+                      = link_to "岩手県", "#", class: ""
+                  %tr
+                    %th
+                      発送日の目安
+                    %td
+                      4~7日で発送
+            .option-area
+              %ul.option-area__left
+                %li.option-area__like--button
+                  %i.fa.fa-star
+                    お気に入り　０
+              %ul.option-area__right
+                %li.option-area__report--button
+                  = link_to "#", method: :get do
+                    %i.fa.fa-flag
+                      不適切な商品の通報
