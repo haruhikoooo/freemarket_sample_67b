@@ -2,12 +2,12 @@
 %main.user_registration__main
   .user_registration__main__form
     %h2.user_registration__main__form__title 会員情報入力
-    = form_with model:@user, url: user_registration_path, class: 'user_registration__main__form__contents', local: true do |f|
+    = form_with model:@user, url: user_registration_path, class: 'user_registration__main__form__contents', id: 'new_user', class: 'new_user', local: true do |f|
       .user_registration__main__form__contents__field
         = f.label :nickname, class:"user_registration__main__form__contents__field__label"
         %span.user_registration__main__form__contents__field__require 必須
         %br/
-        = f.text_field :email, autofocus: true, placeholder: "例）フリマ太郎", class:"user_registration__main__form__contents__field__input--one"
+        = f.text_field :nickname, autofocus: true, placeholder: "例）フリマ太郎", class:"user_registration__main__form__contents__field__input--one"
       .user_registration__main__form__contents__field
         = f.label :email, class:"user_registration__main__form__contents__field__label"
         %span.user_registration__main__form__contents__field__require 必須
@@ -32,23 +32,22 @@
         %span.user_registration__main__form__contents__field__require 必須
         %br/
         .user_registration__main__form__contents__field__input
-          = f.text_field :email, autocomplete: "new-password", placeholder: "例）不離間", class:"user_registration__main__form__contents__field__input--two"
-          = f.text_field :email, autocomplete: "new-password", placeholder: "例）太郎", class:"user_registration__main__form__contents__field__input--two"
+          = f.text_field :family_name, placeholder: "例）不離間", class:"user_registration__main__form__contents__field__input--two"
+          = f.text_field :first_name, placeholder: "例）太郎", class:"user_registration__main__form__contents__field__input--two"
       .user_registration__main__form__contents__field
         = f.label :furigana, class:"user_registration__main__form__contents__field__label"
         %span.user_registration__main__form__contents__field__require 必須
         %br/
         .user_registration__main__form__contents__field__input
-          = f.text_field :email, autocomplete: "new-password", placeholder: "例）フリマ", class:"user_registration__main__form__contents__field__input--two"
-          = f.text_field :email, autocomplete: "new-password", placeholder: "例）タロウ", class:"user_registration__main__form__contents__field__input--two"
+          = f.text_field :furigana_family, placeholder: "例）フリマ", class:"user_registration__main__form__contents__field__input--two"
+          = f.text_field :furigana_first, autocomplete: "new-password", placeholder: "例）タロウ", class:"user_registration__main__form__contents__field__input--two"
       .user_registration__main__form__contents__field--long
         = f.label :birth_day, class:"user_registration__main__form__contents__field__label"
         %span.user_registration__main__form__contents__field__require 必須
         %br/
-        != sprintf(f.date_select(:birth_day, use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 0), default: Date.new(1989, 1, 1),with_css_classes:"",date_separator:'%s'),'年','月')+'日'
+        != sprintf(f.date_select(:birthday, use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 0), default: Date.new(1989, 1, 1),with_css_classes:"",date_separator:'%s'),'年','月')+'日'
         %p.user_registration__main__form__contents__field__notice-gray ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-      -# 機能実装後は以下のlink_toメソッドは削除します。
       .user_registration__main__form__contents__submit
-        =link_to users_step2_path,method: :get do 
-          = f.submit "次へ進む",class:"user_registration__main__form__contents__submit__btn"  
+        = f.submit "次へ進む",class:"user_registration__main__form__contents__submit__btn"
+      = devise_error_messages!
 = render "devise/shared/footer"

@@ -60,21 +60,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 
-  def new
-    @user = User.new
-  end
-
   def step2
-    session[:nickname] = user_params[:nickname]
-    session[:email] = user_params[:email]
-    session[:password] = user_params[:password]
-    session[:password_comfirmation] = user_params[:password_comfirmation]
-    session[:family_name] = user_params[:family_name]
-    session[:first_name] = user_params[:first_name]
-    session[:furigana_family] = user_params[:furigana_family]
-    session[:furigana_first] = user_params[:furigana_first]
-    session[:birthday] = user_params[:birthday]
-    @address = Address.new
   end
 
   def complete
@@ -97,7 +83,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def address_params
-    params.require(:user).permit(:destination_family_name, :destination_first_name, :destination_furigana_family, :destination_furigana_first, :zipcode, :prefecture_id, :city, :house_number, :apartment_name, :tel)
+    params.permit(:destination_family_name, :destination_first_name, :destination_furigana_family, :destination_furigana_first, :zipcode, :prefecture_id, :city, :house_number, :apartment_name, :tel)
   end
 
 
