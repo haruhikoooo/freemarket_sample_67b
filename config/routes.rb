@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  get 'goods/parchase' => 'goods#parchase'
   
   devise_scope :user do
     get "users/sign_up" => "devise/registrations#step1"
@@ -9,7 +10,6 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'goods#index'
-
   resources :goods, only: [:index,:new]
 end
 
