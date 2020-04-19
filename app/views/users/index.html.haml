@@ -25,7 +25,7 @@
       .mypage__contents--main__title
         購入した商品
       .purchased-box
-        .purchased-box__item
+        = link_to "#", class: "purchased-box__item" do
           .purchased-box__item--left
             = image_tag "sample/sample_01.jpg", alt: "sample_01", width: "100%"
           .purchased-box__item--right
@@ -33,7 +33,7 @@
               sample01を購入しました
             .purchased-box__item--right__icon.transaction-during
               取引中
-        .purchased-box__item
+        = link_to "#", class: "purchased-box__item" do
           .purchased-box__item--left
             = image_tag "sample/sample_02.jpg", alt: "sample_02", width: "100%"
           .purchased-box__item--right
