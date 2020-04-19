@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/index'
   devise_for :users
   
   devise_scope :user do
@@ -11,4 +12,5 @@ Rails.application.routes.draw do
   root 'goods#index'
 
   resources :goods, only: [:index]
+  resources :users, only: [:index]
 end

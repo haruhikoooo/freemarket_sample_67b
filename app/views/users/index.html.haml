@@ -1,0 +1,45 @@
+= render "layouts/header"
+.mypage
+  = render "layouts/side-bar"
+  .mypage__contents
+    .mypage__contents--top
+      user さんのマイページ
+    .mypage__contents--main
+      .mypage__contents--main__title
+        お知らせ
+      .news-box
+        = link_to "#", class: "news-box__item" do
+          .news-box__item__text
+            新型コロナウイルス感染拡大に伴う衛生マスクの出品禁止について
+          .news-box__item__date
+            = icon('far', 'clock')
+            3日前
+        = link_to "#", class: "news-box__item" do
+          .news-box__item__text
+            友達招待のお知らせ
+          .news-box__item__date
+            = icon('far', 'clock')
+            6日前
+          
+    .mypage__contents--main
+      .mypage__contents--main__title
+        購入した商品
+      .purchased-box
+        .purchased-box__item
+          .purchased-box__item--left
+            = image_tag "sample/sample_01.jpg", alt: "sample_01", width: "100%"
+          .purchased-box__item--right
+            .purchased-box__item--right__text
+              sample01を購入しました
+            .purchased-box__item--right__icon.transaction-during
+              取引中
+        .purchased-box__item
+          .purchased-box__item--left
+            = image_tag "sample/sample_02.jpg", alt: "sample_02", width: "100%"
+          .purchased-box__item--right
+            .purchased-box__item--right__text
+              sample02を購入しました
+            .purchased-box__item--right__icon.transaction-completed
+              取引完了
+
+= render "layouts/footer"
