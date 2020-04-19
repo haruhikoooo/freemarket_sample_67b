@@ -60,31 +60,40 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 
-  def step2
+  # def create
+  #   # render :new_address 
+  # end
+  def new
+    super
+  end
+
+  def create
+    @user = User.new(sign_up_params)
+    session["devise.regist_data"] = {user: @user.attributes}
+    session["devise.regist_data"][:user]["password"] = params[:user][:password]
+    @address = @user.build_address
+    render :new_address
+  end
+
+  def new_address
+  end
+
+  def create_address
+    @user = User.new(session["devise.regist_data"]["user"])
+    @address = Address.new(address_params)
+    @user.build_address(@address.attributes)
+    @user.save
+    sign_in(:user, @user)
+    render :complete
   end
 
   def complete
-    session[:destination_family_name] = address_params[:destination_family_name]
-    session[:destination_first_name] = address_params[:destination_first_name]
-    session[:destination_furigana_family] = address_params[:destination_furigana_family]
-    session[:destination_furigana_first] = address_params[:destination_furigana_first]
-    session[:zipcode] = address_params[:zipcode]
-    session[:prefecture_id] = address_params[:prefecture_id]
-    session[:city] = address_params[:city]
-    session[:house_number] = address_params[:house_number]
-    session[:apartment_name] = address_params[:apartment_name]
-    session[:tel] = address_params[:tel]
   end
 
-  private
-
-  def user_params
-    params.require(:user).permit(:nickname, :email, :password, :family_name, :first_name, :furigana_family, :furigana_first, :birthday)
-  end
+  protected
 
   def address_params
-    params.permit(:destination_family_name, :destination_first_name, :destination_furigana_family, :destination_furigana_first, :zipcode, :prefecture_id, :city, :house_number, :apartment_name, :tel)
+    params.require(:address).permit(:destination_family_name, :destination_first_name, :destination_furigana_family, :destination_furigana_first, :zipcode, :prefecture_id, :city, :house_number, :apartment_name, :tel)
   end
-
 
 end
