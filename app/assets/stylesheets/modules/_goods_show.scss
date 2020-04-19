@@ -46,7 +46,7 @@
           margin: 0;
           padding: 0;
           .goodsbox {
-            background-color: #fff;
+            background-color: $white;
             padding: 24px 40px 40px;
             &__name {
               text-align: center;
@@ -132,7 +132,7 @@
                       border: 1px solid #dedede;
                       font-size: 14px;
                       &--color {
-                        color: #3CCACE;
+                        color: $main-color;
                       }
                     }
                   }
@@ -149,7 +149,7 @@
                   margin-right: auto;
                   padding: 8px 10px;
                   border: 1px solid #ffb340;
-                  color: #3CCACE;
+                  color: $main-color;
                   border-radius: 40px;
                 }
               }
@@ -171,12 +171,57 @@
           }
           .commentbox {
             padding: 24px;
-            background-color: #fff;
+            background-color: $white;
             margin: 10px 0;
             text-align: center;
-            . {
-              
+            .comment {
+              padding: 10px;
+              width: 100%;
+              min-height: 104px;
             }
+            .caution {
+              padding: 8px;
+              background-color: $background-gray;
+              margin: 10px 0;
+              text-align: left;
+            }
+            .btn {
+              line-height: 48px;
+              background-color: $main-color;
+              border: 1px solid $main-color;
+              color: $white;
+              width: 60%;
+              font-size: 18px;
+              border-radius: 100px;
+            }
+          }
+        }
+        .links {
+          list-style: none;
+          display: flex;
+          justify-content: space-between;
+          &__left {
+            &--link {
+              text-decoration: none;
+              color: $main-color;
+            }
+          }
+          &__right {
+            &--link {
+              text-decoration: none;
+              color: $main-color;
+            }
+          }
+        }
+        .more-item {
+          margin: 24px 0 8px;
+          &__link {
+            margin: 24px 0 8px;
+            color: $main-color;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 22px;
+            position: relative;
           }
         }
       }
