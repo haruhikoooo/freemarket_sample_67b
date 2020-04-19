@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'goods#index'
 
-  resources :goods, only: [:index]
+  resources :goods, only: [:index,:new]
   resources :users, only: [:index]
+
 end
+
+
