@@ -68,6 +68,13 @@
             color: #696969;
             font-size: 14px;
           }
+          &--all{
+            margin: 5px;
+            background-color: $background-gray;
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+          }
         }
       }
       .purchased-box{
@@ -99,6 +106,14 @@
             .transaction-completed{
               background-color: #c0c0c0;
             }
+          }
+          &--all{
+            width: 100%;
+            margin: 5px;
+            background-color: $background-gray;
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
           }
           &:hover{
             background-color: #f5f5f5;

@@ -20,6 +20,27 @@
           .news-box__item__date
             = icon('far', 'clock')
             6日前
+        = link_to "#", class: "news-box__item" do
+          .news-box__item__text
+            ログイン通知
+          .news-box__item__date
+            = icon('far', 'clock')
+            6日前
+        = link_to "#", class: "news-box__item" do
+          .news-box__item__text
+            アンケートご協力のお願い
+          .news-box__item__date
+            = icon('far', 'clock')
+            7日前
+        = link_to "#", class: "news-box__item" do
+          .news-box__item__text
+            新生活応援キャンペーン実施中！
+          .news-box__item__date
+            = icon('far', 'clock')
+            10日前
+        = link_to "#", class: "news-box__item" do
+          .news-box__item--all
+            一覧を見る
           
     .mypage__contents--main
       .mypage__contents--main__title
@@ -41,5 +62,32 @@
               sample02を購入しました
             .purchased-box__item--right__icon.transaction-completed
               取引完了
+        = link_to "#", class: "purchased-box__item" do
+          .purchased-box__item--left
+            = image_tag "sample/sample_03.jpg", alt: "sample_03", width: "100%"
+          .purchased-box__item--right
+            .purchased-box__item--right__text
+              sample03を購入しました
+            .purchased-box__item--right__icon.transaction-completed
+              取引完了
+        = link_to "#", class: "purchased-box__item" do
+          .purchased-box__item--left
+            = image_tag "sample/sample_03.jpg", alt: "sample_03", width: "100%"
+          .purchased-box__item--right
+            .purchased-box__item--right__text
+              sample03を購入しました
+            .purchased-box__item--right__icon.transaction-completed
+              取引完了
+        = link_to "#", class: "purchased-box__item" do
+          .purchased-box__item--left
+            = image_tag "sample/sample_03.jpg", alt: "sample_03", width: "100%"
+          .purchased-box__item--right
+            .purchased-box__item--right__text
+              sample03を購入しました
+            .purchased-box__item--right__icon.transaction-completed
+              取引完了
+        = link_to "#", class: "purchased-box__item" do
+          .purchased-box__item--all
+            一覧を見る
 
 = render "layouts/footer"
