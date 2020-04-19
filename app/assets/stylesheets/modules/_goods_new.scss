@@ -17,15 +17,14 @@
   font-size: 14px;
   line-height: 1;
 
-  .header {
+  .simple-header {
   background-color: rgb(245, 245, 245);
   text-align: center;
   width: 100%;
   padding: 5px;
-  }
-  .header__top {
-    padding-top: 35px;
-  
+  &__top {
+    padding: 35px 0;
+    }
   }
 }
 
