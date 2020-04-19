@@ -16,17 +16,15 @@
   font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
   font-size: 14px;
   line-height: 1;
-}
 
-.header {
+  .header {
   background-color: rgb(245, 245, 245);
   text-align: center;
   width: 100%;
   padding: 5px;
- 
-  &__top {
-    padding-top: 30px;
-
+  }
+  .header__top {
+    padding-top: 35px;
   }
 }
 
