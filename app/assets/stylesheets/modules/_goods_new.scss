@@ -18,7 +18,7 @@
   line-height: 1;
 }
 
-.header {
+.simple-header {
   background-color: rgb(245, 245, 245);
   text-align: center;
   width: 100%;
@@ -26,7 +26,7 @@
  
   &__top {
     padding-top: 30px;
-
+    padding-bottom: 30px;
   }
 }
 
