@@ -53,56 +53,54 @@
               って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
             .table
               .table__body
-                .table__body--box
-                  %tr
-                    %th
-                      出品者
-                    %td
-                      hoge
-                  %tr
-                    %th
-                      カテゴリー
-                    %td
-                      = link_to "ベビー・キッズ", "#", class: ""
+                %table.table__body--box
+                  %tr.table__body--box--line
+                    %th.table__body--box--line--headline 出品者
+                    %td.table__body--box--line--item hoge
+                  %tr.table__body--box--line
+                    %th.table__body--box--line--headline カテゴリー
+                    %td.table__body--box--line--item
+                      = link_to "ベビー・キッズ", "#", class: "table__body--box--line--item--color"
                       %br/
-                      = link_to "ベビー服(男女兼用) ~95cm", "#", class: ""
+                      = link_to "ベビー服(男女兼用) ~95cm", "#", class: "table__body--box--line--item--color"
                       %br/
-                      = link_to "アウター", "#", class: ""
-                  %tr
-                    %th
-                      ブランド
-                    %td
-                  %tr
-                    %th
-                      商品のサイズ
-                    %td
-                  %tr
-                    %th
-                      商品の状態
-                    %td
-                      未使用に近い
-                  %tr
-                    %th
-                      配送料の負担
-                    %td
-                    　送料込み(出品者負担)
-                  %tr
-                    %th
-                      発送元の地域
-                    %td
-                      = link_to "岩手県", "#", class: ""
-                  %tr
-                    %th
-                      発送日の目安
-                    %td
-                      4~7日で発送
+                      = link_to "アウター", "#", class: "table__body--box--line--item--color"
+                  %tr.table__body--box--line
+                    %th.table__body--box--line--headline ブランド
+                    %td.table__body--box--line--item
+                  %tr.table__body--box--line
+                    %th.table__body--box--line--headline 商品のサイズ
+                    %td.table__body--box--line--item
+                  %tr.table__body--box--line
+                    %th.table__body--box--line--headline 商品の状態
+                    %td.table__body--box--line--item 未使用に近い
+                  %tr.table__body--box--line
+                    %th.table__body--box--line--headline 配送料の負担
+                    %td.table__body--box--line--item 送料込み(出品者負担)
+                  %tr.table__body--box--line
+                    %th.table__body--box--line--headline 発送元の地域
+                    %td.table__body--box--line--item
+                      = link_to "岩手県", "#", class: "table__body--box--line--item--color"
+                  %tr.table__body--box--line
+                    %th.table__body--box--line--headline 発送日の目安
+                    %td.table__body--box--line--item 4~7日で発送
             .option-area
               %ul.option-area__left
-                %li.option-area__like--button
-                  %i.fa.fa-star
-                    お気に入り　０
+                %li.option-area__left--button
+                  %i.fa.fa-star お気に入り　０
               %ul.option-area__right
-                %li.option-area__report--button
-                  = link_to "#", method: :get do
-                    %i.fa.fa-flag
-                      不適切な商品の通報
+                %li.option-area__right--button
+                  = link_to "#", class: "flag" do
+                    %i.fa.fa-flag 
+                    不適切な商品の通報
+          .commentbox
+            %form
+              %textarea
+              %p
+                相手のことを考え丁寧なコメントを心がけましょう。
+                %br/
+                不快な言葉遣いなどは利用制限や退会処分となることがあります。
+              %br/
+              %button.commentBtn{:name => "button", :type => "submit"}
+                %i.fa.fa-comment
+                コメントする
