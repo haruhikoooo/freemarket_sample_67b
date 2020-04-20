@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   resources :goods, only: [:index,:new]
   resources :users, only: [:index]
 
+  # おそらくusersの中にネストすることになる
+  resources :payments, only: [:index, :new, :create, :destroy]
+
 end
 
 
