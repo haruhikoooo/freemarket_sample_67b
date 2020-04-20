@@ -5,6 +5,7 @@ FactoryBot.define do
     destination_first_name         {"太郎"}
     destination_furigana_family    {"ヤマダ"}
     destination_furigana_first     {"タロウ"}
+    zipcode                        {"012-3456"}
     prefecture_id                  {1}
     city                           {"名古屋市"}
     house_number                   {"4番地"}
