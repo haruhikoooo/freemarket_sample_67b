@@ -1,0 +1,230 @@
+.body {
+  font-family: $show-font;
+  margin: 0;
+  padding: 0;
+  .sub {
+    width: 100%;
+    position: relative;
+    padding: 0 60px;
+    border-top: 1px solid #eee;
+    box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.16);
+    box-sizing: border-box;
+    .sub-main {
+      width: 100%;
+      padding: 17px 0 16px;
+      max-width: 1040px;
+      margin: 0 auto;
+      font-size: 14px;
+      &__categories {
+        display: inline-block;
+        padding: 0 10px 0 0;
+        &--name {
+          font-weight: bold;
+          display: inline-block;
+        }
+      }
+      &__icon {
+        display: inline-block;
+        padding: 0 10px 0 0;
+      }
+      .a {
+        text-decoration: none;
+        color: #333
+      }
+    }
+  }
+  .main {
+    background-color: $background-gray;
+    box-sizing: border-box;
+    &__show {
+      padding: 40px;
+      margin: 0 auto;
+      .main-content {
+        width: 700px;
+        margin: 0 auto;
+        &__top {
+          margin: 0;
+          padding: 0;
+          .goodsbox {
+            background-color: $white;
+            padding: 24px 40px 40px;
+            &__name {
+              text-align: center;
+              font-size: 24px;
+              font-weight: bold;
+            }
+            .picture {
+              margin: 16px 0 0;
+              &__main {
+                display: flex;
+                position: relative;
+                &--top {
+                  flex-direction: column;
+                  display: flex;
+                  width: 560px;
+                  align-items: center;
+                  margin: 0 auto;
+                  .box-picture {
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 10px;
+                    &__left {
+                      width: 25%;
+                      margin: 0 10px 0 0;
+                    }
+                    &__middle {
+                      width: 25%;
+                      margin: 0 10px 0 0;
+                    }
+                    &__right {
+                      width: 25%;
+                      margin: 0 10px 0 0;
+                    }
+                  }
+                }
+              }
+            }
+            .goodsbox__price {
+              margin: 24px 0 24px;
+              text-align: center;
+              display: flex;
+              flex-direction: column;
+              &--money {
+                font-size: 46px;
+                font-weight: bold;
+                margin: 0 10px 0 0;
+              }
+              &--in {
+                margin: 0;
+                padding: 0;
+                &--taxincluded {
+                  font-size: 16px;
+                }
+                &--postageincluded {
+                  font-size: 16px;
+                }
+              }
+            }
+            .goods--detail {
+              font-size: 18px;
+              margin-bottom: 30px;
+            }
+            .table {
+              margin-bottom: 20px;
+              &__body {
+                width: 100%;
+                border-spacing: 0;
+                &--box {
+                  width: 100%;
+                  &--line {
+                    &--headline {
+                      width: 20%;
+                      background-color: #eee;
+                      font-weight: 400;
+                      padding: 8px;
+                      border: 1px solid #dedede;
+                      font-size: 14px;
+                      text-align: center;
+                    }
+                    &--item {
+                      width: 61%;
+                      padding: 15px 15px;
+                      border: 1px solid #dedede;
+                      font-size: 14px;
+                      &--color {
+                        color: $main-color;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            .option-area {
+              display: flex;
+              justify-content: space-between;
+              &__left {
+                margin: 10px 0 0;
+                display: flex;
+                &--button {
+                  margin-right: auto;
+                  padding: 8px 10px;
+                  border: 1px solid #ffb340;
+                  color: $main-color;
+                  border-radius: 40px;
+                }
+              }
+              &__right {
+                margin: 10px 0 0;
+                &--button {
+                  font-size: 14px;
+                  .flag {
+                    padding: 6px 10px;
+                    display: inline-block;
+                    border-radius: 4px;
+                    color: #333;
+                    border: 1px solid #333;
+                    text-decoration: none;
+                  }
+                }
+              }
+            }
+          }
+          .commentbox {
+            padding: 24px;
+            background-color: $white;
+            margin: 10px 0;
+            text-align: center;
+            .comment {
+              padding: 10px;
+              width: 100%;
+              min-height: 104px;
+            }
+            .caution {
+              padding: 8px;
+              background-color: $background-gray;
+              margin: 10px 0;
+              text-align: left;
+            }
+            .btn {
+              line-height: 48px;
+              background-color: $main-color;
+              border: 1px solid $main-color;
+              color: $white;
+              width: 60%;
+              font-size: 18px;
+              border-radius: 100px;
+            }
+          }
+        }
+        .links {
+          list-style: none;
+          display: flex;
+          justify-content: space-between;
+          &__left {
+            &--link {
+              text-decoration: none;
+              color: $main-color;
+            }
+          }
+          &__right {
+            &--link {
+              text-decoration: none;
+              color: $main-color;
+            }
+          }
+        }
+        .more-item {
+          margin: 24px 0 8px;
+          &__link {
+            margin: 24px 0 8px;
+            color: $main-color;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 22px;
+            position: relative;
+          }
+        }
+      }
+    }
+  }
+}
