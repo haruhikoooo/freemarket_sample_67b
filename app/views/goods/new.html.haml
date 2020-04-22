@@ -15,7 +15,7 @@
         .header
           .header__top
             = link_to  root_path, class: "title-logo" do
-              = image_tag("https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg", alt: "title-logo", width: "140px")
+              = image_tag("logo/logo.png", alt: "FURIMA", width: "140")
         .contents1-all
           .contents1__1
             .contents1__2
@@ -208,5 +208,6 @@
             %li.footer-topcontents__3
               %a.tokutei{href: "/j.p/tokutei"} 特定商法に関する表記
         %a.footerrogo-bottom{href: "/jp/"}
-          %img.footer-mercarirogolast{alt: "Mercari", src: "https://web-jp-assets.mercdn.net/_next/static/images/logotype-gray-432385160bc60aa0002854fccdef2caf.svg", style: "width: 100%; height: 50px;"}/
+          = link_to  root_path, class: "title-logo" do
+            = image_tag("logo/logo-white.png", alt: "mercari", width: "140")
         %p.footer-bottom © Mercari, Inc.
