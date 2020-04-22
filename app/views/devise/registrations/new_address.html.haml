@@ -22,7 +22,7 @@
         = f.label :zipcode, class:"user_registration__main__form__contents__field__label"
         %span.user_registration__main__form__contents__field__require 必須
         %br/
-        = f.text_field :zipcode, placeholder: "", class:"user_registration__main__form__contents__field__input--one"
+        = f.text_field :zipcode, class:"user_registration__main__form__contents__field__input--one"
       .user_registration__main__form__contents__field
         = f.label :prefecture_id, class:"user_registration__main__form__contents__field__label"
         %span.user_registration__main__form__contents__field__require 必須
@@ -32,22 +32,22 @@
         = f.label :city, class:"user_registration__main__form__contents__field__label"
         %span.user_registration__main__form__contents__field__require 必須
         %br/
-        = f.text_field :city, placeholder: "", class:"user_registration__main__form__contents__field__input--one"
+        = f.text_field :city, class:"user_registration__main__form__contents__field__input--one"
       .user_registration__main__form__contents__field
         = f.label :house_number, class:"user_registration__main__form__contents__field__label"
         %span.user_registration__main__form__contents__field__require 必須
         %br/
-        = f.text_field :house_number, placeholder: "", class:"user_registration__main__form__contents__field__input--one"
+        = f.text_field :house_number, class:"user_registration__main__form__contents__field__input--one"
       .user_registration__main__form__contents__field
         = f.label :apartment_name, class:"user_registration__main__form__contents__field__label"
         %span.user_registration__main__form__contents__field__optional 任意
         %br/
-        = f.text_field :apartment_name, placeholder: "", class:"user_registration__main__form__contents__field__input--one"
+        = f.text_field :apartment_name, class:"user_registration__main__form__contents__field__input--one"
       .user_registration__main__form__contents__field
         = f.label :tel, class:"user_registration__main__form__contents__field__label"
         %span.user_registration__main__form__contents__field__optional 任意
         %br/
-        = f.text_field :tel, placeholder: "", class:"user_registration__main__form__contents__field__input--one"
+        = f.text_field :tel, class:"user_registration__main__form__contents__field__input--one"
       .user_registration__main__form__contents__submit
         = f.submit "登録する",class:"user_registration__main__form__contents__submit__btn"
 = render "devise/shared/footer"
