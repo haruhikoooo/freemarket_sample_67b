@@ -108,7 +108,12 @@
       .pulldown-list#bland
         = link_to "ブランド", "#", class: "pulldown-list__link"
     .header__bottom-contents--right
-      = link_to new_user_session_path, class: "user-box" do
-        ログイン
-      = link_to new_user_registration_path, class: "user-box" do
-        新規会員登録
+      - if user_signed_in?
+        = link_to destroy_user_session_path, method: :delete, class: "user-box" do
+          ログアウト
+      - else
+        = link_to new_user_session_path, class: "user-box" do
+          ログイン
+        = link_to new_user_registration_path, class: "user-box" do
+          新規会員登録
+      
