@@ -1,9 +1,63 @@
-.all
-  .header-mercari
-    .h1
-      = link_to  root_path, class: "title-logo" do
-        = image_tag("https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg", alt: "title-logo", width: "140px")
-  .main-all
-    .main-all-next
-    
-            
+.allall
+  .allall__mini
+    .header-furima
+      .h1
+        = link_to  root_path, class: "title-logo" do
+          = image_tag("logo/logo.png", alt: "FURIMA", width: "140")
+  .bigbigall
+    .bigbigall__in
+      .bigbigall__in--first 購入内容の確認
+      .big-second
+        .big-second__in
+          .big-second__in--in
+            .big-second__in--in--leftbox
+              = link_to root_path, class: "#" do
+                = image_tag("https://static.mercdn.net/thumb/photos/m30294423968_1.jpg?1582860480" , width: "60px;")
+            .big-second__in-in--rightbox
+              %p.big-second__in--in--rightbox-top  ヴィトン 20××年製 美品！ 長財布
+              %p.big-second__in--in--rightbox-bottom
+                %span ¥50,000
+                %span{"class": ".big-second__in-in--rightbox-bottom-right"}（税込）送料込み
+      %section.bigbigcontents
+        .bigbigcontents__in
+          %form
+            %ul.big-third
+              %li.big-third__in
+                .big-third__in--left  支払い金額
+                .big-third__in--right
+                  %span{data: '50,000'}¥50,000
+            %ul.buyPointbox
+              %li.buyPointbox__in
+                .buyPointbox__inin
+                  %i.fas.fa-check-square
+                  %i.iconicon 
+                  %label ポイントを使用 (所持ポイント: P0)
+            %section.pay-method{data: 'pay-method'}
+              .pay-method__in
+                %h3{style: "font-weight: bold; "} 支払い方法
+                %a.pay-method__in--link{href: 'https://www.mercari.com/jp/transaction/card/m30294423968/' }
+                  %p.pay-method__in--infotext
+                    %i.fas.fa-plus-circle
+                    %span.pay-method-in__register 登録してください
+            %section.userInfo
+              .userInfo__in
+                .userInfo__in--top
+                  %h3.userInfo__in--top-left 配送先
+                  %a{ href: 'https://www.mercari.com/jp/transaction/address/m30294423968/' }
+                    %span.userInfo__in--top-right 変更する
+                %address.userInfo__in--address 
+                  %p 
+                  〒000-1111
+                  %br 
+                  愛知県名古屋市○○区○×町△△町目  
+                  %br 
+                  買物太郎
+                %section.buybuycontents
+                  %button{class: "buybuycontents__btn", type: "submit"}購入する
+                  %input#abc{:type => "hidden"}/
+  .footerall
+    .footerall__in
+      %a.footerrogo-bottom{href: "/jp/"}
+        = link_to  root_path, class: "title-logo" do
+          = image_tag("logo/logo-white.png", alt: "FURIMA", width: "140")
+      %p.footer-bottom © FURIMA

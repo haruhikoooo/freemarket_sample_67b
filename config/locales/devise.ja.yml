@@ -6,16 +6,12 @@ ja:
         email: メールアドレス
         password: パスワード
         name: お名前（全角）
+        family_name: 名字
+        first_name: 名前
         furigana: お名前カナ(全角) 
-        birth_day: 生年月日 
-        destination_name: 送付先氏名（全角）
-        destination_furigana: 送付先氏名カナ（全角）
-        zipcode: 郵便番号
-        prefecture: 都道府県
-        city: 市区町村
-        house_number: 番地
-        apartment_name: マンション名
-        tel: 電話
+        furigana_family: カナ（名字）
+        furigana_first: カナ（名前）
+        birthday: 生年月日 
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
         confirmed_at: パスワード確認時刻
@@ -37,8 +33,65 @@ ja:
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
+      address:
+        destination_name: 送付先氏名（全角）
+        destination_family_name: 送付先氏名（名字）
+        destination_first_name: 送付先氏名（名前）
+        destination_furigana: 送付先氏名カナ（全角）
+        destination_furigana_family: 送付先氏名カナ（名字）
+        destination_furigana_first: 送付先氏名カナ（名前）
+        zipcode: 郵便番号
+        prefecture_id: 都道府県
+        city: 市区町村
+        house_number: 番地
+        apartment_name: マンション名
+        tel: 電話
     models:
       user: ユーザ
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              blank: を入力してください
+            email:
+              blank: を入力してください
+              taken: 既に登録されています
+            password:
+              blank: を入力してください
+              too_short: 7文字以上にしてください
+            family_name:
+              blank: を入力してください
+              invalid: 全角で入力してください
+            first_name:
+              blank: を入力してください
+              invalid: 全角で入力してください
+            furigana_family:
+              blank: を入力してください
+              invalid: 全角で入力してください
+            furigana_first:
+              blank: を入力してください
+              invalid: 全角で入力してください
+            birthday:
+              blank: を入力してください
+        address:
+          attributes:
+            destination_family_name:
+              blank: を入力してください
+            destination_first_name:
+              blank: を入力してください
+            destination_furigana_family:
+              blank: を入力してください
+            destination_furigana_first:
+              blank: を入力してください
+            zipcode:
+              blank: を入力してください
+            prefecture_id:
+              blank: を入力してください
+            city:
+              blank: を入力してください
+            house_number:
+              blank: を入力してください
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。

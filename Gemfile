@@ -82,3 +82,8 @@ gem 'mini_magick'
 gem 'fog-aws'
 gem "listen"
 gem 'devise'
+gem 'active_hash'
+gem 'pry-rails'
+gem 'rspec-rails'
+gem 'factory_bot_rails'
+gem 'rails-i18n', '~> 5.1' 
