@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
-  
+
   devise_scope :user do
     get 'users/address' => 'users/registrations#new_address'
     post 'users/address' => 'users/registrations#create_address'
