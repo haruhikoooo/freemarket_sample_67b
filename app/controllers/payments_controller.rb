@@ -7,10 +7,10 @@ class PaymentsController < ApplicationController
   end
 
   def create
-    redirect_to payments_path
+    redirect_to user_payments_path(current_user)
   end
 
   def destroy
-    redirect_to payments_path
+    redirect_to user_payments_path(current_user)
   end
 end

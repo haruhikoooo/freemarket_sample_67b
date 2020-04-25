@@ -13,11 +13,10 @@ Rails.application.routes.draw do
   root 'goods#index'
 
   resources :goods, only: [:index, :new, :show]
-  resources :users, only: [:index]
-
-  # おそらくusersの中にネストすることになる
-  resources :payments, only: [:index, :new, :create, :destroy]
-
+  resources :users, only: [:show] do
+    resources :payments, only: [:index, :new, :create, :destroy]
+  end
+  
 end
 
 

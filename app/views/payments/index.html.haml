@@ -3,7 +3,7 @@
   = render "layouts/side-bar"
   .mypage__contents
     .mypage__contents--top
-      user さんのマイページ
+      #{current_user.nickname} さんのマイページ
     .mypage__contents--main
       .mypage__contents--main__title
         クレジットカード
@@ -18,7 +18,7 @@
         -# .credit-box__item
         -#   = link_to "削除する", "#", class: "credit-box__item--delete"
 
-        = link_to new_payment_path, class: "credit-box__add-btn" do
+        = link_to new_user_payment_path, class: "credit-box__add-btn" do
           = icon('far', 'credit-card')
           クレジットカードを追加する
 
