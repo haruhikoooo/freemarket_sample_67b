@@ -11,8 +11,11 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'goods#index'
-
+  get 'goods/category', to: 'goods#category_index'
   resources :goods, only: [:index, :new, :show]
+
+  
+
 end
 
 
