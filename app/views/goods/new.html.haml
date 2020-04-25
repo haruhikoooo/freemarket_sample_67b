@@ -10,12 +10,12 @@
       "
       %iframe{height: "0", src: "https://www.googletagmanager.com/ns.html?id=GTM-KLPT5L5", style: "display:none;visibility:hidden", title: "googletagmanager", width: "0"}>
       "
-    #all
+    .all
       .all-contents
         .simple-header
           .simple-header__top
             = link_to  root_path, class: "title-logo" do
-              = image_tag("logo/logo.png", alt: "title-logo", width: "180px")
+              = image_tag("logo/logo.png", alt: "FURIMA", width: "140")
         .contents1-all
           .contents1__1
             .contents1__2
@@ -200,13 +200,7 @@
               に同意したことになります。
       .footer-all
         .footer-top
-          %ul.footer-topcontents
-            %li.footer-topcontents__1
-              %a.privacy{href: "/j.p/privacy/"} プライバシーポリシー
-            %li.footer-topcontents__2
-              %a.mercari{href: "/j.p/tos/"} メルカリ利用規約
-            %li.footer-topcontents__3
-              %a.tokutei{href: "/j.p/tokutei"} 特定商法に関する表記
         %a.footerrogo-bottom{href: "/jp/"}
-          %img.footer-mercarirogolast{alt: "Mercari", src: "https://web-jp-assets.mercdn.net/_next/static/images/logotype-gray-432385160bc60aa0002854fccdef2caf.svg", style: "width: 100%; height: 50px;"}/
-        %p.footer-bottom © Mercari, Inc.
+          = link_to  root_path, class: "title-logo" do
+            = image_tag("logo/logo-white.png", alt: "FURIMA", width: "140")
+        %p.footer-bottom © FURIMA
