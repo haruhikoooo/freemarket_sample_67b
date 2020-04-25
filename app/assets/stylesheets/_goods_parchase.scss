@@ -62,15 +62,15 @@
       .bigbigcontents {
         padding: 32px 16px;
         border-top: 1px solid #f5f5f5;;
-        .bigbigcontents__in {
+        &__in {
           max-width: 343px;
           margin: 0 auto;
           .big-third__in {
             display: flex;
-            .big-third__in--left {
+            &--left {
               font-weight: bold;
             }
-            .big-third__in--right {
+            &--right {
               margin-left: 160px;
               font-weight: bold;
               font-size: 20px;
@@ -83,17 +83,17 @@
           .pay-method {
             border-top: 1px solid #f5f5f5;
             padding: 32px 0;
-            .pay-method__in {
+            &__in {
               max-width: 343px;
               margin: 0 auto;
-              .pay-method__in--link {
+              &--link {
                 color: #0099e8;
                 text-decoration: none;
               }
-              .pay-method__in--link:hover {
+              &--link:hover {
                 text-decoration: underline;
               }
-                .pay-method__in--infotext {
+                &--infotext {
                   text-align: left;
                   margin: 8px 0 0;
                   font-size: 14px;
@@ -139,7 +139,6 @@
         }
       }
   }
-
   .footerall {
     padding-top: 60px;
     text-align: center;
