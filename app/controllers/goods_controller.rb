@@ -1,4 +1,5 @@
 class GoodsController < ApplicationController
+  before_action :category_index
 
   def index
 
