@@ -1,4 +1,5 @@
 @import "reset";
+@import "mixin/clearfix";
 @import "error_messages";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
@@ -10,3 +11,4 @@
 @import "goods_new";
 @import "modules/user";
 @import "modules/goods_show";
+@import "modules/category_index";
