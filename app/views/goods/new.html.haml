@@ -11,32 +11,25 @@
       %iframe{height: "0", src: "https://www.googletagmanager.com/ns.html?id=GTM-KLPT5L5", style: "display:none;visibility:hidden", title: "googletagmanager", width: "0"}>
       "
     .all
-      .all-contents
+      .all__contents
         .header
-          .header__top
+          .header__inner
             = link_to  root_path, class: "title-logo" do
               = image_tag("logo/logo.png", alt: "FURIMA", width: "140")
-        .contents1-all
-          .contents1__1
-            .contents1__2
-              %div{name: "contents1__photos"}
-              .goodspicblock
-                %label.goodspicblock__1 出品画像
-                %span.goodspicblock__2 必須
-            %p.saidai
+        .contents1all
+          .contents1all__inner
+            .contents1top
+              %label.contents1top__left 出品画像
+              %span.contents1top__right 必須
+            %p.contents1center
               最大10枚までアップロードできます
-              / 
-            .camerablock
-              .camerablock__inner{"data-test": "sell-upload-container"}
-                .camerablock__contents-ex{tabindex: "0"}
-                  .camerablock__contents-in
-                    %input.faile{accept: "image/png,image/jpeg", autocomplete: "off", multiple: "multiple", style: "display:none", tabindex: "-1", type: "file"}/
-                    %svg.camerablock__path{"aria-hidden": "true", fill: "#222222", "fill-rule": "evenodd", height: "24", viewbox: "0 0 24 24", width: "24"}
-                      %path{d: "M19.3,5H16.73l-.8-1.61A.7.7,0,0,0,15.3,3H8.7a.7.7,0,0,0-.63.39L7.27,5H4.7A2.7,2.7,0,0,0,2,7.7V18.3A2.7,2.7,0,0,0,4.7,21H19.3A2.7,2.7,0,0,0,22,18.3V7.7A2.7,2.7,0,0,0,19.3,5ZM12,17.3A4.3,4.3,0,1,1,16.3,13,4.31,4.31,0,0,1,12,17.3Z"}
-                    %p.camerablock__comments
-                      ドラッグアンドドロップ
-                      %br/
-                      またはクリックしてファイルをアップロード
+            .camera
+              %svg.camera__path{"aria-hidden": "true", fill: "#222222", "fill-rule": "evenodd", height: "24", viewbox: "0 0 24 24", width: "24"}
+                %path{d: "M19.3,5H16.73l-.8-1.61A.7.7,0,0,0,15.3,3H8.7a.7.7,0,0,0-.63.39L7.27,5H4.7A2.7,2.7,0,0,0,2,7.7V18.3A2.7,2.7,0,0,0,4.7,21H19.3A2.7,2.7,0,0,0,22,18.3V7.7A2.7,2.7,0,0,0,19.3,5ZM12,17.3A4.3,4.3,0,1,1,16.3,13,4.31,4.31,0,0,1,12,17.3Z"}
+              %p.camera__comments
+                ドラッグアンドドロップ
+                %br/
+                またはクリックしてファイルをアップロード
         %hr.line/
         .contents2-all
           .contents2
@@ -184,6 +177,7 @@
                 %span.sales-profit__2line{"data-test": "total-value"} -
             .exhibition-all
               %button.exhibition-red-btn{tabindex: "0", type: "submit"} 出品する
+              = link_to "1/parchase"
               %button.exhibition-save-btn{tabindex: "0", type: "submit"} 下書きに保存
               %a.back-btn{href:"/jp/"} もどる
             %p.precautions
