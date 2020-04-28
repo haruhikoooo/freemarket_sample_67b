@@ -1,5 +1,5 @@
 .goods-list{
-  background-color: #f8f8f8;
+  background-color: $background-gray;
   font-family: $main-font;
   &__title{
     width: 100vw;
@@ -55,31 +55,5 @@
         opacity: 0.5;
       }
     }
-  }
-}
-
-.exhibition-box{
-  display: block;
-  background-color: $main-color;
-  width: 120px;
-  height: 120px;
-  border-radius: 5px;
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  &__text{
-    color: $white;
-    font-size: 18px;
-    margin: 0 auto 5px;
-  }
-  &__image{
-    width: 55px;
-  }
-  &:hover{
-    opacity: 0.9;
   }
 }

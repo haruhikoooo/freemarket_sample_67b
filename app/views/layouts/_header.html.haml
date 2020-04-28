@@ -109,7 +109,9 @@
         = link_to "ブランド", "#", class: "pulldown-list__link"
     .header__bottom-contents--right
       - if user_signed_in?
-        = link_to destroy_user_session_path, method: :delete, class: "user-box" do
+        = link_to user_path(current_user), class: "user-box" do
+          マイページ
+        = link_to users_logout_path, class: "user-box" do
           ログアウト
       - else
         = link_to new_user_session_path, class: "user-box" do
