@@ -37,7 +37,7 @@ describe Address do
     end
 
     # 6. zipcodeが空では登録できないこと
-    it "is invalid without a prefecture_id" do
+    it "is invalid without a zipcode" do
       address = build(:address, zipcode: nil)
       address.valid?
       expect(address.errors[:zipcode]).to include(I18n.t('errors.messages.blank'))
@@ -58,7 +58,7 @@ describe Address do
     end
 
     # 9. house_numberが空では登録できないこと
-    it "is invalid without a furigana_first" do
+    it "is invalid without a house_number" do
       address = build(:address, house_number: nil)
       address.valid?
       expect(address.errors[:house_number]).to include(I18n.t('errors.messages.blank'))
