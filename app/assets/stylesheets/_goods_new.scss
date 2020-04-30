@@ -190,36 +190,28 @@
         text-align: start;
     }
     .contents3-categoryid-in{
-        font-size: 14px;
-        font-weight: 600;
-        line-height: 1.4em;
-        height: 45px;
-        width: 545px;
-        align-items: center;
-        display: flex;
-        padding: 0 56 0 16px;
-        border: 1 1px;
-        }
-        .contents3-category-redbtn {
-        font-size: 12px;
-        padding: 0 4px;
-        background-color: #ff0211;
-        color: #fff;
-        border-radius: 2px;
-        display: inline-block;
-        font-style: normal;
-        font-weight: 600;
-        line-height: 1.4em;
-        margin-left: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.4em;
+      height: 45px;
+      width: 545px;
+      align-items: center;
+      display: flex;
+      padding: 0 56 0 16px;
+      border: 1 1px;
+      .contents3-category-redbtn {
+      font-size: 12px;
+      padding: 0 4px;
+      background-color: #ff0211;
+      color: #fff;
+      border-radius: 2px;
+      display: inline-block;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 1.4em;
+      margin-left: 8px;
       }
-        .contents3-choice-a {
-        height: 48px;
-        line-height: 1;
-        margin: 0;
-        outline: none;
-        padding: 0 56px 0 16px;
-        width: 100%;
-      }
+    }
     .line-line {
       border-top-color: #efefef;
       border-left: 0 solid #efefef;
@@ -275,101 +267,96 @@
       padding-left: 40px;
       width: 620px;
       height: 361px;
-    }
-    .four__delivery {
-      color: rgb(136, 136, 136);
-      font-size: 14px;
-      font-weight: 600;
-      line-height: 1.4em;
-      margin-bottom: 24px;
-      background-color: white;
-      text-align: start;
-      }
-      .four-delivery__1 {
-      fill: rgb(0, 149, 238);
-      height: 16px;
-      margin-left: 4px;
-      vertical-align: -3px;
-      width: 16px;
-      }
-      .four-delivery-charge-box {
-        margin-top: 15px;
-        margin-bottom: 10px;
-        align-items: center;
-        display: flex;
-        margin-left: 8px;
-        font-size: 12px;
-        padding: 0 4px;
+      .delivery-fee {
+        color: rgb(136, 136, 136);
         font-size: 14px;
         font-weight: 600;
         line-height: 1.4em;
-      .four-delivery-charge-box-1 {
-        margin-left: 8px;
-        font-size: 12px;
-        padding: 0 4px;
-        background-color: #ff0211;
-        color: #fff;
-        border-radius: 2px;
-        display: inline-block;
-        font-style: normal;
-        font-weight: 600;
-        line-height: 1.4em;
-        margin: 0;
-        margin-left: 6px;
-      }
-    }
-      .area-box__1 {
-        font-size: 14px;
-        font-weight: 600;
-        line-height: 1.4em;
-        margin-top: 15px;
-        margin-bottom: 10px;
-      .area-box__2 {
-        margin-left: 8px;
-        font-size: 12px;
-        padding: 0 4px;
-        background-color: #ff0211;
-        color: #fff;
-        border-radius: 2px;
-        display: inline-block;
-        font-style: normal;
-        font-weight: 600;
-        line-height: 1.4em;
-        margin: 0;
-      }
-    }
-      .four-shipping-days {
-        margin-top: 15px;
-    }
-      .four-shipping-days-box {
-        font-size: 14px;
-        font-weight: 600;
-        line-height: 1.4em;
-        margin-top: 15px;
-        margin-bottom: 10px;
-        width: 360px;
-        height: 5px;
-        margin-bottom: 32px;
-        margin-right: 130px;
-        .four-shipping-days-box__1{
-        margin-left: 8px;
-        font-size: 12px;
-        padding: 0 4px;
-        background-color: #ff0211;
-        color: #fff;
-        border-radius: 2px;
-        display: inline-block;
-        font-style: normal;
-        font-weight: 600;
-        line-height: 1.4em;
-        margin: 0;
+        margin-bottom: 24px;
+        background-color: white;
+        text-align: start;
+      
+        .four-delivery__1 {
+          fill: rgb(0, 149, 238);
+          height: 16px;
+          margin-left: 4px;
+          vertical-align: -3px;
+          width: 16px;
         }
-    }
-      .four-shipping-days-choice {
-        text-decoration: none;
-        word-break: keep-all;
-        width: 360px;
-        height: 20px;
+      }
+        .four-delivery-charge-box {
+          margin-top: 15px;
+          margin-bottom: 10px;
+          align-items: center;
+          font-size: 12px;
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 1.4em;
+          .four-delivery-charge-box-1 {
+            font-size: 12px;
+            background-color: #ff0211;
+            color: #fff;
+            border-radius: 2px;
+            display: inline-block;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 1.4em;
+            margin: 0;
+            margin-left: 6px;
+          }
+        }
+        .area-box__1 {
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 1.4em;
+          margin-top: 15px;
+          margin-bottom: 10px;
+        .area-box__2 {
+          margin-left: 8px;
+          font-size: 12px;
+          padding: 0 4px;
+          background-color: #ff0211;
+          color: #fff;
+          border-radius: 2px;
+          display: inline-block;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 1.4em;
+          margin: 0;
+        }
+      }
+        .four-shipping-days {
+          margin-top: 15px;
+      }
+        .four-shipping-days-box {
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 1.4em;
+          margin-top: 15px;
+          margin-bottom: 10px;
+          width: 360px;
+          height: 5px;
+          margin-bottom: 32px;
+          margin-right: 130px;
+          .four-shipping-days-box__1{
+          margin-left: 8px;
+          font-size: 12px;
+          padding: 0 4px;
+          background-color: #ff0211;
+          color: #fff;
+          border-radius: 2px;
+          display: inline-block;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 1.4em;
+          margin: 0;
+          }
+      }
+        .four-shipping-days-choice {
+          text-decoration: none;
+          word-break: keep-all;
+          width: 360px;
+          height: 20px;
     }
     .fiveline {
       border-top-color: #efefef;
@@ -388,7 +375,7 @@
       padding-bottom: 20px;
       padding-left: 40px;
     }
-    .five-price-box {
+    .five-pricebox {
       text-align: start;
       color: rgb(136, 136, 136);
       font-size: 14px;
@@ -402,16 +389,15 @@
         margin-left: 4px;
         vertical-align: -3px;
         width: 16px;
-    }
+      }
       .pricebox-all {
         display: flex;
-        margin-top: 10px;
         justify-content: space-between;
-    }
+      }
       .price {
         width: 135px;
         height: 20px;
-    }
+      }
       .price__1 {
         font-size: 14px;
         font-weight: 600;
