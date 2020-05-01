@@ -69,19 +69,20 @@
         align-items: center;
         background-color: rgb(245, 245, 245);
         cursor: pointer;
-        display: flex;
-        flex-wrap: wrap;
-        -webkit-box-pack: center;
-        justify-content: center;
-        position: relative;
-        border-width: 1px;
-        border-style: dashed;
-        border-color: rgb(204, 204, 204);
-        border-image: initial;
-        transition: all 0.5s ease-out 0s;
-        &__comments {
-          text-align: center;
-          width: 100%;
+          display: flex;
+          flex-wrap: wrap;
+          -webkit-box-pack: center;
+          justify-content: center;
+          position: relative;
+          border-width: 1px;
+          border-style: dashed;
+          border-color: rgb(204, 204, 204);
+          border-image: initial;
+          transition: all 0.5s ease-out 0s;
+          &__comments {
+            text-align: center;
+            width: 100%;
+          }
         }
       }
     }
@@ -288,7 +289,6 @@
           margin-top: 15px;
           margin-bottom: 10px;
           align-items: center;
-          font-size: 12px;
           font-size: 14px;
           font-weight: 600;
           line-height: 1.4em;
