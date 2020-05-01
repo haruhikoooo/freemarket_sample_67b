@@ -1,0 +1,16 @@
+= link_to good_path(good.id), class: "goods-content" do
+  .goods-content__image
+    = image_tag good.images.first.image , alt: "sample_01", class: "goods-content__image--url"
+  .goods-content__box
+    .goods-content__box--left
+      .goods-content__box--left--top
+        = good.name
+      .goods-content__box--left--center
+        = good.price
+        円
+      .goods-content__box--left--bottom
+        (税込)
+    .goods-content__box--right
+      = icon('fas', 'star', class: "goods-content__box--right--icon")
+      %span.goods-content__box--right--number
+        0
