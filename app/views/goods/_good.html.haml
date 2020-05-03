@@ -1,6 +1,9 @@
 = link_to good_path(good.id), class: "goods-content" do
   .goods-content__image
     = image_tag get_thumbnail(good), alt: "sample_01", class: "goods-content__image--url"
+    - if good.transaction_status_id != 1
+      .goods-content__image--sold
+        sold
   .goods-content__box
     .goods-content__box--left
       .goods-content__box--left--top

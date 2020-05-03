@@ -20,6 +20,7 @@
     margin: 0 auto;
     display: flex;
     padding-bottom: 60px;
+    flex-wrap: wrap;
     .goods-content{
       background-color: $white;
       display: block;
@@ -31,10 +32,22 @@
         overflow: hidden;
         display: flex;
         align-items: center;
+        position: relative;
         &--url{
           object-fit: cover;
           width: 100%;
           height: 100%;
+        }
+        &--sold{
+          background-color: $main-color;
+          color: $white;
+          font-size: 12px;
+          transform: rotate(-45deg);
+          position: absolute;
+          bottom: 12px;
+          right: -27px;
+          width: 100px;
+          text-align: center;
         }
       }
       &__box{
