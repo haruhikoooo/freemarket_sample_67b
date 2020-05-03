@@ -13,10 +13,11 @@ Rails.application.routes.draw do
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'goods#index'
+  root 'goods#toppage'
 
   resources :goods, only: [:index, :new, :show] do
     get 'parchase' => 'goods#parchase'
+    get 'toppage' => 'goods#toppage'
   end
   
   resources :users, only: [:show] do
