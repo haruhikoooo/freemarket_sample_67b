@@ -24,6 +24,6 @@ class GoodsController < ApplicationController
   private
   
   def good_params
-    params.require(:good).permit(name, images_attributes: [:image])
+    params.require(:good).permit(:name, images_attributes: [:image])
   end
 end
