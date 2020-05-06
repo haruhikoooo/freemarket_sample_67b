@@ -59,12 +59,15 @@ $(function(){
       }, 400)
     }
   })
-    const buildFileField = (num)=> {
-      const html = `<div data-index="${num}" class="js-file_group">
-                      <input class="js-file" type="file"
-                      name="product[images_attributes][${num}][src]"
-                      id="product_images_attributes_${num}_src"><br>
-                      <div class="js-remove">削除</div>
+    const buildFileField = (index)=> {
+      const html = `<div data-index="${index}" class="js-file_group">
+                      <label>
+                        <input class="js-file" type="file"
+                        name="good[images_attributes][${index}][src]"
+                        id="good_images_attributes_${index}_src"
+                        style="display:none">
+                        <i class="fas fa-camera fa-2x"></i>
+                      </label>
                     </div>`;
       return html;
     }
@@ -82,26 +85,23 @@ $(function(){
   
     $('.hidden-destroy').hide();
   
-    $(document).on('change', '.test', function(e) {
-      const targetIndex = $(this).parent().data('index');
+    $("#image-box").on('change', '.js-file', function(e) {
+      const targetIndex = $(this).parents('.js-file_group').data('index');
       // ファイルのブラウザ上でのURLを取得する
       const file = e.target.files[0];
       const blobUrl = window.URL.createObjectURL(file);
-  
-      // 該当indexを持つimgがあれば取得して変数imgに入れる(画像変更の処理)
-      if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
-        img.setAttribute('src', blobUrl);
-      } else {  // 新規画像追加の処理
-        $('.camera').append(buildImg(targetIndex, blobUrl));
-        // fileIndexの先頭の数字を使ってinputを作る
-        $('.camera').append(buildFileField(fileIndex[0]));
-        fileIndex.shift();
-        // 末尾の数に1足した数を追加する
-        fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
-      }
+
+      $(this).parents('.js-file_group').addClass("none")
+      $('#image-box').append(buildImg(targetIndex, blobUrl));
+      // fileIndexの先頭の数字を使ってinputを作る
+      $('#image-box').append(buildFileField(fileIndex[0]));
+      fileIndex.shift();
+      // 末尾の数に1足した数を追加する
+      fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
+    
     });
   
-    $('.camera').on('click', '.js-remove', function() {
+    $('#image-box').on('click', '.js-remove', function() {
       const targetIndex = $(this).parent().data('index');
       // 該当indexを振られているチェックボックスを取得する
       const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);

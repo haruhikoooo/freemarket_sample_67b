@@ -13,17 +13,17 @@
           %p.contents1center
             最大10枚までアップロードできます
           .camera
-            .item-num-0#image-box__container
-              = f.fields_for :images do |i|
-                .input-area
-                  = i.label :image, for: 'img-file' do
-                    = i.file_field :image, type: 'file', name: "good[images_attributes][][image]", value:"", style: "display:none", id:"img-file", class:"test"
+            #image-box
+              = f.fields_for :images do |image|
+                .js-file_group{data: {index: image.index}}
+                  %label
+                    = image.file_field :image, style: "display:none", class: "js-file"
                     %i.fas.fa-camera.fa-2x
-                  -# %p.camera__comments
-                  -#   %br/
-                  -#   ドラッグアンドドロップ
-                  -#   %br/ 
-                  -#   またはクリックしてファイルをアップロード
+                    %p.camera__comments
+                      %br/
+                      ドラッグアンドドロップ
+                      %br/ 
+                      またはクリックしてファイルをアップロード
       .contents2-all
         .contents2
           .contents2__productsname-a
