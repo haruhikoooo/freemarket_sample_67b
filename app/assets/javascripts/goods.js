@@ -62,8 +62,8 @@ $(function(){
     const buildFileField = (num)=> {
       const html = `<div data-index="${num}" class="js-file_group">
                       <input class="js-file" type="file"
-                      name="product[images_attributes][${num}][src]"
-                      id="product_images_attributes_${num}_src"><br>
+                      name="good[images_attributes][${num}][src]"
+                      id="good_images_attributes_${num}_src"><br>
                       <div class="js-remove">削除</div>
                     </div>`;
       return html;
@@ -92,7 +92,7 @@ $(function(){
       if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
         img.setAttribute('src', blobUrl);
       } else {  // 新規画像追加の処理
-        $('.camera').append(buildImg(targetIndex, blobUrl));
+        $('.input-area').append(buildImg(targetIndex, blobUrl));
         // fileIndexの先頭の数字を使ってinputを作る
         $('.camera').append(buildFileField(fileIndex[0]));
         fileIndex.shift();

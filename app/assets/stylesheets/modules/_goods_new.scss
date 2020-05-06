@@ -1,4 +1,3 @@
-@charset "utf-8";
 * {
   margin:0;
   padding:0;
@@ -79,9 +78,16 @@
         border-color: rgb(204, 204, 204);
         border-image: initial;
         transition: all 0.5s ease-out 0s;
+        font-size: small;
         &__comments {
           text-align: center;
           width: 100%;
+        }
+        .input-area {
+          position: relative;
+          .fa-2x {
+            margin: 0 auto;
+          }
         }
       }
     }
@@ -151,7 +157,7 @@
         padding: 13px 16px;
         resize: vertical;
         vertical-align: middle;
-    }
+      }
       .thousand {
         text-align: right;
         color: #888;
@@ -159,7 +165,7 @@
         line-height: 1.4em;
         font-size: 4px;
         margin-top: 16px;
-    }
+      }
     .contents3-line {
       border-top-color: #efefef;
       border-left: 0 solid #efefef;
@@ -188,8 +194,8 @@
         margin-inline-start: 0px;
         margin-inline-end: 0px;
         text-align: start;
-    }
-    .contents3-categoryid-in{
+      }
+      .contents3-categoryid-in{
         font-size: 14px;
         font-weight: 600;
         line-height: 1.4em;
@@ -199,8 +205,8 @@
         display: flex;
         padding: 0 56 0 16px;
         border: 1 1px;
-        }
-        .contents3-category-redbtn {
+      }
+      .contents3-category-redbtn {
         font-size: 12px;
         padding: 0 4px;
         background-color: #ff0211;
@@ -212,7 +218,7 @@
         line-height: 1.4em;
         margin-left: 8px;
       }
-        .contents3-choice-a {
+      .contents3-choice-a {
         height: 48px;
         line-height: 1;
         margin: 0;
@@ -337,6 +343,10 @@
         line-height: 1.4em;
         margin: 0;
       }
+    }
+    .form-control {
+      width: 620px;
+      height: 30px;
     }
       .four-shipping-days {
         margin-top: 15px;
@@ -472,18 +482,11 @@
         }
         .exhibition-save-btn {
           background-color: #ccc;
-          border-color: transparent;
-          color: #222;
-          margin-bottom: 24px;
-          width: 100%;
           font-size: 17px;
           min-height: 48px;
           padding: 0 24px;
           width: 310px;
-          height: 45px;
-          padding: 0, 24px;
           border: 1px;
-          margin-bottom: 24px;
           display: inline-block;
         }
         .back-btn {
@@ -551,8 +554,8 @@
       text-align: center;
     }
     .footer-top {
-    width: 100%;
-    margin-top: 30px;
+      width: 100%;
+      margin-top: 30px;
     }
     .footer-topcontents {
       padding-top: 30px;
