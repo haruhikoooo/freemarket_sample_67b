@@ -53,7 +53,9 @@
                   %br 
                   買物太郎
                 %section.buybuycontents
-                  %button{class: "buybuycontents__btn", type: "submit"}購入する
+                - if user_signed_in?
+                  = link_to  "購入する", "#", class: "buybuycontents__btn", type: "submit" 
+
   .footerall
     .footerall__in
       %a.footerrogo-bottom{href: "/jp/"}
