@@ -41,11 +41,12 @@
                 .description-a
                   %label 商品の説明
                   %span.description-b 必須
-              %textarea.contents2-description-example{name: "description", placeholder: "商品の説明（必須 1,000文字以内）\n  （色、素材、重さ、定価、注意点など）\n\n  例）2010年頃に1万円で購入したジャケットです。ライトグレー\n  で傷はありません。あわせやすいのでおすすめです。  ", rows: "7"}
+              .cnt_area
+              %textarea.contents2-description-example{name: "description", class:"sample", placeholder: "商品の説明（必須 1,000文字以内）\n  （色、素材、重さ、定価、注意点など）\n\n  例）2010年頃に1万円で購入したジャケットです。ライトグレー\n  で傷はありません。あわせやすいのでおすすめです。  ", rows: "7"}
               .thousand
-                %span 0
-                \/
-                / 
+                %span.now_cnt 0
+                \/ 
+                /
                 1000
         %hr.contents3-line/
         .contents3-all
@@ -81,11 +82,7 @@
                   %span.threebottom-goods-status__2 必須
               .threebottom1__box1
                 .threebottom1__box2
-                  %select{name: "threebottom1__box3", style: "width:600px; height:30px;"}
-                    %option{"aria-selected": "true", label: "選択してください", selected: "selected", value: ""}
-                      選択してください
-                      %svg{"aria-hidden": "true", fill: "#888888", height: "24", viewbox: "0 0 24 24", width: "24"}
-                        %path{:d => "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+                  = f.collection_select :condition_id, Condition.all, :id, :name, {prompt: "選択して下さい"}, {class: 'form-control'}
         %hr.line-line/
         .four-all
           %p.four-delivery
@@ -103,12 +100,7 @@
                   %span.four-delivery-charge-box-1 必須
               .four-choice
                 .four-choice__1
-                  %select{name: "four-choice__2", style: "width: 620px; height: 30px;"}
-                    %option{"aria-selected": "true", label: "選択してください", selected: "selected", value: ""} 選択してください
-                    %option{"aria-selected": "false", label: "送料込み(出品者負担)", value: "2"} 送料込み(出品者負担)
-                    %option{"aria-selected": "false", label: "着払い(購入者負担)", value: "1"} 着払い(購入者負担)
-                    %svg{"aria-hidden": "true", fill: "#888888", "fill-rule": "evenodd", height: "24", viewbox: "0 0 24 24", width: "24"}
-                      %path{d: "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+                  = f.collection_select :derivery_cost_id, DeriveryCost.all, :id, :name, {prompt: "選択して下さい"}, {class: 'form-control'}
           .four-area
             .four-area-in
               %div{name: "area-box"}
@@ -126,10 +118,7 @@
                   %span.four-shipping-days-box__1 必須
               .four-shipping-days-choice
                 .four-shipping-days-choice__1
-                  %select{name: "four-shipping-days-choice__2", style: "width: 620px; height: 30px;"}
-                    %option{"aria-selected": "true", label: "選択してください", selected: "selected", value: ""} 選択してください
-                    %svg{"aria-hidden": "true", fill: "#888888", "fill-rule": "evenodd", height: "24", viewbox: "0 0 24 24", width: "24"}
-                      %path{d: "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+                  = f.collection_select :derivery_day_id, DeriveryDay.all, :id, :name, {prompt: "選択して下さい"}, {class: 'form-control'}
         %hr.fiveline/
         .fivebox-all
           %p.five-pricebox
@@ -155,7 +144,7 @@
               %span.en ¥
               .en-all
                 .en-all__1
-                  %input{autocomplete: "off", name: "en-all__2", placeholder: "0", style: "width: 250px; height: 46px; text-align: right;", type: "number", value: ""}/
+                  %input{autocomplete: "off", class:"money", name: "en-all__2", placeholder: "0", style: "width: 250px; height: 46px; text-align: right;", type: "number", value: ""}/
             .fee-box-all
               .fee-box{"data-test": "fee-label"}
                 %div{style: "padding-bottom: 15px;"} 販売手数料（10%）
