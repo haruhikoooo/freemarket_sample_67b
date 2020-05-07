@@ -121,6 +121,7 @@ $(function(){
         //現在の文字数を表示
         $('.now_cnt').text(cnt);
     }); 
+    //リロード時に初期文字列が入っていた時の対策
     $('.sample').trigger('input');
 });
 $(function(){
