@@ -154,9 +154,9 @@
               .sales-profit__1 販売利益
               %span.sales-profit__2line{"data-test": "total-value"} -
           .exhibition-all
-            %button.exhibition-red-btn{tabindex: "0", type: "submit"} 出品する
+            = f.submit "出品する", class: "exhibition-red-btn"
             %button.exhibition-save-btn{tabindex: "0", type: "submit"} 下書きに保存
-            %a.back-btn{href:"/jp/"} もどる
+            = link_to "もどる", root_path, class: "back-btn"
           %p.precautions
             禁止されている
             %a.precautions__1{href: "/jp/help_center/getting_started/prohibited_conduct/", rel: "noopener noreferrer", target: "_blank"} 行為

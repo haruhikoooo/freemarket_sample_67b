@@ -14,4 +14,5 @@ class Good < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 40 }
   validates :text, presence: true, length: { maximum: 1000 }
+  validates :condition_id, :prefecture_id, :derivery_cost, :derivery_day, :size_id, :transaction_status_id, :category_id, :price, :user_id, presence: true
 end
