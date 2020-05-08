@@ -1,4 +1,8 @@
 $(function(){
+  var opentimer
+  var closetimer
+  var openList
+  var openListThird
   var categoryList = $('.category-list')
   $('#category').on({
     'mouseover': function(){
@@ -73,16 +77,17 @@ $(function(){
       opentimerThird = setTimeout(function(){
         $('.third-category-list').not('hidden').addClass('hidden');
         $(openListThird).removeClass('hidden');
-      }, 500)
-    },
-    'mouseout': function(){
-      clearTimeout(opentimerThird);
-      var closeListThird = $(this).find('.third-category-list')
-      closetimerThird = setTimeout(function(){
-        $(closeListThird).addClass('hidden');
-      }, 400)
-    }
-  })
+      }, 100)
+      });
+    })
+  // 以下、最終調整のため残しておきます。
+  // $(document).on('mouseout','.second-category-list__item--link', function(){
+  //   clearTimeout(opentimerThird);
+  //   var closeListThird = $(document).find('.third-category-list')
+  //   closetimerThird = setTimeout(function(){
+  //     $(closeListThird).addClass('hidden');
+  //   }, 100)
+  // })
 })
 
 

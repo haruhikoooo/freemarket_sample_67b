@@ -10,17 +10,17 @@ $(function(){
   $('.sample').trigger('input');
 });
 $(function(){
-$('.money').on('input',function() {
-  // 販売金額を定義
-  var data = $('.money').val();
-  // 販売利益を定義(販売金額の１割引)
-  var profit = Math.round(data * 0.9)
-  // 手数料の定義
-  var fee = (data - profit)
-  $('.five-line').html(fee)
-  $('.five-line').prepend('¥')
-  $('.sales-profit__2line').html(profit)
-  // 販売利益に￥をつける
-  $('.sales-profit__2line').prepend('¥')
-});
+  $('.money').on('input',function() {
+    // 販売金額を定義
+    var data = $('.money').val();
+    // 販売利益を定義(販売金額の１割引)
+    var profit = Math.round(data * 0.9)
+    // 手数料の定義
+    var fee = (data - profit)
+    $('.five-line').html(fee)
+    $('.five-line').prepend('¥')
+    $('.sales-profit__2line').html(profit)
+    // 販売利益に￥をつける
+    $('.sales-profit__2line').prepend('¥')
+  });
 })
