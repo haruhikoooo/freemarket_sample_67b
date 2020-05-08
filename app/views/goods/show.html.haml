@@ -31,19 +31,20 @@
             .picture
               %ul.picture__main
                 %li.picture__main--top
-                  = image_tag "sample/sample_01", alt: "sample_01", width: "100%" , height: "346px"
+                  %img{alt: "sample_01", src: "#{asset_path "sample/sample_01.jpg"}", width: "100%" , height: "346px"}/
                   %ul.box-picture
                     %li.box-picture__left
-                      = image_tag "sample/sample_01", alt: "sample_01", width: "100%" , height: "87px"
+                    %img{alt: "sample_01", src: "#{asset_path "sample/sample_01.jpg"}", width: "33%" , height: "87px"}/
                     %li.box-picture__middle
-                      = image_tag "sample/sample_02", alt: "sample_02", width: "100%" , height: "87px"
+                    %img{alt: "sample_02", src: "#{asset_path "sample/sample_02.jpg"}", width: "33%" , height: "87px"}/
                     %li.box-picture__right
-                      = image_tag "sample/sample_03", alt: "sample_03", width: "100%" , height: "87px"
+                    %img{alt: "sample_03", src: "#{asset_path "sample/sample_03.jpg"}", width: "33%" , height: "87px"}/
             .goodsbox__price
               %span.goodsbox__price--money ¥30000
               .goodsbox__price--in
                 %span.goodsbox__price--in--taxincluded (税込)
                 %span.goodsbox__price--in--postageincluded 送料込み
+                = link_to "購入画面に進む", "1/parchase", class: "item-buy-btn"
             .goods--detail
               親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の
               二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をし

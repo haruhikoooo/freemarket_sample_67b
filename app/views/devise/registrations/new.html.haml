@@ -18,7 +18,7 @@
         = f.label :password, class:"user_registration__main__form__contents__field__label"
         %span.user_registration__main__form__contents__field__require 必須
         %br/
-        = f.password_field :password, autocomplete: "new-password", placeholder: "#{@minimum_password_length}文字以上の半角英数字", class:"user_registration__main__form__contents__field__input--one"
+        = f.password_field :password, autocomplete: "new-password", placeholder: "7文字以上の半角英数字", class:"user_registration__main__form__contents__field__input--one"
       .user_registration__main__form__contents__field--middle
         = f.label :password_confirmation, class:"user_registration__main__form__contents__field__label"
         %span.user_registration__main__form__contents__field__require 必須

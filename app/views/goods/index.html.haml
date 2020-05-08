@@ -8,9 +8,9 @@
     = link_to "#", class: "goods-list__title--blue" do
       新規投稿商品
   .goods-list__contents
-    =link_to "#", class: "goods-content" do
+    = link_to good_path(1), class: "goods-content" do
       .goods-content__image
-        = image_tag "sample/sample_01.jpg", alt: "sample_01", width: "100%"
+        %img{alt: "sample_01", src: "#{asset_path "sample/sample_01.jpg"}", width: "100%"}/
       .goods-content__box
         .goods-content__box--left
           .goods-content__box--left--top
@@ -56,7 +56,4 @@
 
 = render "layouts/footer"
 
-= link_to new_good_path, class: "exhibition-box" do
-  .exhibition-box__text
-    出品する
-  = image_tag "icon/icon_camera.png", alt: "camera-icon", class: "exhibition-box__image"
+= render "layouts/exhibition-box"

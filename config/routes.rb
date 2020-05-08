@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: {
-    registrations: 'users/registrations'
-  }
   
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
+  }
+
   devise_scope :user do
     get 'users/address' => 'users/registrations#new_address'
     post 'users/address' => 'users/registrations#create_address'
     get 'users/complete' => 'users/registrations#complete'
+    get 'users/logout' => 'users/sessions#logout'
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -14,9 +17,14 @@ Rails.application.routes.draw do
   get 'goods/category', to: 'goods#category_index'
   get 'get_category_children', to: 'goods#get_category_children', defaults: { format: 'json' }
   get 'get_category_grandchildren', to: 'goods#get_category_grandchildren', defaults: { format: 'json' }
-  resources :goods, only: [:index, :new, :show]
-
   
+  resources :goods, only: [:index, :new, :show] do
+    get 'parchase' => 'goods#parchase'
+  end
+  
+  resources :users, only: [:show] do
+    resources :payments, only: [:index, :new, :create, :destroy]
+  end
 
 end
 

@@ -101,7 +101,7 @@ describe User do
     end
 
     # 15. first_nameが全角でないと登録できないこと
-    it "is invalid family_name" do
+    it "is invalid first_name" do
       user = build(:user, first_name:"hankaku" )
       user.valid?
       expect(user.errors[:first_name]).to include("全角で入力してください")

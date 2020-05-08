@@ -1,12 +1,11 @@
 class GoodsController < ApplicationController
   before_action :category_index
 
-  def index
-
+  def index 
   end
+
   def new
   end
-
   def show
   end
 
