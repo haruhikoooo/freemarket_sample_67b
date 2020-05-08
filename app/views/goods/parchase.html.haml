@@ -52,10 +52,10 @@
                   愛知県名古屋市○○区○×町△△町目  
                   %br 
                   買物太郎
-                  %button{class: "buybuycontents__btn", type: "submit"}購入する
-                - if user_signed_in? && current_user.id == @good.user_id
-                  %section.buybuycontents
-                    = link_to "購入する", good_path(@good.id), method: :edit, class: "buybuycontents__btn",
+              - if user_signed_in? && current_user.id == @good.user_id
+                %section.buybuycontents
+                  %button{class: "buybuycontents__btn", type: "submit"}購入する 
+                  = link_to "購入する", root_path(@good.id), class: "buybuycontents__btn" 
   .footerall
     .footerall__in
       %a.footerrogo-bottom{href: "/jp/"}
