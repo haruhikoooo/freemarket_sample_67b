@@ -8,6 +8,7 @@ class GoodsController < ApplicationController
   def new
     @good = Good.new
     @good.images.new
+    @parents = Category.all.order("id ASC").limit(13)
   end
 
   def creat
@@ -42,5 +43,3 @@ end
     @category_grandchildren = Category.find(params[:children_id]).children
     render json: @category_grandchildren
   end
-
-end
