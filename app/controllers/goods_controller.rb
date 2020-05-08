@@ -6,6 +6,5 @@ class GoodsController < ApplicationController
   def new
   end
   def show
-    @good = Good.find(params[:id])
   end
 end
