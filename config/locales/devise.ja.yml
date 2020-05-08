@@ -34,12 +34,12 @@ ja:
         unlock_token: ロック解除用トークン
         updated_at: 更新日
       address:
-        destination_name: 送付先氏名（全角）
+        destination_name: 送付先氏名
         destination_family_name: 送付先氏名（名字）
         destination_first_name: 送付先氏名（名前）
-        destination_furigana: 送付先氏名カナ（全角）
-        destination_furigana_family: 送付先氏名カナ（名字）
-        destination_furigana_first: 送付先氏名カナ（名前）
+        destination_furigana: 送付先氏名かな
+        destination_furigana_family: 送付先氏名かな（名字）
+        destination_furigana_first: 送付先氏名かな（名前）
         zipcode: 郵便番号
         prefecture_id: 都道府県
         city: 市区町村
