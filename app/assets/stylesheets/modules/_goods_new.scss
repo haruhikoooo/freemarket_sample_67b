@@ -297,9 +297,7 @@
         margin-bottom: 10px;
         align-items: center;
         display: flex;
-        margin-left: 8px;
         font-size: 12px;
-        padding: 0 4px;
         font-size: 14px;
         font-weight: 600;
         line-height: 1.4em;
@@ -402,16 +400,16 @@
         margin-left: 4px;
         vertical-align: -3px;
         width: 16px;
-    }
+      }
       .pricebox-all {
         display: flex;
-        margin-top: 10px;
+        margin-top: 25px;
         justify-content: space-between;
-    }
+      }
       .price {
         width: 135px;
         height: 20px;
-    }
+      }
       .price__1 {
         font-size: 14px;
         font-weight: 600;
@@ -447,7 +445,8 @@
       .fee-box-all {
         display: flex;
         justify-content: space-between;
-    }
+        margin-top: 15px;
+      }
         .sales-profit {
       display: flex;
       justify-content: space-between;
