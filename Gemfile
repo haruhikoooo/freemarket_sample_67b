@@ -72,6 +72,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'omniauth-github'
 end
 
 gem 'haml-rails'
