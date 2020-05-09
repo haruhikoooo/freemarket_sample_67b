@@ -34,7 +34,7 @@
                   %span.contents2__productsnamehissu 必須
               .contents2__productsname40box
                 .contents2__productsname40boxin
-                  %input{autocomplete: "off", name: "name", placeholder: "40文字まで", style: "width:585px; height: 46px;", type: "text", value: ""}/
+                  %input{autocomplete: "off", name: "name", placeholder: "40文字まで", style: "width:585px; height: 46px; padding-left: 5px; padding: 0 16px;", type: "text", value: ""}/
           .contents2-description-all
             .contents2-description
               %div{name: "description"}
@@ -72,7 +72,7 @@
                 %span.brand-box__1 任意
               .brand-examples
                 .brand-examples__1
-                  %input{autocomplete: "off", name: "brandname", placeholder: "例）シャネル", style: "width:560px; height:30px;", type: "text", value: ""}/
+                  %input{autocomplete: "off", name: "brandname", placeholder: "例）シャネル", style: "width:585px; height:40px; padding: 0 16px;", type: "text", value: ""}/
               %ul.threea1__6
                 %ul
           .threebottom-status-all
@@ -86,7 +86,7 @@
                   = f.collection_select :condition_id, Condition.all, :id, :name, {prompt: "選択して下さい"}, {class: 'form-control'}
         %hr.line-line/
         .four-all
-          %p.four-delivery
+          %p.delivery-fee
             配送について
             %a{href: "/jp/help_center/article/68/", rel: "noopener noreferrer", target: "_blank"}
               %svg.four-delivery__1{"aria-hidden": "true", fill: "#222222", "fill-rule": "evenodd", height: "24", viewbox: "0 0 24 24", width: "24"}
@@ -158,18 +158,18 @@
             = f.submit "出品する", class: "exhibition-red-btn"
             %button.exhibition-save-btn{tabindex: "0", type: "submit"} 下書きに保存
             = link_to "もどる", root_path, class: "back-btn"
-          %p.precautions
-            禁止されている
-            %a.precautions__1{href: "/jp/help_center/getting_started/prohibited_conduct/", rel: "noopener noreferrer", target: "_blank"} 行為
-            および
-            %a.precautions__2{href: "/jp/help_center/getting_started/prohibited_conduct/", rel: "noopener noreferrer", target: "_blank"} 出品物
-            を必ずご確認ください。
-            %a.precautions__3{href: "/jp/help_center/getting_started/counterfeit_goods/", rel: "noopener noreferrer", target: "_blank"} 偽ブランド品
-            や
-            %a.precautions__4{href: "/jp/help_center/getting_started/report_counterfeit_goods/", rel: "noopener noreferrer", target: "_blank"} 盗品物
-            などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして
-            %a.precautions__5{href: "/jp/seller_terms/", rel: "noopener noreferrer", target: "_blank"} 加盟店規約
-            に同意したことになります。
+            %p.precautions
+              禁止されている
+              %a.precautions__1{href: "#", rel: "noopener noreferrer", target: "_blank"} 行為
+              および
+              %a.precautions__2{href: "#", rel: "noopener noreferrer", target: "_blank"} 出品物
+              を必ずご確認ください。
+              %a.precautions__3{href: "#", rel: "noopener noreferrer", target: "_blank"} 偽ブランド品
+              や
+              %a.precautions__4{href: "#", rel: "noopener noreferrer", target: "_blank"} 盗品物
+              などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして
+              %a.precautions__5{href: "#", rel: "noopener noreferrer", target: "_blank"} 加盟店規約
+              に同意したことになります。
     .footer-all
       .footer-top
       %a.footerrogo-bottom{href: "/jp/"}
