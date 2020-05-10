@@ -12,5 +12,9 @@
         = f.password_field :password, autocomplete: "new-password", placeholder: "パスワード", class:"user_registration__main__form__contents__field__input--one"
       .user_registration__main__form__contents__submit
         = f.submit "ログイン",class:"user_registration__main__form__contents__submit__btn"  
+      -if Rails.env.development?
+        .user_registration__main__form__contents__submit
+          =link_to user_github_omniauth_authorize_path do
+            .user_registration__main__form__contents__submit__btn--github githubアカウントでログイン
       = render "devise/shared/error"
 = render "devise/shared/footer"
