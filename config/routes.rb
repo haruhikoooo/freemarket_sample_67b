@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
 
   devise_scope :user do
+    get 'users/identification' => 'users/registrations#new_identification'
+    post 'users/identification' => 'users/registrations#create_identification'
     get 'users/address' => 'users/registrations#new_address'
     post 'users/address' => 'users/registrations#create_address'
     get 'users/complete' => 'users/registrations#complete'
