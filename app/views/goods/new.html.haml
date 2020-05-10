@@ -31,18 +31,19 @@
                   %span.contents2__productsnamehissu 必須
               .contents2__productsname40box
                 .contents2__productsname40boxin
-                  %input{autocomplete: "off", name: "name", placeholder: "40文字まで", style: "width:585px; height: 46px;", type: "text", value: ""}/
+                  %input{autocomplete: "off", name: "name", placeholder: "40文字まで", style: "width:585px; height: 46px; padding-left: 5px; padding: 0 16px;", type: "text", value: ""}/
           .contents2-description-all
             .contents2-description
               %div{name: "description"}
                 .description-a
                   %label 商品の説明
                   %span.description-b 必須
-              %textarea.contents2-description-example{name: "description", placeholder: "商品の説明（必須 1,000文字以内）\n  （色、素材、重さ、定価、注意点など）\n\n  例）2010年頃に1万円で購入したジャケットです。ライトグレー\n  で傷はありません。あわせやすいのでおすすめです。  ", rows: "7"}
+              .cnt_area
+              %textarea.contents2-description-example{name: "description", class:"sample", placeholder: "商品の説明（必須 1,000文字以内）\n  （色、素材、重さ、定価、注意点など）\n\n  例）2010年頃に1万円で購入したジャケットです。ライトグレー\n  で傷はありません。あわせやすいのでおすすめです。  ", rows: "7"}
               .thousand
-                %span 0
-                \/
-                / 
+                %span.now_cnt 0
+                \/ 
+                /
                 1000
         %hr.contents3-line/
         .contents3-all
@@ -53,13 +54,20 @@
                 .contents3-categoryid-in
                   %label カテゴリー
                   %span.contents3-category-redbtn 必須
-              .contents3-choice-a
-                .contents3-choice-b
-                  %select{name: "choiceid", style: "width:580px; height:46px;"}
-                    %option{"aria-selected": "true", label: "選択してください", selected: "selected", value: ""} 選択してください
-                    icon_arrow_bottom.png
-                    %svg{"aria-hidden": "true", fill: "#888888", "fill-rule": "evenodd", height: "24", viewbox: "0 0 24 24", width: "23"}
-                      %path{d: "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+              -# .contents3-choice-a
+              -#   .contents3-choice-b
+              -#     = f.select :category, @category_parent_array, {prompt: "選択して下さい"}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+              -#   .pulldown.contents3-choice-c#children_box
+              -#   .pulldown.contents3-choice-d#grandchildren_box
+              .listing-form-box
+                .listing-product-detail__category
+                  -# = f.label 'カテゴリー', class: 'listing-default__label'
+                  -# %span.listing-default--require 必須
+                  .listing-select-wrapper
+                    .listing-select-wrapper__box
+                      = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+                    .pulldown.contents3-choice-c#children_box
+                    .pulldown.contents3-choice-d#grandchildren_box
           .brand-all
             .brand-in
               .brand-box
@@ -67,7 +75,7 @@
                 %span.brand-box__1 任意
               .brand-examples
                 .brand-examples__1
-                  %input{autocomplete: "off", name: "brandname", placeholder: "例）シャネル", style: "width:560px; height:30px;", type: "text", value: ""}/
+                  %input{autocomplete: "off", name: "brandname", placeholder: "例）シャネル", style: "width:585px; height:40px; padding: 0 16px;", type: "text", value: ""}/
               %ul.threea1__6
                 %ul
           .threebottom-status-all
@@ -78,14 +86,10 @@
                   %span.threebottom-goods-status__2 必須
               .threebottom1__box1
                 .threebottom1__box2
-                  %select{name: "threebottom1__box3", style: "width:600px; height:30px;"}
-                    %option{"aria-selected": "true", label: "選択してください", selected: "selected", value: ""}
-                      選択してください
-                      %svg{"aria-hidden": "true", fill: "#888888", height: "24", viewbox: "0 0 24 24", width: "24"}
-                        %path{:d => "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+                  = f.collection_select :condition_id, Condition.all, :id, :name, {prompt: "選択して下さい"}, {class: 'form-control'}
         %hr.line-line/
         .four-all
-          %p.four-delivery
+          %p.delivery-fee
             配送について
             %a{href: "/jp/help_center/article/68/", rel: "noopener noreferrer", target: "_blank"}
               %svg.four-delivery__1{"aria-hidden": "true", fill: "#222222", "fill-rule": "evenodd", height: "24", viewbox: "0 0 24 24", width: "24"}
@@ -100,12 +104,7 @@
                   %span.four-delivery-charge-box-1 必須
               .four-choice
                 .four-choice__1
-                  %select{name: "four-choice__2", style: "width: 620px; height: 30px;"}
-                    %option{"aria-selected": "true", label: "選択してください", selected: "selected", value: ""} 選択してください
-                    %option{"aria-selected": "false", label: "送料込み(出品者負担)", value: "2"} 送料込み(出品者負担)
-                    %option{"aria-selected": "false", label: "着払い(購入者負担)", value: "1"} 着払い(購入者負担)
-                    %svg{"aria-hidden": "true", fill: "#888888", "fill-rule": "evenodd", height: "24", viewbox: "0 0 24 24", width: "24"}
-                      %path{d: "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+                  = f.collection_select :derivery_cost_id, DeriveryCost.all, :id, :name, {prompt: "選択して下さい"}, {class: 'form-control'}
           .four-area
             .four-area-in
               %div{name: "area-box"}
@@ -123,10 +122,7 @@
                   %span.four-shipping-days-box__1 必須
               .four-shipping-days-choice
                 .four-shipping-days-choice__1
-                  %select{name: "four-shipping-days-choice__2", style: "width: 620px; height: 30px;"}
-                    %option{"aria-selected": "true", label: "選択してください", selected: "selected", value: ""} 選択してください
-                    %svg{"aria-hidden": "true", fill: "#888888", "fill-rule": "evenodd", height: "24", viewbox: "0 0 24 24", width: "24"}
-                      %path{d: "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+                  = f.collection_select :derivery_day_id, DeriveryDay.all, :id, :name, {prompt: "選択して下さい"}, {class: 'form-control'}
         %hr.fiveline/
         .fivebox-all
           %p.five-pricebox
@@ -152,7 +148,7 @@
               %span.en ¥
               .en-all
                 .en-all__1
-                  %input{autocomplete: "off", name: "en-all__2", placeholder: "0", style: "width: 250px; height: 46px; text-align: right;", type: "number", value: ""}/
+                  %input{autocomplete: "off", class:"money", name: "en-all__2", placeholder: "0", style: "width: 250px; height: 46px; text-align: right;", type: "number", value: ""}/
             .fee-box-all
               .fee-box{"data-test": "fee-label"}
                 %div{style: "padding-bottom: 15px;"} 販売手数料（10%）
@@ -162,21 +158,21 @@
               .sales-profit__1 販売利益
               %span.sales-profit__2line{"data-test": "total-value"} -
           .exhibition-all
-            %button.exhibition-red-btn{tabindex: "0", type: "submit"} 出品する
+            = f.submit "出品する", class: "exhibition-red-btn"
             %button.exhibition-save-btn{tabindex: "0", type: "submit"} 下書きに保存
-            %a.back-btn{href:"/jp/"} もどる
-          %p.precautions
-            禁止されている
-            %a.precautions__1{href: "/jp/help_center/getting_started/prohibited_conduct/", rel: "noopener noreferrer", target: "_blank"} 行為
-            および
-            %a.precautions__2{href: "/jp/help_center/getting_started/prohibited_conduct/", rel: "noopener noreferrer", target: "_blank"} 出品物
-            を必ずご確認ください。
-            %a.precautions__3{href: "/jp/help_center/getting_started/counterfeit_goods/", rel: "noopener noreferrer", target: "_blank"} 偽ブランド品
-            や
-            %a.precautions__4{href: "/jp/help_center/getting_started/report_counterfeit_goods/", rel: "noopener noreferrer", target: "_blank"} 盗品物
-            などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして
-            %a.precautions__5{href: "/jp/seller_terms/", rel: "noopener noreferrer", target: "_blank"} 加盟店規約
-            に同意したことになります。
+            = link_to "もどる", root_path, class: "back-btn"
+            %p.precautions
+              禁止されている
+              %a.precautions__1{href: "#", rel: "noopener noreferrer", target: "_blank"} 行為
+              および
+              %a.precautions__2{href: "#", rel: "noopener noreferrer", target: "_blank"} 出品物
+              を必ずご確認ください。
+              %a.precautions__3{href: "#", rel: "noopener noreferrer", target: "_blank"} 偽ブランド品
+              や
+              %a.precautions__4{href: "#", rel: "noopener noreferrer", target: "_blank"} 盗品物
+              などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして
+              %a.precautions__5{href: "#", rel: "noopener noreferrer", target: "_blank"} 加盟店規約
+              に同意したことになります。
     .footer-all
       .footer-top
       %a.footerrogo-bottom{href: "/jp/"}

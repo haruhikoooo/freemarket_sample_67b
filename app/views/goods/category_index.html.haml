@@ -1,0 +1,18 @@
+= render "layouts/header"
+.category_index
+  .category_index__top
+    .category_index__top__label
+      %h2 カテゴリー一覧
+    .category_index__top__contents
+      - @categories.each do |parent|
+        = link_to goods_category_path(anchor: "parent_id#{parent.id}") do
+          .category_index__top__contents__name
+            =parent.name
+  = render partial:"contents_box", collection: @categories, as: :parent
+  
+= render "layouts/footer"
+
+= link_to new_good_path, class: "exhibition-box" do
+  .exhibition-box__text
+    出品する
+  = image_tag "icon/icon_camera.png", alt: "camera-icon", class: "exhibition-box__image"
