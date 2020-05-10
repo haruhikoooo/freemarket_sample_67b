@@ -16,7 +16,7 @@ class GoodsController < ApplicationController
     end
   end
 
-  def creat
+  def create
     @good = Good.new(good_params)
     if @good.save
       redirect_to controller: :goods, action: :index
@@ -27,21 +27,13 @@ class GoodsController < ApplicationController
 
   def show
   end
-  
-  private
-  
-  def good_params
-    params.require(:good).permit(:name, :explanation, :category_id, :size_id, :brand_id, :condition_id, :prefecture_id, :derivery_day_id, :derivery_cost_id, :price, :user_id, :transaction_status_id, images_attributes: [:image]).merge(user_id: current_user.id)
-  end
-
 
   def category_index
     @categories = Category.all.order("id ASC").limit(13)
   end
 
   def get_category_children
-    # @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
-    @category_children = Category.find(params[:parent_name]).children
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
     render json: @category_children
   end
 
@@ -50,7 +42,15 @@ class GoodsController < ApplicationController
     render json: @category_grandchildren
   end
 
+
+  private
+  
+  def good_params
+    params.require(:good).permit(:name, :explanation, :category_id, :size_id, :brand_id, :condition_id, :prefecture_id, :derivery_day_id, :derivery_cost_id, :price, :user_id, :transaction_status_id, images_attributes: [:image]).merge(user_id: current_user.id)
+  end
+
   def set_category  
     @category_parent_array = Category.where(ancestry: nil)
   end
+  
 end

@@ -71,26 +71,26 @@
                       = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
                     .pulldown.contents3-choice-c#children_box
                     .pulldown.contents3-choice-d#grandchildren_box
-          .brand-all
-            .brand-in
-              .brand-box
-                %label ブランド
-                %span.brand-box__1 任意
-              .brand-examples
-                .brand-examples__1
-                  %input{autocomplete: "off", name: "brandname", placeholder: "例）シャネル", style: "width:585px; height:40px; padding: 0 16px;", type: "text", value: ""}/
-              %ul.threea1__6
-                %ul
-          .threebottom-status-all
-            .threebottom-status-in
-              .threebottom-goods-status
-                .threebottom-goods-status__1
-                  %label 商品の状態
-                  %span.threebottom-goods-status__2 必須
-              .threebottom1__box1
-                .threebottom1__box2
-                  = f.collection_select :condition_id, Condition.all, :id, :name, {prompt: "選択して下さい"}, {class: 'form-control'}
-        %hr.line-line/
+                  .brand-all
+                    .brand-in
+                      .brand-box
+                        %label ブランド
+                        %span.brand-box__1 任意
+                      .brand-examples
+                        .brand-examples__1
+                          %input{autocomplete: "off", name: "brandname", placeholder: "例）シャネル", style: "width:585px; height:40px; padding: 0 16px;", type: "text", value: ""}/
+                      %ul.threea1__6
+                        %ul
+                  .threebottom-status-all
+                    .threebottom-status-in
+                      .threebottom-goods-status
+                        .threebottom-goods-status__1
+                          %label 商品の状態
+                          %span.threebottom-goods-status__2 必須
+                      .threebottom1__box1
+                        .threebottom1__box2
+                          = f.collection_select :condition_id, Condition.all, :id, :name, {prompt: "選択して下さい"}, {class: 'form-control'}
+                %hr.line-line/
         .four-all
           %p.delivery-fee
             配送について
