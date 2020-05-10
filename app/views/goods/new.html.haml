@@ -1,6 +1,6 @@
 .all
   .all__contents
-    = form_with model:@good, local:true do |f|
+    = form_with model:@good, local:true, class: "goods_form" do |f|
       .header
         .header__inner
           = link_to  root_path, class: "title-logo" do
@@ -15,15 +15,12 @@
           .camera
             #image-box
               = f.fields_for :images do |image|
-                .js-file_group{data: {index: image.index}}
-                  %label
+                .js-file_group.max-width{data: {index: image.index}}
+                  %label.js-files
                     = image.file_field :image, style: "display:none", class: "js-file"
                     %i.fas.fa-camera.fa-2x
                     %p.camera__comments
-                      %br/
-                      ドラッグアンドドロップ
-                      %br/ 
-                      またはクリックしてファイルをアップロード
+                      クリックしてファイルをアップロード
       .contents2-all
         .contents2
           .contents2__productsname-a
