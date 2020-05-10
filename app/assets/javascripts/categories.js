@@ -1,59 +1,97 @@
-  $(document).on('turbolinks:load', function() {
-  // optionの作成
+$(function(){
+  // カテゴリーセレクトボックスのオプションを作成
   function appendOption(category){
-    var html = `<option value="${category.id}">${category.name}</option>`;
+    var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
     return html;
   }
-   // 子セレクトボックスのhtml作成
+  // 子カテゴリーの表示作成
   function appendChidrenBox(insertHTML){
     var childSelectHtml = '';
-      childSelectHtml = `<div class='product-select-wrapper' id= 'children_wrapper'>
-                        <div class='product_category-select'>
-                        <select class="category_select-box" id="child_category" name="item[category_id]">
-                        <option value="---">---</option>
-                        ${insertHTML}
-                        </select>
-                        <i class='fa fa-chevron-down'></i>
+    childSelectHtml = `<div class='listing-select-wrapper__added' id= 'children_wrapper'>
+                        <div class='listing-select-wrapper__box'>
+                          <select class="listing-select-wrapper__box--select" id="child_category" name="good[category_id]">
+                            <option value="---" data-category="---">---</option>
+                            ${insertHTML}
+                          <select>
+                          <i class='fas fa-chevron-down listing-select-wrapper__box--arrow-down'></i>
                         </div>
-                        <div class= 'product_select-grandchildren'>
-                        </div>
-                        </div>`;
-    $('.product_select-children').append(childSelectHtml);
+                      </div>`;
+    $('#children_box').append(childSelectHtml);
   }
-   // 孫セレクトボックスのhtml作成
-  function appendgrandChidrenBox(insertHTML){
-    var grandchildrenSelectHtml = '';
-    grandchildrenSelectHtml = `<div class='product-select-wrapper' id= 'grandchildren_wrapper'>
-                              <div class='product_category-select'>
-                              <select class="category_select-box" id="grandchild_category" name="item[category_id]">
-                              <option value="---">---</option>
-                              ${insertHTML} 
-                              </select>
-                              <i class='fa fa-chevron-down'></i>
+  // 孫カテゴリーの表示作成
+  function appendGrandchidrenBox(insertHTML){
+    var grandchildSelectHtml = '';
+    grandchildSelectHtml = `<div class='listing-select-wrapper__added' id= 'grandchildren_wrapper'>
+                              <div class='listing-select-wrapper__box'>
+                                <select class="listing-select-wrapper__box--select" id="grandchild_category" good[category_id]">
+                                  <option value="---" data-category="---">---</option>
+                                  ${insertHTML}
+                                </select>
+                                <i class='fas fa-chevron-down listing-select-wrapper__box--arrow-down'></i>
                               </div>
-                              <div class= 'product_select-grandchildren'>
-                              </div>
-                              </div>`;
-    $('.product_select-grandchildren').append(grandchildrenSelectHtml);
+                            </div>`;
+    $('#grandchildren_box').append(grandchildSelectHtml);
   }
-
-
-
-
-  // 親セレクトボックスの選択肢を変えたらイベント発火
-  $("#item_category_id").on("change", function(){
-    console.log(document.getElementById("item_category_id").value);
-
-    // 親ボックスのidを取得してそのidをAjax通信でコントローラーへ送る
-    var parentValue = document.getElementById("item_category_id").value;
-    // 親ボックスのidが空じゃない時(未選択時のエラー防止)
-    if (parentValue != ''){
+  // 親カテゴリー選択後のイベント
+  $('#parent_category').on('change', function(){
+    var parentCategory = document.getElementById('parent_category').value; //選択された親カテゴリーの名前を取得
+    if (parentCategory != "---"){ //親カテゴリーが初期値でないことを確認
       $.ajax({
-        url: '/items/category_children',
-        type: "GET",
-        data: {
-          parent_id: parentValue // 親ボックスの値をparent_idという変数にする。
-        },
+        url: '/goods/get_category_children',
+        type: 'GET',
+        data: { parent_name: parentCategory },
         dataType: 'json'
       })
-    };
+      .done(function(children){
+        $('#children_wrapper').remove(); //親が変更された時、子以下を削除するする
+        $('#grandchildren_wrapper').remove();
+        $('#size_wrapper').remove();
+        $('#brand_wrapper').remove();
+        var insertHTML = '';
+        children.forEach(function(child){
+          insertHTML += appendOption(child);
+        });
+        appendChidrenBox(insertHTML);
+      })
+      .fail(function(){
+        alert('カテゴリー取得に失敗しました');
+      })
+    }else{
+      $('#children_wrapper').remove(); //親カテゴリーが初期値になった時、子以下を削除するする
+      $('#grandchildren_wrapper').remove();
+      $('#size_wrapper').remove();
+      $('#brand_wrapper').remove();
+    }
+  });
+  // 子カテゴリー選択後のイベント
+  $('.listing-product-detail__category').on('change', '#child_category', function(){
+    var childId = $('#child_category option:selected').data('category'); //選択された子カテゴリーのidを取得
+    if (childId != "---"){ //子カテゴリーが初期値でないことを確認
+      $.ajax({
+        url: 'get_category_grandchildren',
+        type: 'GET',
+        data: { child_id: childId },
+        dataType: 'json'
+      })
+      .done(function(grandchildren){
+        if (grandchildren.length != 0) {
+          $('#grandchildren_wrapper').remove(); //子が変更された時、孫以下を削除するする
+          $('#size_wrapper').remove();
+          $('#brand_wrapper').remove();
+          var insertHTML = '';
+          grandchildren.forEach(function(grandchild){
+            insertHTML += appendOption(grandchild);
+          });
+          appendGrandchidrenBox(insertHTML);
+        }
+      })
+      .fail(function(){
+        alert('カテゴリー取得に失敗しました');
+      })
+    }else{
+      $('#grandchildren_wrapper').remove(); //子カテゴリーが初期値になった時、孫以下を削除する
+      $('#size_wrapper').remove();
+      $('#brand_wrapper').remove();
+    }
+  });
+});

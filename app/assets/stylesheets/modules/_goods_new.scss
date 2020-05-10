@@ -224,12 +224,11 @@
         line-height: 1.4em;
         margin-left: 8px;
       }
-      .contents3-choice-a {
+      .listing-form-box {
         height: 48px;
         line-height: 1;
         margin: 0;
         outline: none;
-        padding: 0 56px 0 16px;
         width: 100%;
       }
     .line-line {
@@ -350,9 +349,13 @@
         margin: 0;
       }
     }
+    #parent_category{
+      width: 620px;
+      height: 45px;
+    }
     .form-control {
       width: 620px;
-      height: 30px;
+      height: 45px;
     }
       .four-shipping-days {
         margin-top: 15px;
@@ -509,6 +512,8 @@
           align-items: center;
           text-decoration: none;
           word-break: keep-all;
+          display: inline-block;
+          margin-top: 40px;
         }
       }
       .precautions {
