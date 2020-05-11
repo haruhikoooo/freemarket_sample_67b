@@ -36,12 +36,10 @@ ActiveRecord::Schema.define(version: 2020_05_10_150309) do
 
   create_table "identifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "family_name", null: false
-    t.string "string", null: false
     t.string "first_name", null: false
     t.string "furigana_family", null: false
     t.string "furigana_first", null: false
-    t.string "birthday", null: false
-    t.string "date", null: false
+    t.date "birthday", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
