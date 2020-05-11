@@ -147,7 +147,6 @@
       background-color: white;
       padding: 40px;
       width: 620px;
-      height: 362px;
       &__productsnameblock {
       font-size: 14px;
       font-weight: 600;
@@ -229,7 +228,6 @@
     .contents3-all {
       background-color: white;
       padding: 40px;
-      height: 360px;
       width: 620px;
     }
       .contents3-details {
@@ -269,8 +267,6 @@
         margin-left: 8px;
       }
       .listing-form-box {
-        height: 48px;
-        line-height: 1;
         margin: 0;
         outline: none;
         width: 100%;
@@ -289,6 +285,7 @@
       font-weight: 600;
       line-height: 1.4em;
       margin-bottom: 10px;
+      margin-top: 30px;
       }
       .brand-box__1 {
       border-radius: 2px;
@@ -328,6 +325,9 @@
       padding-left: 40px;
       width: 620px;
       height: 361px;
+      .delivery-fee{
+        margin: 0 12px 30px;
+      }
     }
     .four__delivery {
       color: rgb(136, 136, 136);
@@ -350,9 +350,7 @@
         margin-bottom: 10px;
         align-items: center;
         display: flex;
-        margin-left: 8px;
         font-size: 12px;
-        padding: 0 4px;
         font-size: 14px;
         font-weight: 600;
         line-height: 1.4em;
@@ -375,7 +373,7 @@
         font-size: 14px;
         font-weight: 600;
         line-height: 1.4em;
-        margin-top: 15px;
+        margin-top: 30px;
         margin-bottom: 10px;
       .area-box__2 {
         margin-left: 8px;
@@ -395,41 +393,26 @@
       width: 620px;
       height: 45px;
     }
-    .pulldown.contents3-choice-c {
-      margin-top: 16px;
-      width: 585px;
-      position: relative;
-    }
 
-    .pulldown.contents3-choice-d {
-      margin-top: 16px;
-      width: 100%;
-      position: relative;
-      display: inline-block;
-      margin-bottom: 16px;
-    }
-    
     .listing-select-wrapper__box--select {
       width: 620px;
       height: 45px;
+    }
+    .listing-select-wrapper__added{
+      margin-top: 16px;
     }
     .form-control {
       width: 620px;
       height: 45px;
     }
       .four-shipping-days {
-        margin-top: 15px;
+        margin-top: 30px;
     }
       .four-shipping-days-box {
         font-size: 14px;
+        height: 19px;
         font-weight: 600;
-        line-height: 1.4em;
-        margin-top: 15px;
         margin-bottom: 10px;
-        width: 360px;
-        height: 5px;
-        margin-bottom: 32px;
-        margin-right: 130px;
         .four-shipping-days-box__1{
         margin-left: 8px;
         font-size: 12px;
@@ -447,8 +430,6 @@
       .four-shipping-days-choice {
         text-decoration: none;
         word-break: keep-all;
-        width: 360px;
-        height: 20px;
     }
     .fiveline {
       border-top-color: #efefef;
