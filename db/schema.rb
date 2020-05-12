@@ -71,9 +71,19 @@ ActiveRecord::Schema.define(version: 2020_05_05_082011) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name", null: false
+    t.text "explanation", null: false
+    t.integer "category_id", null: false
+    t.integer "size_id"
+    t.integer "brand_id"
+    t.integer "condition_id", null: false
+    t.integer "prefecture_id", null: false
+    t.integer "derivery_day_id", null: false
+    t.integer "derivery_cost_id", null: false
     t.integer "price", null: false
-    t.integer "transaction_status_id", null: false
     t.integer "user_id", null: false
+    t.integer "transaction_status_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
