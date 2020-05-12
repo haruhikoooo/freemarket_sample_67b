@@ -10,7 +10,7 @@ ja:
         condition: "商品の状態"
         derivery_cost: "配送料の負担"
         prefecture_id: "発送元の地域"
-        lead_time: "発送までの日数"
+        derivery_day: "発送までの日数"
         price: "販売価格"
         images: "商品画像"
         category_id: "詳細カテゴリー"

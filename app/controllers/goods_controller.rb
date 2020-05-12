@@ -46,7 +46,7 @@ class GoodsController < ApplicationController
   private
   
   def good_params
-    params.require(:good).permit(:name, :explanation, :category_id, :brand_id, :condition_id, :prefecture_id, :derivery_day_id, :derivery_cost_id, :price, :user_id, :transaction_status_id, images_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:good).permit(:name, :explanation, :category_id, :brand, :condition_id, :prefecture_id, :derivery_day_id, :derivery_cost_id, :price, :user_id, :transaction_status_id, images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
   def set_category  

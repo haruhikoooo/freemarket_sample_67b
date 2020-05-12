@@ -7,6 +7,13 @@
     = form_with model:@good, local:true, class: "goods_form" do |f|
       .contents1all
         .contents1all__inner
+          -if @good.errors.any?
+            .alert.alert-warning_products
+              %p.main_message 入力エラーがあります
+              - @good.errors.full_messages.each do |message| 
+                .error_list
+                  %li
+                    = message
           .contents1top
             %label.contents1top__left 出品画像
             %span.contents1top__right 必須
@@ -33,12 +40,12 @@
                 %input{autocomplete: "off", name: "name", placeholder: "40文字まで", style: "width:585px; height: 46px; padding-left: 5px; padding: 0 16px;", type: "text", value: ""}/
         .contents2-description-all
           .contents2-description
-            %div{name: "description"}
+            %div{name: "explanation"}
               .description-a
                 %label 商品の説明
                 %span.description-b 必須
             .cnt_area
-            %textarea.contents2-description-example{name: "description", class:"sample", placeholder: "商品の説明（必須 1,000文字以内）\n  （色、素材、重さ、定価、注意点など）\n\n  例）2010年頃に1万円で購入したジャケットです。ライトグレー\n  で傷はありません。あわせやすいのでおすすめです。  ", rows: "7"}
+            %textarea.contents2-description-example{name: "explanation", class:"sample", placeholder: "商品の説明（必須 1,000文字以内）\n  （色、素材、重さ、定価、注意点など）\n\n  例）2010年頃に1万円で購入したジャケットです。ライトグレー\n  で傷はありません。あわせやすいのでおすすめです。  ", rows: "7"}
             .thousand
               %span.now_cnt 0
               \/ 
@@ -62,7 +69,8 @@
               -# = f.label 'カテゴリー', class: 'listing-default__label'
               -# %span.listing-default--require 必須
               .listing-select-wrapper
-                = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+                = f.label :category_id, {class: 'sell-collection_select__label'} do
+                  = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
               .pulldown.contents3-choice-c#children_box
               .pulldown.contents3-choice-d#grandchildren_box
             .brand-box
@@ -141,7 +149,7 @@
             %span.en ¥
             .en-all
               .en-all__1
-                %input{autocomplete: "off", class:"money", name: "en-all__2", placeholder: "0", style: "width: 250px; height: 46px; text-align: right;", type: "number", value: ""}/
+                %input{autocomplete: "off", class:"money", name: "price", placeholder: "0", style: "width: 250px; height: 46px; text-align: right;", type: "number", value: ""}/
           .fee-box-all
             .fee-box{"data-test": "fee-label"}
               %div{style: "padding-bottom: 15px;"} 販売手数料（10%）

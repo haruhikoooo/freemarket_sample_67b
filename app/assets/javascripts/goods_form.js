@@ -4,8 +4,8 @@ $(function(){
     const html = `<div class="js-file_group max-width" data-index="${index}">
                     <label class="js-files">
                       <input class="js-file" type="file"
-                      name="good[images_attributes][${index}][src]"
-                      id="good_images_attributes_${index}_src"
+                      name="good[images_attributes][${index}][image]"
+                      id="good_images_attributes_${index}_image"
                       style="display:none">
                       <i class="fas fa-camera fa-2x"></i>
                     </label>

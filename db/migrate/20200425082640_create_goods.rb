@@ -4,7 +4,6 @@ class CreateGoods < ActiveRecord::Migration[5.2]
       t.string      :name,                   null: false, unique: true
       t.text        :explanation,            null: false
       t.integer	    :category_id,            null: false, foreign_key:true
-      t.integer     :size_id,                foreign_key: true
       t.integer     :brand_id,               foreign_key: true
       t.integer     :condition_id,           null: false, foreign_key: true
       t.integer     :prefecture_id,          null: false,  foreign_key: true
