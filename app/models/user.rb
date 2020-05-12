@@ -9,21 +9,9 @@ class User < ApplicationRecord
     unless user
      return
     end
-  user
-  # where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|  
-  #   user.nickname = auth.info.name  
-  #   user.email = User.dummy_email(auth)  
-  #   user.password = Devise.friendly_token[0, 20]
-  #   user.family_name = "山田"
-  #   user.first_name = "太郎"
-  #   user.furigana_family = "ヤマダ"
-  #   user.furigana_first = "タロウ"
-  #   user.birthday = "2000-05-01"
-  #   end  
+    user
   end 
-  def self.dummy_email(auth)  
-  "#{auth.uid}-#{auth.provider}@example.com"  
-  end  
+  
 
   validates :nickname, presence: true
   validates :email, presence: true
