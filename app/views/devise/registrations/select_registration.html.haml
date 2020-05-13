@@ -6,7 +6,8 @@
       .user_registration__main__form__contents__submit
         = link_to new_user_registration_path do
           .user_registration__main__form__contents__submit__btn メールアドレスで登録する
-      .user_registration__main__form__contents__submit
-        = link_to user_github_omniauth_authorize_path, method: :post do
-          .user_registration__main__form__contents__submit__btn--github githubアカウントで登録する
+      -if Rails.env.development?
+        .user_registration__main__form__contents__submit
+          = link_to user_github_omniauth_authorize_path, method: :post do
+            .user_registration__main__form__contents__submit__btn--github githubアカウントで登録する
 = render "devise/shared/footer"
