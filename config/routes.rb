@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
 
   devise_scope :user do
+    get 'users/select_registration' => 'users/registrations#select_registration'
     get 'users/identification' => 'users/registrations#new_identification'
     post 'users/identification' => 'users/registrations#create_identification'
     get 'users/address' => 'users/registrations#new_address'

@@ -63,6 +63,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def create
   #   # render :new_address 
   # end
+
+  def select_registration
+  end
+
   def new
     super
   end

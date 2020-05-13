@@ -1,0 +1,12 @@
+= render "devise/shared/header"
+%main.user_registration__main
+  .user_registration__main__form
+    %h2.user_registration__main__form__title 新規会員登録
+    .user_registration__main__form__contents
+      .user_registration__main__form__contents__submit
+        = link_to new_user_registration_path do
+          .user_registration__main__form__contents__submit__btn メールアドレスで登録する
+      .user_registration__main__form__contents__submit
+        = link_to user_github_omniauth_authorize_path, method: :post do
+          .user_registration__main__form__contents__submit__btn--github githubアカウントで登録する
+= render "devise/shared/footer"
