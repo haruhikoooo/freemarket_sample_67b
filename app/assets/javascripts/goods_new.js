@@ -1,13 +1,13 @@
 $(function(){
   //入力時のイベント    
-  $('.sample').on('input', function(){
+  $('.contents2-description-example').on('input', function(){
       //文字数を取得
       var cnt = $(this).val().length;
       //現在の文字数を表示
       $('.now_cnt').text(cnt);
   }); 
   //リロード時に初期文字列が入っていた時の対策
-  $('.sample').trigger('input');
+  $('.contents2-description-example').trigger('input');
 });
 
 

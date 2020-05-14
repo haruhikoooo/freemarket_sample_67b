@@ -1,4 +1,5 @@
 class GoodsController < ApplicationController
+  before_action :authenticate_user!, only: [:new]
   before_action :category_index
   before_action :set_category, only: [:new, :edit, :create, :update, :destroy]
 
@@ -18,9 +19,17 @@ class GoodsController < ApplicationController
 
   def create
     @good = Good.new(good_params)
+    @good.transaction_status_id = 1
     if @good.save
       redirect_to root_path
     else
+      @good.images.reset
+      @good.images.new
+      @parents = Category.all.order("id ASC").limit(13)
+        @category_parent_array = ["---"]
+      Category.where(ancestry: nil).each do |parent|
+        @category_parent_array << parent.name
+      end
       render :new
     end
   end

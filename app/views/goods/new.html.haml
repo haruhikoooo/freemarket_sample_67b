@@ -37,7 +37,7 @@
                 %span.contents2__productsnamehissu 必須
             .contents2__productsname40box
               .contents2__productsname40boxin
-                %input{autocomplete: "off", name: "name", placeholder: "40文字まで", style: "width:585px; height: 46px; padding-left: 5px; padding: 0 16px;", type: "text", value: ""}/
+                = f.text_field :name, autofocus: true, class: "good_name", placeholder: "  40文字まで"
         .contents2-description-all
           .contents2-description
             %div{name: "explanation"}
@@ -45,7 +45,7 @@
                 %label 商品の説明
                 %span.description-b 必須
             .cnt_area
-            %textarea.contents2-description-example{name: "explanation", class:"sample", placeholder: "商品の説明（必須 1,000文字以内）\n  （色、素材、重さ、定価、注意点など）\n\n  例）2010年頃に1万円で購入したジャケットです。ライトグレー\n  で傷はありません。あわせやすいのでおすすめです。  ", rows: "7"}
+            = f.text_area :explanation, class: "contents2-description-example",cols: "60", rows: "7", autofocus: true, placeholder: "  商品の説明（必須1,000文字以内）\n  色、素材、重さ、定価、注意点など\n\n 例）2010年度に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。\n\n"
             .thousand
               %span.now_cnt 0
               \/ 
@@ -60,14 +60,7 @@
               .contents3-categoryid-in
                 %label カテゴリー
                 %span.contents3-category-redbtn 必須
-            -# .contents3-choice-a
-            -#   .contents3-choice-b
-            -#     = f.select :category, @category_parent_array, {prompt: "選択して下さい"}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
-            -#   .pulldown.contents3-choice-c#children_box
-            -#   .pulldown.contents3-choice-d#grandchildren_box
             .listing-form-box
-              -# = f.label 'カテゴリー', class: 'listing-default__label'
-              -# %span.listing-default--require 必須
               .listing-select-wrapper
                 = f.label :category_id, {class: 'sell-collection_select__label'} do
                   = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
@@ -78,7 +71,7 @@
               %span.brand-box__1 任意
             .brand-examples
               .brand-examples__1
-                %input{autocomplete: "off", name: "brandname", placeholder: "例）シャネル", style: "width:585px; height:40px; padding: 0 16px;", type: "text", value: ""}/
+                = f.text_field :brand, autofocus: true, class: "product_brand", placeholder: "  例）シャネル"
             %ul.threea1__6
               %ul
             .threebottom-status-all
@@ -149,7 +142,7 @@
             %span.en ¥
             .en-all
               .en-all__1
-                %input{autocomplete: "off", class:"money", name: "price", placeholder: "0", style: "width: 250px; height: 46px; text-align: right;", type: "number", value: ""}/
+                = f.number_field :price, autofocus: true, class:"money", style: "text-align: right", placeholder: "  0"
           .fee-box-all
             .fee-box{"data-test": "fee-label"}
               %div{style: "padding-bottom: 15px;"} 販売手数料（10%）

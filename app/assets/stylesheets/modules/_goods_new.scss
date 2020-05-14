@@ -172,6 +172,12 @@
       width: 586px;
       height: 70px;
       }
+      .good_name {
+        width:585px; 
+        height: 46px; 
+        padding-left: 5px; 
+        padding: 0 16px;
+      }
     }
     .description-a {
       margin-top: 32px;
@@ -297,6 +303,11 @@
       color: #fff;
       font-size: 12px;
       padding: 0 4px;
+    }
+    .product_brand {
+      width:585px;
+      height:40px;
+      padding: 0 16px;
     }
     .threebottom-goods-status {
       margin-top: 30px;
@@ -503,6 +514,16 @@
       &__1 {
         display:inline;
       }
+      .money {
+        width: 250px;
+        height: 46px; 
+        text-align: right;
+      }
+    }
+    .price {
+      width: 250px; 
+      height: 46px; 
+      text-align: right;
     }
       .fee-box-all {
         display: flex;
