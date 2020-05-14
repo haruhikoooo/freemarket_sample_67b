@@ -1,6 +1,7 @@
 class PaymentsController < ApplicationController
+  before_action :authenticate_user!
   before_action :only_current_user
-  
+
   def index
   end
 
@@ -17,8 +18,11 @@ class PaymentsController < ApplicationController
 
   private
   def only_current_user
-    user = User.find(params[:user_id])
-    unless current_user.id == user.id
+    if user = User.find_by_id(params[:user_id])
+      unless current_user.id == user.id
+        redirect_to user_payments_path(current_user)
+      end
+    else
       redirect_to user_payments_path(current_user)
     end
   end
