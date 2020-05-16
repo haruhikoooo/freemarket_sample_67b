@@ -1,6 +1,5 @@
 class GoodsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
-  def index 
   before_action :authenticate_user!, only: [:new]
   before_action :category_index
   before_action :set_category, only: [:new, :edit, :create, :update, :destroy]
