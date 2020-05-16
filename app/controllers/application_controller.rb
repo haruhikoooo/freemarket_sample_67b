@@ -2,7 +2,8 @@ class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
   before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception
-
+  # before_action :move_to_index, except: [:index, :show]
+  
   private
 
   def production?
@@ -22,4 +23,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :family_name, :first_name, :furigana_family, :furigana_first, :birthday])
   end
   
+
+
 end

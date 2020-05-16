@@ -1,0 +1,15 @@
+.category_index__contents_box
+  .category_index__contents_box__label{id: "parent_id#{parent.id}"}
+    %h3
+      = parent.name
+  .category_index__contents_box__inner_box
+    .category_index__contents_box__inner_box__top
+      = link_to "すべて", "#"
+    - parent.children.each do |child|
+      .category_index__contents_box__inner_box__category_name_child
+        = child.name
+      .category_index__contents_box__inner_box__category_name_box
+        = link_to "すべて", "#" ,{class: "category_index__contents_box__inner_box__category_name_box__grandchild"}
+        - child.children.each do |grandchild|
+          .category_index__contents_box__inner_box__category_name_box__grandchild
+            = link_to "#{grandchild.name}", "#"
