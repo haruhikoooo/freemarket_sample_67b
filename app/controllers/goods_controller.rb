@@ -38,7 +38,7 @@ class GoodsController < ApplicationController
   end
 
   def category_index
-    @categories = Category.all.order("id ASC").limit(13)
+    @categories = Category.order("id ASC").limit(13)
   end
 
   def get_category_children
