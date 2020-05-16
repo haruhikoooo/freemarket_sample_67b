@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:show]
+  before_action :category_index, only: [:show]
 
   def show
     if user = User.find_by_id(params[:id])
@@ -10,5 +11,6 @@ class UsersController < ApplicationController
       redirect_to user_path(current_user.id)
     end
   end
+
 
 end
