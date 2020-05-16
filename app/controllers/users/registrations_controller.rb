@@ -90,8 +90,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new(session["devise.regist_data"]["user"])
     @identification = Identification.new(identification_params)
     unless @identification.valid?
-    flash.now[:alert] = @identification.errors.full_messages
-    render :new_identification and return
+      flash.now[:alert] = @identification.errors.full_messages
+      render :new_identification and return
     end
     session["identification_data"] = {identification: @identification.attributes}
     @address = @user.build_address
