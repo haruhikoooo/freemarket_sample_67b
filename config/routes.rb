@@ -23,6 +23,8 @@ Rails.application.routes.draw do
     resources :payments, only: [:index, :new, :create, :destroy, :edit]
   end
 
+  resources :payments, only: [:index, :new, :create, :destroy, :update]
+
 end
 
 
