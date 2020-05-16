@@ -24,6 +24,7 @@ class Good < ApplicationRecord
     length: { maximum: 1000, message: "文字数オーバーです", allow_blank: true}
   
   validates :category_id,
+    presence: true,
     presence: { message: "まで入力してください"}
 
   validates :condition,
@@ -39,5 +40,6 @@ class Good < ApplicationRecord
     presence: { message: "を選択してください"}
 
   validates :price,
+    presence: true,
     numericality: {greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "は¥300 ~ ¥9,999,999です", allow_blank: true}
 end
