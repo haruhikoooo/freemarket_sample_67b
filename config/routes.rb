@@ -21,7 +21,6 @@ Rails.application.routes.draw do
   
   resources :goods, only: [:index, :new, :show, :create] do
     get 'parchase' => 'goods#parchase'
-    get 'toppage' => 'goods#toppage'
   end
   
   resources :users, only: [:show] do
