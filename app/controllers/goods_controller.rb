@@ -1,6 +1,5 @@
 class GoodsController < ApplicationController
   before_action :authenticate_user!, only: [:new]
-  before_action :category_index
   before_action :set_category, only: [:new, :edit, :create, :update, :destroy]
 
   def index
@@ -35,20 +34,6 @@ class GoodsController < ApplicationController
   end
 
   def show
-  end
-
-  def category_index
-    @categories = Category.order("id ASC").limit(13)
-  end
-
-  def get_category_children
-    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
-    render json: @category_children
-  end
-
-  def get_category_grandchildren
-    @category_grandchildren = Category.find(params[:children_id]).children
-    render json: @category_grandchildren
   end
 
 
