@@ -8,7 +8,7 @@ class GoodsController < ApplicationController
   end
 
   def index
-    @goods = Good.all.order(created_at: "DESC")
+    @goods = Good.order(created_at: "DESC")
   end
 
   def new
