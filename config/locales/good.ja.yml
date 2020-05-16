@@ -1,0 +1,16 @@
+ja:
+  activerecord:
+    models:
+      good: "商品"
+    attributes:
+      good:
+        name: "商品名"
+        explanation: "商品説明"
+        category: "カテゴリー"
+        condition: "商品の状態"
+        derivery_cost: "配送料の負担"
+        prefecture_id: "発送元の地域"
+        derivery_day: "発送までの日数"
+        price: "販売価格"
+        images: "商品画像"
+        category_id: "詳細カテゴリー"

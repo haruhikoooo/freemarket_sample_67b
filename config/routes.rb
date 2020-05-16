@@ -14,8 +14,11 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'goods#index'
-
-  resources :goods, only: [:index, :new, :show] do
+  get 'goods/category', to: 'goods#category_index'
+  get 'get_category_children', to: 'goods#get_category_children', defaults: { format: 'json' }
+  get 'get_category_grandchildren', to: 'goods#get_category_grandchildren', defaults: { format: 'json' }
+  
+  resources :goods, only: [:index, :new, :show, :create] do
     get 'parchase' => 'goods#parchase'
   end
   
@@ -24,6 +27,12 @@ Rails.application.routes.draw do
     resources :payments, only: [:index, :new, :create, :destroy]
   end
 
+  resources :goods, only: [:new, :create] do
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
+  end
 end
 
 
