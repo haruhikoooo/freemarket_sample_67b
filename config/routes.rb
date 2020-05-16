@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   end
   
   resources :users, only: [:show] do
+    get "/likes" , to: "users#index_likes"
     resources :payments, only: [:index, :new, :create, :destroy]
   end
 
