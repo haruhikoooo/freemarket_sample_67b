@@ -1,0 +1,14 @@
+= render "layouts/header"
+.mypage
+  = render "layouts/side-bar"
+  .mypage__contents
+    .mypage__contents__likes-box
+      .mypage__contents__likes-box__top いいね！一覧
+      .mypage__contents__likes-box__contents
+        = image_tag "icon/icon_likes-before.png", alt: "likes icon", class: "mypage__contents__likes__box__contetnts__image"
+        %p.mypage__contens__likes-box__contents__text いいね！がありません
+
+
+= render "layouts/footer"
+
+= render "layouts/exhibition-box"
