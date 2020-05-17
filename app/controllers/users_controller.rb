@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:show]
-  before_action :category_index, only: [:show]
+  before_action :category_index, only: [:show, :index_likes]
 
   def show
     if user = User.find_by_id(params[:id])

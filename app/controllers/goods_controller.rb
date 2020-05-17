@@ -38,6 +38,16 @@ class GoodsController < ApplicationController
     end
   end
 
+  def get_category_children
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+    render json: @category_children
+  end
+
+  def get_category_grandchildren
+    @category_grandchildren = Category.find(params[:children_id]).children
+    render json: @category_grandchildren
+  end
+
   def show
   end
 
