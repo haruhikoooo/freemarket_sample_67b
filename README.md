@@ -61,6 +61,7 @@ Things you may want to cover:
 |brand_id|integer|foreign_key: true|
 |condition|integer|null: false, foreign_key: true|
 |prefecture_id|integer|null: false, foreign_key: true|
+|derivery_cost|integer|null: false, foreign_key: true|
 |derivery_day|integer|null: false, foreign_key: true|
 |price|integer|null: false|
 |user_id|integer|null: false, foreign_key: true|
