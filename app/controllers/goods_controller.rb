@@ -4,7 +4,7 @@ class GoodsController < ApplicationController
   before_action :set_category, only: [:new, :edit, :create, :update, :destroy]
 
   def toppage
-    @goods = Good.where(transaction_status_id: "1")
+    @goods = Good.where(transaction_status_id: "1").order(created_at: "DESC").first(3)
   end
 
   def index
