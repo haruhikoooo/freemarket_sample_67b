@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'goods#index'
+  root 'goods#toppage'
+
   get 'goods/category', to: 'goods#category_index'
   get 'get_category_children', to: 'goods#get_category_children', defaults: { format: 'json' }
   get 'get_category_grandchildren', to: 'goods#get_category_grandchildren', defaults: { format: 'json' }
