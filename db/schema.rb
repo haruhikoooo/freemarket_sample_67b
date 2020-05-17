@@ -58,9 +58,16 @@ ActiveRecord::Schema.define(version: 2020_04_28_114629) do
     t.integer "good_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
-    t.string "ancestry"
-    t.index ["ancestry"], name: "index_categories_on_ancestry"
+  end
+
+  create_table "payments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "card_number", null: false
+    t.string "expiration_data_month", null: false
+    t.string "expiration_data_year", null: false
+    t.string "security_code", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
