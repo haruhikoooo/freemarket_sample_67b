@@ -1,6 +1,7 @@
 class PaymentsController < ApplicationController
   before_action :authenticate_user!
   before_action :only_current_user
+  before_action :category_index, only: [:index, :new]
 
   def index
   end

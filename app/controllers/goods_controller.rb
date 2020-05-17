@@ -3,8 +3,12 @@ class GoodsController < ApplicationController
   before_action :category_index
   before_action :set_category, only: [:new, :edit, :create, :update, :destroy]
 
+  def toppage
+    @goods = Good.where(transaction_status_id: "1").order(created_at: "DESC").first(3)
+  end
+
   def index
-    @goods = Good.where(transaction_status_id: "1").last(3) 
+    @goods = Good.order(created_at: "DESC")
   end
 
   def new
@@ -35,10 +39,6 @@ class GoodsController < ApplicationController
   end
 
   def show
-  end
-
-  def category_index
-    @categories = Category.order("id ASC").limit(13)
   end
 
   def get_category_children
