@@ -34,11 +34,11 @@
                   %img{alt: "sample_01", src: "#{asset_path "sample/sample_01.jpg"}", width: "100%" , height: "346px"}/
                   %ul.box-picture
                     %li.box-picture__left
-                    %img{alt: "sample_01", src: "#{asset_path "sample/sample_01.jpg"}", width: "33%" , height: "87px"}/
+                    %img{alt: "sample_01", src: "#{asset_path "sample/sample_01.jpg"}", width: "32%" , height: "87px"}/
                     %li.box-picture__middle
-                    %img{alt: "sample_02", src: "#{asset_path "sample/sample_02.jpg"}", width: "33%" , height: "87px"}/
+                    %img{alt: "sample_02", src: "#{asset_path "sample/sample_02.jpg"}", width: "32%" , height: "87px"}/
                     %li.box-picture__right
-                    %img{alt: "sample_03", src: "#{asset_path "sample/sample_03.jpg"}", width: "33%" , height: "87px"}/
+                    %img{alt: "sample_03", src: "#{asset_path "sample/sample_03.jpg"}", width: "32%" , height: "87px"}/
             .goodsbox__price
               %span.goodsbox__price--money ¥30000
               .goodsbox__price--in
@@ -96,7 +96,7 @@
                     不適切な商品の通報
           - if user_signed_in? && current_user.id == @good.user_id
             .exhibitor-box
-              = link_to "商品を編集する", "#", class: "exhibitor-box__update"
+              = link_to "商品を編集する", good_path(@good.id), method: :edit, class: "exhibitor-box__update"
               = link_to "商品を削除する", good_path(@good.id), method: :delete, class: "exhibitor-box__delete", data: {confirm: "本当に削除しますか?"}
           .commentbox
             %form
