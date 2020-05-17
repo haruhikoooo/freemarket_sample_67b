@@ -1,9 +1,25 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :category_index
   protect_from_forgery with: :exception
   # before_action :move_to_index, except: [:index, :show]
-  
+
+  def category_index
+    @categories = Category.order("id ASC").limit(13)
+  end
+
+  def get_category_children
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+    render json: @category_children
+  end
+
+  def get_category_grandchildren
+    @category_grandchildren = Category.find(params[:children_id]).children
+    render json: @category_grandchildren
+  end
+
+
   private
 
   def production?
