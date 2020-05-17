@@ -121,7 +121,17 @@
         }
       }
     }
-    &--right{
+    &--right-login{
+      display: flex;
+      width: 260px;
+      justify-content: space-between;
+      .user-box{
+        display: block;
+        font-size: 14px;
+        line-height: 25px;
+      }
+    }
+    &--right-logout{
       display: flex;
       width: 155px;
       justify-content: space-between;
