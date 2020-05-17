@@ -5,8 +5,24 @@
     .mypage__contents__likes-box
       .mypage__contents__likes-box__top いいね！一覧
       .mypage__contents__likes-box__contents
-        = image_tag "icon/icon_likes-before.png", alt: "likes icon", class: "mypage__contents__likes__box__contetnts__image"
-        %p.mypage__contens__likes-box__contents__text いいね！がありません
+        = image_tag "icon/icon_likes-before.png", alt: "likes icon", class: "mypage__contents__likes-box__contents__icon"
+        %p.mypage__contents__likes-box__contents__text いいね！がありません
+      %ul.mypage__contents__likes-box__contents__list
+        %li
+          = link_to "#" do
+            = image_tag "icon/icon_likes-before.png", alt: "goods image", class: "mypage__contents__likes-box__contents__list__image"
+            .mypage__contents__likes-box__contents__list__innerBox
+              .mypage__contents__likes-box__contents__list__innerBox__name 毛皮のコート
+              .mypage__contents__likes-box__contents__list__innerBox__price ¥10,000
+        %li
+          = link_to "#" do
+            = image_tag "icon/icon_likes-before.png", alt: "goods image", class: "mypage__contents__likes-box__contents__list__image"
+            .mypage__contents__likes-box__contents__list__innerBox
+              .mypage__contents__likes-box__contents__list__innerBox__name 毛皮のコート
+              .mypage__contents__likes-box__contents__list__innerBox__price ¥10,000
+            
+
+
 
 
 = render "layouts/footer"

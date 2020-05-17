@@ -1,11 +1,62 @@
 .mypage{
-&__contents{
-&__likes-box{
-  width:777px;
-  background-color: $white;
-  &__top{
-    
+  &__contents{
+      &__likes-box{
+        width:777px;
+        background-color: $white;
+        &__top{
+          padding: 10px;
+          height: 30px;
+          font-size: 22px;
+          font-weight: bold;
+          text-align: center;
+          border-bottom: solid 1.2px $background-gray;
+        }
+        &__contents{
+          padding: 10px;
+          &__icon{
+            width: 100px;
+            height: 100px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 30px;
+          }
+          &__text{
+            color: $border-gray;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 20px;
+          }
+        &__list{
+          li{
+            height: 48px;
+            padding: 16px;
+            border-bottom: solid 1.2px $background-gray;
+            @include clearfix();
+            background-image: image-url("icon/icon_arrow_right.png");
+            background-repeat: no-repeat;
+            background-size: 15px 15px;
+            background-position: right 15px center;
+          }
+          &__image{
+            width: 48px;
+            height: 48px;
+            display: block;
+            float: left;
+          }
+          &__innerBox{
+            width: 100%;
+            margin-left: 80px;
+            &__name{
+              padding-top: 2px;
+            }
+            &__price{
+              padding-top: 2px;
+            }
+          }
+        }
+        }
+      }
+    }
   }
-}
-}
-}
+  
