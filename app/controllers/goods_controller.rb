@@ -39,6 +39,13 @@ class GoodsController < ApplicationController
   end
 
   def show
+    @good = Good.find(params[:id])
+  end
+
+  def destroy
+    good = Good.find(params[:id])
+    good.destroy
+    redirect_to user_path(current_user)
   end
 
   def edit

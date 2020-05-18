@@ -178,6 +178,35 @@
               }
             }
           }
+          .exhibitor-box{
+            background-color: $white;
+            margin: 10px 0;
+            padding: 24px;
+            &__update{
+              display: block;
+              text-align: center;
+              height: 50px;
+              line-height: 50px;
+              color: $white;
+              background-color: $main-color;
+              margin:0 40px 20px;
+              &:hover{
+                opacity: 0.9;
+              }
+            }
+            &__delete{
+              display: block;
+              text-align: center;
+              height: 50px;
+              line-height: 50px;
+              color: $white;
+              background-color: $red;
+              margin:0 40px;
+              &:hover{
+                opacity: 0.9;
+              }
+            }
+          }
           .commentbox {
             padding: 24px;
             background-color: $white;
