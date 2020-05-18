@@ -41,6 +41,9 @@ class GoodsController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
   def get_category_children
     @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
     render json: @category_children
