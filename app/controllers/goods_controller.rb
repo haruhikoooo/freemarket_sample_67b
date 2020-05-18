@@ -42,6 +42,7 @@ class GoodsController < ApplicationController
   end
 
   def edit
+    @good = Good.find(params[:id])
   end
 
   def get_category_children
