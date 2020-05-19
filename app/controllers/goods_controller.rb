@@ -4,8 +4,12 @@ class GoodsController < ApplicationController
   before_action :category_index
   before_action :set_category, only: [:new, :edit, :create, :update, :destroy]
 
+  def toppage
+    @goods = Good.where(transaction_status_id: "1").order(created_at: "DESC").first(3)
+  end
+
   def index
-    @goods = Good.where(transaction_status_id: "1").last(3) 
+    @goods = Good.order(created_at: "DESC")
   end
 
   def new
@@ -52,10 +56,6 @@ class GoodsController < ApplicationController
     redirect_to action: :index unless user_signed_in?
   end
 
-  def category_index
-    @categories = Category.order("id ASC").limit(13)
-  end
-
   def get_category_children
     @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
     render json: @category_children
@@ -70,7 +70,7 @@ class GoodsController < ApplicationController
   private
   
   def good_params
-    params.require(:good).permit(:name, :explanation, :category_id, :brand, :condition_id, :prefecture_id, :derivery_day_id, :derivery_cost_id, :price, :user_id, :transaction_status_id, images_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:good).permit(:name, :explanation, :category_id, :brand, :condition_id, :prefecture_id, :derivery_day_id, :derivery_cost_id, :price, :user_id, :transaction_status_id, images_attributes: [:id, :image]).merge(user_id: current_user.id)
   end
 
   def set_category  
