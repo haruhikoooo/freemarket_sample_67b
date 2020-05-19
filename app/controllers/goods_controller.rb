@@ -14,8 +14,9 @@ class GoodsController < ApplicationController
   def new
     @good = Good.new
     @good.images.new
+    set_category_data(@good)
     @parents = Category.all.order("id ASC").limit(13)
-      @category_parent_array = ["---"]
+    @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
     end
@@ -29,8 +30,9 @@ class GoodsController < ApplicationController
     else
       @good.images.reset
       @good.images.new
+      set_category_data(@good)
       @parents = Category.all.order("id ASC").limit(13)
-        @category_parent_array = ["---"]
+      @category_parent_array = ["---"]
       Category.where(ancestry: nil).each do |parent|
         @category_parent_array << parent.name
       end
@@ -50,6 +52,11 @@ class GoodsController < ApplicationController
 
   def edit
     @good = Good.find(params[:id])
+    set_category_data(@good)
+    @category_parent_array = ["---"]
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
   end
 
   def get_category_children
@@ -73,4 +80,21 @@ class GoodsController < ApplicationController
     @category_parent_array = Category.where(ancestry: nil)
   end
   
+  def set_category_data(good)
+    if good.category.nil?
+      @first_category_id = "---"
+      @first_category_name = "---"
+      @second_category_id = "---"
+      @second_category_name = "---"
+      @third_category_id = "---"
+      @third_category_name = "---"
+    else
+      @first_category_id = good.category.root.id
+      @first_category_name = good.category.root.name
+      @second_category_id = good.category.parent.id
+      @second_category_name = good.category.parent.name
+      @third_category_id = good.category.id
+      @third_category_name = good.category.name
+    end
+  end
 end

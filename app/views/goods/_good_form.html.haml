@@ -55,11 +55,11 @@
             %label カテゴリー
             %span.contents3-category-redbtn 必須
         .listing-form-box
-          .listing-select-wrapper
+          .listing-select-wrapper{data: {parent: {id: @first_category_id, name:  @first_category_name}}}
             = f.label :category_id, {class: 'sell-collection_select__label'} do
               = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
-          .pulldown.contents3-choice-c#children_box
-          .pulldown.contents3-choice-d#grandchildren_box
+          .pulldown.contents3-choice-c#children_box{data: {child: {id: @second_category_id, name: @second_category_name}}}
+          .pulldown.contents3-choice-d#grandchildren_box{data: {grandchild: {id: @third_category_id, name:  @third_category_name}}}
         .brand-box
           %label ブランド
           %span.brand-box__1 任意
