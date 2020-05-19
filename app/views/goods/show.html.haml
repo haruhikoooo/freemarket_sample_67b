@@ -31,6 +31,7 @@
             .picture
               %ul.picture__main
                 %li.picture__main--top
+                  = image_tag @good.images.first.image.url , alt: "sample_01", class: "goods-content__image--url"
                   %img{alt: "sample_01", src: "#{asset_path "sample/sample_01.jpg"}", width: "100%" , height: "346px"}/
                   %ul.box-picture
                     %li.box-picture__left

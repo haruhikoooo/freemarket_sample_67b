@@ -40,6 +40,7 @@ class GoodsController < ApplicationController
 
 
   def show
+    @parents = Category.roots.all
     @good = Good.find(params[:id])
   end
 
