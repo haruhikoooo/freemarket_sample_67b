@@ -88,6 +88,61 @@ $(function(){
       // $('#size_wrapper').remove();
     }
   });
+
+  if ($('.listing-select-wrapper').length){
+    var firstCategoryData = $('.listing-select-wrapper').data("parent-name")
+    var secondCategoryData = $('#children_box').data("child-id")
+    var thirdCategoryData = $('#grandchildren_box').data("grandchild-id")
+    $('#parent_category').val(firstCategoryData)
+    if (firstCategoryData != "---"){
+      $.ajax({
+        url: '/get_category_children',
+        type: 'GET',
+        data: { parent_name: firstCategoryData},
+        dataType: 'json'
+      })
+      .done(function(children){
+        var insertHTML = '';
+        children.forEach(function(child){
+          insertHTML += appendOption(child);
+        });
+        appendChidrenBox(insertHTML);
+        $('#child_category').val(secondCategoryData)
+        if (thirdCategoryData != "---"){
+          $.ajax({
+            url: '/get_category_grandchildren',
+            type: 'GET',
+            data: { children_id: secondCategoryData },
+            dataType: 'json'
+          })
+          .done(function(grandchildren){
+            if (grandchildren.length != 0) {
+              $('#grandchildren_wrapper').remove();
+              var insertHTML = '';
+              grandchildren.forEach(function(grandchild){
+                insertHTML += appendOption(grandchild);
+              });
+              appendGrandchidrenBox(insertHTML);
+              $('#grandchild_category').val(thirdCategoryData);
+              }
+          })
+          .fail(function(){
+            alert('カテゴリー取得に失敗しました');
+          })
+        }else{
+          $('#grandchildren_wrapper').remove();
+        }
+      })
+      .fail(function(){
+        alert('カテゴリー取得に失敗しました');
+      })
+    }else{
+      $('#children_wrapper').remove();
+      $('#grandchildren_wrapper').remove();
+    }
+  }
+
+
   // $(document).on('change', '#grandchildren_box', function() {
   //   let grandchildId = $('#grandchildren_category option:selected').data('category');
   //   if (grandchildId != "") {
