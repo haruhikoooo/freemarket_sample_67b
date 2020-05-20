@@ -1,7 +1,8 @@
 class GoodsController < ApplicationController
   before_action :authenticate_user!, only: [:new]
   before_action :category_index
-  before_action :set_category, only: [:new, :edit, :create, :update, :destroy]
+  before_action :set_good, only: [:show, :edit]
+  # before_action :set_category, only: [:new, :edit, :create, :update, :destroy]
 
   def toppage
     @goods = Good.where(transaction_status_id: "1").order(created_at: "DESC").first(3)
@@ -15,11 +16,12 @@ class GoodsController < ApplicationController
     @good = Good.new
     @good.images.new
     set_category_data(@good)
-    @parents = Category.all.order("id ASC").limit(13)
-    @category_parent_array = ["---"]
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
+    set_parent_category
+    # @parents = Category.all.order("id ASC").limit(13)
+    # @category_parent_array = ["---"]
+    # Category.where(ancestry: nil).each do |parent|
+    #   @category_parent_array << parent.name
+    # end
   end
 
   def create
@@ -31,17 +33,17 @@ class GoodsController < ApplicationController
       @good.images.reset
       @good.images.new
       set_category_data(@good)
-      @parents = Category.all.order("id ASC").limit(13)
-      @category_parent_array = ["---"]
-      Category.where(ancestry: nil).each do |parent|
-        @category_parent_array << parent.name
-      end
+      set_parent_category
+      # @parents = Category.all.order("id ASC").limit(13)
+      # @category_parent_array = ["---"]
+      # Category.where(ancestry: nil).each do |parent|
+      #   @category_parent_array << parent.name
+      # end
       render :new
     end
   end
 
   def show
-    @good = Good.find(params[:id])
   end
 
   def destroy
@@ -51,12 +53,8 @@ class GoodsController < ApplicationController
   end
 
   def edit
-    @good = Good.find(params[:id])
     set_category_data(@good)
-    @category_parent_array = ["---"]
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
+    set_parent_category
   end
 
   def get_category_children
@@ -76,10 +74,20 @@ class GoodsController < ApplicationController
     params.require(:good).permit(:name, :explanation, :category_id, :brand, :condition_id, :prefecture_id, :derivery_day_id, :derivery_cost_id, :price, :user_id, :transaction_status_id, image_attributes: [:id, :image]).merge(user_id: current_user.id)
   end
 
-  def set_category  
-    @category_parent_array = Category.where(ancestry: nil)
+  def set_good
+    @good = Good.find(params[:id])
   end
-  
+  #   @category_parent_array = Category.where(ancestry: nil)
+  # end
+
+  def set_parent_category
+    @category_parent_array = ["---"]
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+  end
+
+
   def set_category_data(good)
     if good.category.nil?
       @first_category_id = "---"
