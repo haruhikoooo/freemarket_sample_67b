@@ -14,7 +14,7 @@
         .category-list.hidden
           .category-list__item
             - @categories.each do |parent|
-              = link_to "#{parent.name}", "#", class: "category-list__item--link", id: "parent_#{parent.id}"
+              = link_to "#{parent.name}", "/goods/category/#{parent.id}", class: "category-list__item--link", id: "parent_#{parent.id}"
               .second-category-list.hidden
                 .second-category-list__item
                   .third-category-list.hidden

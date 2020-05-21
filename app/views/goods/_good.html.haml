@@ -1,4 +1,4 @@
-= link_to good_path(good.id), class: "goods-content" do
+= link_to "goods/#{(good.id)}", class: "goods-content" do
   .goods-content__image
     = image_tag get_thumbnail(good), alt: "sample_01", class: "goods-content__image--url"
     - if good.transaction_status_id != 1
