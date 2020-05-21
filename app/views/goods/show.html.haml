@@ -53,31 +53,36 @@
                 %table.table__body--box
                   %tr.table__body--box--line
                     %th.table__body--box--line--headline 出品者
-                    %td.table__body--box--line--item hoge
+                    %td.table__body--box--line--item 
+                      =@good.user.nickname
                   %tr.table__body--box--line
                     %th.table__body--box--line--headline カテゴリー
                     %td.table__body--box--line--item
-                      = link_to "ベビー・キッズ", "#", class: "table__body--box--line--item--color"
+                      = link_to @good.category.parent.parent.name , goods_path(@good.category.root.id) , class: "table__body--box--line--item--color"
                       %br/
-                      = link_to "ベビー服(男女兼用) ~95cm", "#", class: "table__body--box--line--item--color"
+                      = link_to @good.category.parent.name , goods_path(@good.category.root.id) , class: "table__body--box--line--item--color"
                       %br/
-                      = link_to "アウター", "#", class: "table__body--box--line--item--color"
+                      = link_to  @good.category.name , goods_path(@good.category.root.id) , class: "table__body--box--line--item--color"
                   %tr.table__body--box--line
                     %th.table__body--box--line--headline ブランド
                     %td.table__body--box--line--item
+                      =@good.brand
                   %tr.table__body--box--line
                     %th.table__body--box--line--headline 商品の状態
-                    %td.table__body--box--line--item 未使用に近い
+                    %td.table__body--box--line--item
+                      =@good.condition.name
                   %tr.table__body--box--line
                     %th.table__body--box--line--headline 配送料の負担
-                    %td.table__body--box--line--item 送料込み(出品者負担)
+                    %td.table__body--box--line--item
+                      =@good.derivery_cost.name
                   %tr.table__body--box--line
                     %th.table__body--box--line--headline 発送元の地域
                     %td.table__body--box--line--item
-                      = link_to "岩手県", "#", class: "table__body--box--line--item--color"
+                      =@good.prefecture.name
                   %tr.table__body--box--line
                     %th.table__body--box--line--headline 発送日の目安
-                    %td.table__body--box--line--item 4~7日で発送
+                    %td.table__body--box--line--item
+                      =@good.derivery_day.name
             .option-area
               %ul.option-area__left
                 %li.option-area__left--button
