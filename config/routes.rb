@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   root 'goods#toppage'
 
   get 'goods/category', to: 'goods#category_index'
+  get 'goods/category/:id', to: 'goods#index_categories'
   get 'get_category_children', to: 'goods#get_category_children', defaults: { format: 'json' }
   get 'get_category_grandchildren', to: 'goods#get_category_grandchildren', defaults: { format: 'json' }
   
