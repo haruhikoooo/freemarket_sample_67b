@@ -3,23 +3,23 @@
   .sub
     %ul.sub-main
       %li.sub-main__categories
-        = link_to "FURIMA", "#" 
+        = link_to "FURIMA" ,root_path
       %li.sub-main__icon
         %i.fa.fa-angle-right
       %li.sub-main__categories
-        = link_to "ベビー・キッズ", "#"
+        = link_to @good.category.parent.parent.name , goods_path(@good.category.root.id)
       %li.sub-main__icon
         %i.fa.fa-angle-right
       %li.sub-main__categories
-        = link_to "ベビー服(男女兼用) ~95cm", "#"
+        = link_to @good.category.parent.name , goods_path(@good.category.root.id)
       %li.sub-main__icon
         %i.fa.fa-angle-right 
       %li.sub-main__categories
-        = link_to "アウター", "#"
+        = link_to  @good.category.name , goods_path(@good.category.root.id)
       %li.sub-main__icon
         %i.fa.fa-angle-right 
       %p.sub-main__categories--name
-        product３
+        =@good.name
 
   .main
     .main__show
@@ -27,12 +27,11 @@
         .main-content__top
           .goodsbox
             %h2.goodsbox__name
-              product3
+              =@good.name
             .picture
               %ul.picture__main
                 %li.picture__main--top
                   = image_tag @good.images.first.image.url , alt: "sample_01", class: "goods-content__image--url"
-                  %img{alt: "sample_01", src: "#{asset_path "sample/sample_01.jpg"}", width: "100%" , height: "346px"}/
                   %ul.box-picture
                     %li.box-picture__left
                     %img{alt: "sample_01", src: "#{asset_path "sample/sample_01.jpg"}", width: "32%" , height: "87px"}/
