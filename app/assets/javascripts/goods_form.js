@@ -27,9 +27,8 @@ $(function(){
   // 既に使われているindexを除外
   lastIndex = $('.js-file_group:last').data('index');
   fileIndex.splice(0, lastIndex);
-
-  // 編集用
-  // $('.hidden-destroy').hide();
+  
+  $('.hidden-destroy').hide();
 
   $("#image-box").on('change', '.js-file', function(e) {
     const targetIndex = $(this).parents('.js-file_group').data('index');
@@ -74,4 +73,34 @@ $(function(){
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
     };
   });
+
+  if ($('.hidden-destroy').length){
+    $('.js-file_group').each(function(index){
+      const targetIndex = $(this).data('index');
+      const targetGroup = $(this);
+      const img_id = $('#image-box').find(`#good_images_attributes_${index}_id`).prop('value');
+      $.ajax({
+        url: '/get_image',
+        type: 'GET',
+        data: { id: img_id },
+        dataType: 'json'
+      })
+      .done(function(image){
+        targetGroup.find('.fa-camera').addClass("none");
+        targetGroup.find('.camera__comments').addClass("none");
+        targetGroup.find('.js-files').append(`<div class= "js-update">更新</div>`);
+        targetGroup.removeClass('max-width');
+        targetGroup.append(buildImg(targetIndex, image.image.url));
+      })
+      .fail(function(){
+        alert('画像の取得に失敗しました');
+      })
+    })
+    if ($('.js-files').length < 10){
+      $('#image-box').append(buildFileField(fileIndex[0]));
+      fileIndex.shift();
+      // 末尾の数に1足した数を追加する
+      fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
+    }
+  }
 });
