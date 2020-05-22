@@ -42,8 +42,11 @@ class GoodsController < ApplicationController
 
 
   def show
+    binding.pry
     @parents = Category.roots.all
     @good = Good.find(params[:id])
+    @images = @good.images
+  end
 
   def edit
     @good = Good.find(params[:id])

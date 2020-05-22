@@ -29,16 +29,15 @@
             %h2.goodsbox__name
               =@good.name
             .picture
-              %ul.picture__main
-                %li.picture__main--top
+              .picture__main
+                .picture__main--top
                   = image_tag @good.images.first.image.url , alt: "sample_01", class: "goods-content__image--url"
-                  %ul.box-picture
-                    %li.box-picture__left
-                    %img{alt: "sample_01", src: "#{asset_path "sample/sample_01.jpg"}", width: "32%" , height: "87px"}/
-                    %li.box-picture__middle
-                    %img{alt: "sample_02", src: "#{asset_path "sample/sample_02.jpg"}", width: "32%" , height: "87px"}/
-                    %li.box-picture__right
-                    %img{alt: "sample_03", src: "#{asset_path "sample/sample_03.jpg"}", width: "32%" , height: "87px"}/
+              .picturesub
+                - @images.each do |image|
+                  .picturesub--one
+                    .picturesub--one__second
+                      = image_tag image.image.url, class: "sub_img"
+
             .goodsbox__price
               %span.goodsbox__price--money 
                 =@good.price
