@@ -61,25 +61,16 @@
                 &--top {
                   flex-direction: column;
                   display: flex;
-                  width: 560px;
+                  // width: 560px;
                   align-items: center;
-                  margin: 0 auto;
-                  .box-picture {
-                    display: flex;
-                    justify-content: center;
-                    margin-top: 10px;
-                    &__left {
-                      width: 25%;
-                    }
-                    &__middle {
-                      width: 25%;
-                      margin: 0 10px 0 0;
-                    }
-                    &__right {
-                      width: 25%;
-                      margin: 0 10px 0 0;
-                    }
+                  // margin: 0 auto;
+                  .goods-content__image--url {
+                    width: 100%;
                   }
+                .picturesub {
+                  flex-wrap: wrap;
+                  display: inline-flex;
+                }
                 }
               }
             }
