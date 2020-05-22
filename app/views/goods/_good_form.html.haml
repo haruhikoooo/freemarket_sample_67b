@@ -22,6 +22,8 @@
                 %i.fas.fa-camera.fa-2x
                 %p.camera__comments
                   クリックしてファイルをアップロード
+            - if @good.persisted?
+              = image.check_box :_destroy, data:{ index: image.index }, class: "hidden-destroy"
   .contents2
     .contents2__productsname-a
       .contents2__productsname-b
