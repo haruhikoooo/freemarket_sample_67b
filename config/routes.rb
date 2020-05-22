@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get 'get_category_grandchildren', to: 'goods#get_category_grandchildren', defaults: { format: 'json' }
   get 'get_image', to: 'goods#get_image', defaults: { format: 'json' }
   
-  resources :goods, only: [:index, :new, :show, :create, :edit, :destroy] do
+  resources :goods do
     get 'parchase' => 'goods#parchase'
   end
   
