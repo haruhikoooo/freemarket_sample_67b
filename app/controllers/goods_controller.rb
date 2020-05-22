@@ -22,8 +22,6 @@ class GoodsController < ApplicationController
     end
   end
 
-  
-
 
   def create
     @good = Good.new(good_params)
@@ -46,7 +44,6 @@ class GoodsController < ApplicationController
   def show
     @parents = Category.roots.all
     @good = Good.find(params[:id])
-  end
 
   def edit
     @good = Good.find(params[:id])
