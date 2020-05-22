@@ -2,7 +2,6 @@ class GoodsController < ApplicationController
   before_action :authenticate_user!, only: [:new]
   before_action :category_index
   before_action :set_good, only: [:show, :edit]
-  # before_action :set_category, only: [:new, :edit, :create, :update, :destroy]
 
   def toppage
     @goods = Good.where(transaction_status_id: "1").order(created_at: "DESC").first(3)
@@ -17,11 +16,6 @@ class GoodsController < ApplicationController
     @good.images.new
     set_category_data(@good)
     set_parent_category
-    # @parents = Category.all.order("id ASC").limit(13)
-    # @category_parent_array = ["---"]
-    # Category.where(ancestry: nil).each do |parent|
-    #   @category_parent_array << parent.name
-    # end
   end
 
   def create
@@ -34,11 +28,6 @@ class GoodsController < ApplicationController
       @good.images.new
       set_category_data(@good)
       set_parent_category
-      # @parents = Category.all.order("id ASC").limit(13)
-      # @category_parent_array = ["---"]
-      # Category.where(ancestry: nil).each do |parent|
-      #   @category_parent_array << parent.name
-      # end
       render :new
     end
   end
@@ -77,8 +66,6 @@ class GoodsController < ApplicationController
   def set_good
     @good = Good.find(params[:id])
   end
-  #   @category_parent_array = Category.where(ancestry: nil)
-  # end
 
   def set_parent_category
     @category_parent_array = ["---"]
