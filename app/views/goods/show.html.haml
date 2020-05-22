@@ -32,11 +32,11 @@
               .picture__main
                 .picture__main--top
                   = image_tag @good.images.first.image.url , alt: "sample_01", class: "goods-content__image--url"
-              .picturesub
+              .picture-sub
                 - @images.each do |image|
                   .picturesub--one
                     .picturesub--one__second
-                      = image_tag image.image.url, class: "sub_img", width: "207px"
+                      = image_tag image.image.url, class: "sub_img", width: "200px",  height: "200px"
                       
 
             .goodsbox__price

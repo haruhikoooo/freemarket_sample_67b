@@ -56,22 +56,20 @@
             .picture {
               margin: 16px 0 0;
               &__main {
-                display: flex;
-                position: relative;
                 &--top {
-                  flex-direction: column;
-                  display: flex;
-                  // width: 560px;
-                  align-items: center;
-                  // margin: 0 auto;
+                  width: 560px;
+                  margin: 0 auto;
                   .goods-content__image--url {
                     width: 100%;
                   }
-                .picturesub {
-                  flex-wrap: wrap;
-                  display: inline-flex;
+                  .picture-sub {
+                    display: flex;
+                    flex-wrap: wrap;
+                  }
                 }
-                }
+              }
+              .picturesub--one {
+                display: inline-block;
               }
             }
             .goodsbox__price {
