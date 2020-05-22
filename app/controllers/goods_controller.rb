@@ -56,6 +56,11 @@ class GoodsController < ApplicationController
     render json: @category_grandchildren
   end
 
+  def get_image
+    @image = Image.find(params[:id])
+    render json: @image
+  end
+
 
   private
   

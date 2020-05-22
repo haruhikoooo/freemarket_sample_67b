@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get 'goods/category', to: 'goods#category_index'
   get 'get_category_children', to: 'goods#get_category_children', defaults: { format: 'json' }
   get 'get_category_grandchildren', to: 'goods#get_category_grandchildren', defaults: { format: 'json' }
+  get 'get_image', to: 'goods#get_image', defaults: { format: 'json' }
   
   resources :goods, only: [:index, :new, :show, :create, :edit, :destroy] do
     get 'parchase' => 'goods#parchase'
