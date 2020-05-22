@@ -1,7 +1,7 @@
 class GoodsController < ApplicationController
-  before_action :authenticate_user!, only: [:new]
+  before_action :authenticate_user!, only: [:new, :edit]
   before_action :category_index
-  before_action :set_good, only: [:show, :edit]
+  before_action :set_good, only: [:show, :edit, :update]
 
   def toppage
     @goods = Good.where(transaction_status_id: "1").order(created_at: "DESC").first(3)
@@ -42,8 +42,20 @@ class GoodsController < ApplicationController
   end
 
   def edit
+    redirect_to good_path(@good.id) unless current_user == @good.user
     set_category_data(@good)
     set_parent_category
+  end
+
+  def update
+    if @good.update(good_params)
+      redirect_to root_path
+    else
+      @good.images.reset
+      set_category_data(@good)
+      set_parent_category
+      render :edit
+    end
   end
 
   def get_category_children
@@ -65,7 +77,7 @@ class GoodsController < ApplicationController
   private
   
   def good_params
-    params.require(:good).permit(:name, :explanation, :category_id, :brand, :condition_id, :prefecture_id, :derivery_day_id, :derivery_cost_id, :price, :user_id, :transaction_status_id, images_attributes: [:id, :image]).merge(user_id: current_user.id)
+    params.require(:good).permit(:name, :explanation, :category_id, :brand, :condition_id, :prefecture_id, :derivery_day_id, :derivery_cost_id, :price, :user_id, :transaction_status_id, images_attributes: [:id, :image, :_destroy]).merge(user_id: current_user.id)
   end
 
   def set_good
