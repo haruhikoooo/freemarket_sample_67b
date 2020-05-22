@@ -35,12 +35,6 @@ class GoodsController < ApplicationController
   def show
   end
 
-  def destroy
-    good = Good.find(params[:id])
-    good.destroy
-    redirect_to user_path(current_user)
-  end
-
   def edit
     redirect_to good_path(@good.id) unless current_user == @good.user
     set_category_data(@good)
