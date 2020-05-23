@@ -43,8 +43,6 @@
         width: 700px;
         margin: 0 auto;
         &__top {
-          margin: 0;
-          padding: 0;
           .goodsbox {
             background-color: $white;
             padding: 24px 40px 40px;
@@ -55,31 +53,14 @@
             }
             .picture {
               margin: 16px 0 0;
-              &__main {
+              .goods-content__image--url {
+                width: 600px;
+              }
+              .picture-sub {
                 display: flex;
-                position: relative;
-                &--top {
-                  flex-direction: column;
-                  display: flex;
-                  width: 560px;
-                  align-items: center;
-                  margin: 0 auto;
-                  .box-picture {
-                    display: flex;
-                    justify-content: center;
-                    margin-top: 10px;
-                    &__left {
-                      width: 25%;
-                    }
-                    &__middle {
-                      width: 25%;
-                      margin: 0 10px 0 0;
-                    }
-                    &__right {
-                      width: 25%;
-                      margin: 0 10px 0 0;
-                    }
-                  }
+                flex-wrap: wrap;
+                .picturesub--one {
+                  display: inline-block;
                 }
               }
             }
@@ -117,6 +98,7 @@
             .goods--detail {
               font-size: 18px;
               margin-bottom: 30px;
+              word-wrap: break-word;
             }
             .table {
               margin-bottom: 20px;
@@ -177,6 +159,26 @@
                 }
               }
             }
+            .exhibitor-box__update {
+              font-size: 24px;
+              line-height: 60px;
+              display: block;
+              margin-top: 16px;
+              background: #ea352d;
+              color: #fff;
+              text-align: center;
+              font-weight: 600;
+            }
+            .exhibitor-box__delete {
+              font-size: 24px;
+              line-height: 60px;
+              display: block;
+              margin-top: 16px;
+              background: #ea352d;
+              color: #fff;
+              text-align: center;
+              font-weight: 600;
+            }
           }
           .exhibitor-box{
             background-color: $white;
@@ -214,7 +216,7 @@
             text-align: center;
             .comment {
               padding: 10px;
-              width: 100%;
+              width: 600px;
               min-height: 104px;
             }
             .caution {

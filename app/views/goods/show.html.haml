@@ -3,88 +3,83 @@
   .sub
     %ul.sub-main
       %li.sub-main__categories
-        = link_to "FURIMA", "#" 
+        = link_to "FURIMA" ,root_path
       %li.sub-main__icon
         %i.fa.fa-angle-right
       %li.sub-main__categories
-        = link_to "ベビー・キッズ", "#"
+        = link_to @good.category.parent.parent.name , goods_path(@good.category.root.id)
       %li.sub-main__icon
         %i.fa.fa-angle-right
       %li.sub-main__categories
-        = link_to "ベビー服(男女兼用) ~95cm", "#"
+        = link_to @good.category.parent.name , goods_path(@good.category.root.id)
       %li.sub-main__icon
         %i.fa.fa-angle-right 
       %li.sub-main__categories
-        = link_to "アウター", "#"
+        = link_to  @good.category.name , goods_path(@good.category.root.id)
       %li.sub-main__icon
         %i.fa.fa-angle-right 
       %p.sub-main__categories--name
-        product３
-
+        =@good.name
   .main
     .main__show
       .main-content
         .main-content__top
           .goodsbox
             %h2.goodsbox__name
-              product3
+              =@good.name
             .picture
-              %ul.picture__main
-                %li.picture__main--top
-                  %img{alt: "sample_01", src: "#{asset_path "sample/sample_01.jpg"}", width: "100%" , height: "346px"}/
-                  %ul.box-picture
-                    %li.box-picture__left
-                    %img{alt: "sample_01", src: "#{asset_path "sample/sample_01.jpg"}", width: "32%" , height: "87px"}/
-                    %li.box-picture__middle
-                    %img{alt: "sample_02", src: "#{asset_path "sample/sample_02.jpg"}", width: "32%" , height: "87px"}/
-                    %li.box-picture__right
-                    %img{alt: "sample_03", src: "#{asset_path "sample/sample_03.jpg"}", width: "32%" , height: "87px"}/
+              .picture__main
+                .picture__main--top
+                  = image_tag @good.images.first.image.url , alt: "sample_01", class: "goods-content__image--url"
+              .picture-sub
+                - @images.each do |image|
+                  .picturesub--one
+                    .picturesub--one__second
+                      = image_tag image.image.url, class: "sub_img", width: "200px",  height: "200px"
             .goodsbox__price
-              %span.goodsbox__price--money ¥30000
+              %span.goodsbox__price--money 
+                =@good.price
               .goodsbox__price--in
                 %span.goodsbox__price--in--taxincluded (税込)
                 %span.goodsbox__price--in--postageincluded 送料込み
                 = link_to "購入画面に進む", "1/parchase", class: "item-buy-btn"
             .goods--detail
-              親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の
-              二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をし
-              たと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を
-              出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降
-              りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰
-              って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
+              =@good.explanation
             .table
               .table__body
                 %table.table__body--box
                   %tr.table__body--box--line
                     %th.table__body--box--line--headline 出品者
-                    %td.table__body--box--line--item hoge
+                    %td.table__body--box--line--item 
+                      =@good.user.nickname
                   %tr.table__body--box--line
                     %th.table__body--box--line--headline カテゴリー
                     %td.table__body--box--line--item
-                      = link_to "ベビー・キッズ", "#", class: "table__body--box--line--item--color"
+                      = link_to @good.category.parent.parent.name , goods_path(@good.category.root.id) , class: "table__body--box--line--item--color"
                       %br/
-                      = link_to "ベビー服(男女兼用) ~95cm", "#", class: "table__body--box--line--item--color"
+                      = link_to @good.category.parent.name , goods_path(@good.category.root.id) , class: "table__body--box--line--item--color"
                       %br/
-                      = link_to "アウター", "#", class: "table__body--box--line--item--color"
+                      = link_to  @good.category.name , goods_path(@good.category.root.id) , class: "table__body--box--line--item--color"
                   %tr.table__body--box--line
                     %th.table__body--box--line--headline ブランド
                     %td.table__body--box--line--item
-                  %tr.table__body--box--line
-                    %th.table__body--box--line--headline 商品のサイズ
-                    %td.table__body--box--line--item
+                      =@good.brand
                   %tr.table__body--box--line
                     %th.table__body--box--line--headline 商品の状態
-                    %td.table__body--box--line--item 未使用に近い
+                    %td.table__body--box--line--item
+                      =@good.condition.name
                   %tr.table__body--box--line
                     %th.table__body--box--line--headline 配送料の負担
-                    %td.table__body--box--line--item 送料込み(出品者負担)
+                    %td.table__body--box--line--item
+                      =@good.derivery_cost.name
                   %tr.table__body--box--line
                     %th.table__body--box--line--headline 発送元の地域
                     %td.table__body--box--line--item
-                      = link_to "岩手県", "#", class: "table__body--box--line--item--color"
+                      =@good.prefecture.name
                   %tr.table__body--box--line
                     %th.table__body--box--line--headline 発送日の目安
-                    %td.table__body--box--line--item 4~7日で発送
+                    %td.table__body--box--line--item
+                      =@good.derivery_day.name
             .option-area
               %ul.option-area__left
                 %li.option-area__left--button
@@ -112,17 +107,15 @@
         %ul.links
           %li.links__left
             = link_to "#", class: "links__left--link" do
-              %i.fa.fa-angle-left
-              前の商品
+              -# %i.fa.fa-angle-left
+              -# 前の商品
           %li.links__right
             = link_to "#", class: "links__right--link" do
-              %i.fa.fa-angle-right
-              後の商品
+              -# %i.fa.fa-angle-right
+              -# 後の商品
         .more-item
-          = link_to "ベビー・キッズをもっと見る", "#", class: "more-item__link"
-  
+          -# = link_to "ベビー・キッズをもっと見る", "#", class: "more-item__link"
   = render "layouts/footer"
-  
   = link_to new_good_path, class: "boxbody" do
     .boxbody__text
       出品する

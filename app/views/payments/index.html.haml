@@ -8,15 +8,15 @@
       .mypage__contents--main__title
         クレジットカード
       .credit-box
-        -# .credit-box__item
-        -#   = icon('far', 'credit-card', class: "credit-box__item__icon")
-        -# .credit-box__item
-        -#   .credit-box__item__number
-        -#     ************0000
-        -#   .credit-box__item__date
-        -#     04 / 20
-        -# .credit-box__item
-        -#   = link_to "削除する", "#", class: "credit-box__item--delete"
+        .credit-box__item
+          = icon('far', 'credit-card', class: "credit-box__item__icon")
+        .credit-box__item
+          .credit-box__item__number
+            ************0000
+          .credit-box__item__date
+            04 / 20
+        .credit-box__item
+          = link_to "削除する", "#", class: "credit-box__item--delete"
 
         = link_to new_user_payment_path, class: "credit-box__add-btn" do
           = icon('far', 'credit-card')
