@@ -1,5 +1,4 @@
 class GoodsController < ApplicationController
-  before_action :move_to_index, except: [:index, :show]
   before_action :authenticate_user!, only: [:new, :edit]
   before_action :category_index
   before_action :set_good, only: [:show, :edit, :update]
@@ -44,9 +43,7 @@ class GoodsController < ApplicationController
   def edit
   end
 
-  def move_to_index
-    redirect_to action: :index unless user_signed_in?
-  end
+
 
   def edit
     redirect_to good_path(@good.id) unless current_user == @good.user
