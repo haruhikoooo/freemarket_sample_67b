@@ -53,20 +53,15 @@
             }
             .picture {
               margin: 16px 0 0;
-              &__main {
-                &--top {
-                  width: 560px;
-                  .goods-content__image--url {
-                    width: 610px;
-                  }
-                  .picture-sub {
-                    display: flex;
-                    flex-wrap: wrap;
-                  }
-                }
+              .goods-content__image--url {
+                width: 600px;
               }
-              .picturesub--one {
-                display: inline-block;
+              .picture-sub {
+                display: flex;
+                flex-wrap: wrap;
+                .picturesub--one {
+                  display: inline-block;
+                }
               }
             }
             .goodsbox__price {
@@ -192,7 +187,7 @@
             text-align: center;
             .comment {
               padding: 10px;
-              width: 100%;
+              width: 600px;
               min-height: 104px;
             }
             .caution {
