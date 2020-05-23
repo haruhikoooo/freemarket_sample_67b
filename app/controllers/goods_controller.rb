@@ -1,9 +1,7 @@
 class GoodsController < ApplicationController
-  # before_action :move_to_index, except: [:index, :show]
   before_action :authenticate_user!, only: [:new, :edit]
   before_action :category_index
   before_action :set_good, only: [:show, :edit, :update]
-  # before_action :set_message, only: [:show, :edit]
 
   def toppage
     @goods = Good.where(transaction_status_id: "1").order(created_at: "DESC").first(3)
@@ -115,7 +113,4 @@ class GoodsController < ApplicationController
     end
   end
 
-  # def set_message
-  #   @good = Good.find(params[:id])
-  # end
 end
