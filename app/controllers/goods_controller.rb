@@ -51,6 +51,7 @@ class GoodsController < ApplicationController
   end
 
   def update
+    @good.category_id = nil if good_params[:category_id] == nil
     if @good.update(good_params)
       redirect_to root_path
     else
