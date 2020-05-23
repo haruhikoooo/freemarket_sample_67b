@@ -24,7 +24,6 @@ class Good < ApplicationRecord
     length: { maximum: 1000, message: "文字数オーバーです", allow_blank: true}
   
   validates :category_id,
-    presence: true,
     presence: { message: "まで入力してください"}
 
   validates :condition,

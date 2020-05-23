@@ -19,14 +19,17 @@ Rails.application.routes.draw do
   get 'goods/category/:id', to: 'goods#index_categories'
   get 'get_category_children', to: 'goods#get_category_children', defaults: { format: 'json' }
   get 'get_category_grandchildren', to: 'goods#get_category_grandchildren', defaults: { format: 'json' }
+  get 'get_image', to: 'goods#get_image', defaults: { format: 'json' }
   
-  resources :goods, only: [:index, :new, :show, :create] do
+  resources :goods do
     get 'parchase' => 'goods#parchase'
   end
   
   resources :users, only: [:show] do
-    resources :payments, only: [:index, :new, :create, :destroy]
+    resources :payments, only: [:index, :new, :create, :destroy, :edit]
   end
+
+  resources :payments, only: [:index, :new, :create, :destroy, :update]
 
   resources :goods, only: [:new, :create] do
     collection do
