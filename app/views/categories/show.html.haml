@@ -4,12 +4,12 @@
     - if @category.has_children?
       - @category.children.each do |child|
         .goods-list__categories__link
-          = link_to  "/goods/category/#{child.id}" do
+          = link_to  category_path(child.id) do
             = child.name
     - else
       - @category.parent.children.each do |child|
         .goods-list__categories__link
-          = link_to  "/goods/category/#{child.id}" do
+          = link_to  category_path(child.id) do
             = child.name
   .goods-list__title--categories
     .goods-list__title--black 
