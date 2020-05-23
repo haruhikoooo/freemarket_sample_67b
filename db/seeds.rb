@@ -31,3 +31,26 @@ grandchildren.each do |grandchild,i|
     name: grandchild,
   )
 end
+
+
+goods = CSV.read('db/goods_sample.csv')
+good = {}
+i = 1
+goods.each do |name, explanation, category_id, brand, condition_id, prefecture_id, derivery_day_id, derivery_cost_id, price, user_id, transaction_status_id|
+  good = Good.new()
+  good[:name] = name
+  good[:explanation] = explanation
+  good[:category_id] = category_id
+  good[:brand] = brand
+  good[:condition_id] = condition_id
+  good[:prefecture_id] = prefecture_id
+  good[:derivery_day_id] = derivery_day_id
+  good[:derivery_cost_id] = derivery_cost_id
+  good[:price] = price
+  good[:user_id] = user_id
+  good[:transaction_status_id] = transaction_status_id
+  good.save!(validate: false)
+  image = Image.new(good_id: i, image: open("#{Rails.root}/public/test/sample.png"))
+  image.save!(validate: false)
+  i = i+1
+end

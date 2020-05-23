@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   root 'goods#toppage'
 
   get 'goods/category', to: 'goods#category_index'
+  
   get 'get_category_children', to: 'goods#get_category_children', defaults: { format: 'json' }
   get 'get_category_grandchildren', to: 'goods#get_category_grandchildren', defaults: { format: 'json' }
   get 'get_image', to: 'goods#get_image', defaults: { format: 'json' }
@@ -36,6 +37,9 @@ Rails.application.routes.draw do
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
   end
+
+  resources :categories, only: [:show]
+
 end
 
 

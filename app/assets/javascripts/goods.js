@@ -35,7 +35,7 @@ $(function(){
       .done(function(children){
         $('.second-category-list__item--link').remove();
         children.forEach(function(child){
-          var html_child = `<a class="second-category-list__item--link" id="${child.id}" href="#">${child.name}</a>`
+          var html_child = `<a class="second-category-list__item--link" id="${child.id}" href="/categories/${child.id}">${child.name}</a>`
           $('.second-category-list__item').append(html_child)
         });
         clearTimeout(closetimerSecond)
@@ -69,7 +69,7 @@ $(function(){
       .done(function(grandchildren){
         $('.third-category-list__item--link').remove();
         grandchildren.forEach(function(grandchild){
-          var html_grandchild = `<a class="third-category-list__item--link" id="grandchild_${grandchild.id}" href="#">${grandchild.name}</a>`
+          var html_grandchild = `<a class="third-category-list__item--link" id="grandchild_${grandchild.id}" href="/categories/${grandchild.id}">${grandchild.name}</a>`
           $('.third-category-list__item').append(html_grandchild)
         });
       clearTimeout(closetimerThird)
