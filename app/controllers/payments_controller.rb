@@ -1,6 +1,7 @@
 class PaymentsController < ApplicationController
   before_action :authenticate_user!
   before_action :only_current_user
+  before_action :category_index, only: [:index, :new]
 
   def index
   end
@@ -24,6 +25,15 @@ class PaymentsController < ApplicationController
       end
     else
       redirect_to user_payments_path(current_user)
+    end
+  end
+  
+  def create
+    @payment = payment.new(group_params)
+    if @group.save
+      redirect_to :root #成功の場合
+    else        
+      render 'new' #失敗の場合 
     end
   end
 

@@ -23,6 +23,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
   end
   
+  private
+  def category_index
+    @categories = Category.order("id ASC").limit(13)
+  end
 
 
 end

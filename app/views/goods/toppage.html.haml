@@ -1,0 +1,15 @@
+= render "layouts/header"
+= render "layouts/toppage"
+
+.goods-list
+  .goods-list__title
+    .goods-list__title--black
+      商品一覧
+    = link_to goods_path, class: "goods-list__title--blue" do
+      新規投稿商品
+  .goods-list__contents
+    = render partial: "goods/good", collection: @goods
+
+= render "layouts/footer"
+
+= render "layouts/exhibition-box"

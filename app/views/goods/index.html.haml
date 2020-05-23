@@ -1,58 +1,13 @@
 = render "layouts/header"
-= render "layouts/toppage"
 
 .goods-list
   .goods-list__title
     .goods-list__title--black
       商品一覧
-    = link_to "#", class: "goods-list__title--blue" do
+    = link_to goods_path, class: "goods-list__title--blue" do
       新規投稿商品
   .goods-list__contents
-    = link_to good_path(1), class: "goods-content" do
-      .goods-content__image
-        %img{alt: "sample_01", src: "#{asset_path "sample/sample_01.jpg"}", width: "100%"}/
-      .goods-content__box
-        .goods-content__box--left
-          .goods-content__box--left--top
-            sample01
-          .goods-content__box--left--center
-            10000円
-          .goods-content__box--left--bottom
-            (税込)
-        .goods-content__box--right
-          = icon('fas', 'star', class: "goods-content__box--right--icon")
-          %span.goods-content__box--right--number
-            0
-    =link_to "#", class: "goods-content" do
-      .goods-content__image
-        = image_tag "sample/sample_02.jpg", alt: "sample_02", width: "100%"
-      .goods-content__box
-        .goods-content__box--left
-          .goods-content__box--left--top
-            sample02
-          .goods-content__box--left--center
-            1000000円
-          .goods-content__box--left--bottom
-            (税込)
-        .goods-content__box--right
-          = icon('fas', 'star', class: "goods-content__box--right--icon")
-          %span.goods-content__box--right--number
-            0
-    =link_to "#", class: "goods-content" do
-      .goods-content__image
-        = image_tag "sample/sample_03.jpg", alt: "sample_03", width: "100%"
-      .goods-content__box
-        .goods-content__box--left
-          .goods-content__box--left--top
-            sample03
-          .goods-content__box--left--center
-            100000円
-          .goods-content__box--left--bottom
-            (税込)
-        .goods-content__box--right
-          = icon('fas', 'star', class: "goods-content__box--right--icon")
-          %span.goods-content__box--right--number
-            0
+    = render partial: "goods/good", collection: @goods
 
 = render "layouts/footer"
 

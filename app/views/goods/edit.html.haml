@@ -1,0 +1,13 @@
+.all
+  .all__contents
+    .header
+      .header__inner
+        = link_to  root_path, class: "title-logo" do
+          = image_tag("logo/logo.png", alt: "FURIMA", width: "140")
+    = render "good_form"
+    .footer-all
+      .footer-top
+      %a.footerrogo-bottom{href: "/jp/"}
+        = link_to  root_path, class: "title-logo" do
+          = image_tag("logo/logo-white.png", alt: "FURIMA", width: "140")
+      %p.footer-bottom © FURIMA
