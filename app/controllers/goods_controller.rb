@@ -40,10 +40,7 @@ class GoodsController < ApplicationController
   def edit
   end
 
-  def move_to_index
-    redirect_to action: :index unless user_signed_in?
-  end
-
+  
   def edit
     redirect_to good_path(@good.id) unless current_user == @good.user
     set_category_data(@good)
