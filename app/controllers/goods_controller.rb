@@ -66,7 +66,7 @@ class GoodsController < ApplicationController
   end
 
   def index_categories
-    @category = Category.find_by(id: params[:id])
+    @category = Category.find(params[:id])
     if @category.has_children?
       @goods = Good.where(category_id: @category.descendant_ids)
     else
