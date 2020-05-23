@@ -39,6 +39,7 @@
                   %p.pay-method__in--infotext
                     %i.fas.fa-plus-circle
                     %span.pay-method-in__register 登録してください
+                    = link_to  root_path, class: "title-logo"
             %section.userInfo
               .userInfo__in
                 .userInfo__in--top
@@ -52,8 +53,10 @@
                   愛知県名古屋市○○区○×町△△町目  
                   %br 
                   買物太郎
+              - if user_signed_in?
+              - else
                 %section.buybuycontents
-                  %button{class: "buybuycontents__btn", type: "submit"}購入する 
+                  = link_to "購入する", root_path, class: "buybuycontents__btn", type: submit_tag
   .footerall
     .footerall__in
       %a.footerrogo-bottom{href: "/jp/"}

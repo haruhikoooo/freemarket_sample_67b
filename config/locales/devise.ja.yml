@@ -5,13 +5,6 @@ ja:
         nickname: ニックネーム
         email: メールアドレス
         password: パスワード
-        name: お名前（全角）
-        family_name: 名字
-        first_name: 名前
-        furigana: お名前カナ(全角) 
-        furigana_family: カナ（名字）
-        furigana_first: カナ（名前）
-        birthday: 生年月日 
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
         confirmed_at: パスワード確認時刻
@@ -33,6 +26,14 @@ ja:
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
+      identification:
+        name: お名前（全角）
+        family_name: 名字
+        first_name: 名前
+        furigana: お名前カナ(全角) 
+        furigana_family: カナ（名字）
+        furigana_first: カナ（名前）
+        birthday: 生年月日 
       address:
         destination_name: 送付先氏名
         destination_family_name: 送付先氏名（名字）
@@ -60,6 +61,7 @@ ja:
             password:
               blank: を入力してください
               too_short: 7文字以上にしてください
+        identification:
             family_name:
               blank: を入力してください
               invalid: 全角で入力してください
