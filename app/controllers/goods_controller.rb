@@ -65,15 +65,6 @@ class GoodsController < ApplicationController
     end
   end
 
-  def index_categories
-    @category = Category.find(params[:id])
-    if @category.has_children?
-      @goods = Good.where(category_id: @category.descendant_ids)
-    else
-      @goods = Good.where(category_id: @category.id)
-    end
-  end
-
   def get_category_children
     @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
     render json: @category_children
