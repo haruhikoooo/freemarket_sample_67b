@@ -54,6 +54,7 @@
                   %br 
                   買物太郎
               - if user_signed_in?
+              - else
                 %section.buybuycontents
                   = link_to "購入する", root_path, class: "buybuycontents__btn", type: submit_tag
   .footerall
