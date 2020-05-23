@@ -31,7 +31,7 @@ $(function(){
   }
 
   $('#parent_category').on('change', function(){
-    var parentCategory = document.getElementById('parent_category').value; //選択された親カテゴリーの名前を取得
+    var parentCategory = document.getElementById('parent_category').value;
     if (parentCategory != "---"){
       $.ajax({
         url: '/get_category_children',
