@@ -20,7 +20,6 @@
         %i.fa.fa-angle-right 
       %p.sub-main__categories--name
         =@good.name
-
   .main
     .main__show
       .main-content
@@ -37,8 +36,6 @@
                   .picturesub--one
                     .picturesub--one__second
                       = image_tag image.image.url, class: "sub_img", width: "200px",  height: "200px"
-                      
-
             .goodsbox__price
               %span.goodsbox__price--money 
                 =@good.price
@@ -110,15 +107,14 @@
         %ul.links
           %li.links__left
             = link_to "#", class: "links__left--link" do
-              %i.fa.fa-angle-left
-              前の商品
+              -# %i.fa.fa-angle-left
+              -# 前の商品
           %li.links__right
             = link_to "#", class: "links__right--link" do
-              %i.fa.fa-angle-right
-              後の商品
+              -# %i.fa.fa-angle-right
+              -# 後の商品
         .more-item
-          = link_to "ベビー・キッズをもっと見る", "#", class: "more-item__link"
-  
+          -# = link_to "ベビー・キッズをもっと見る", "#", class: "more-item__link"
   = render "layouts/footer"
   
   = link_to new_good_path, class: "boxbody" do

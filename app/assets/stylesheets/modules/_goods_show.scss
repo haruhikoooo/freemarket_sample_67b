@@ -43,8 +43,6 @@
         width: 700px;
         margin: 0 auto;
         &__top {
-          margin: 0;
-          padding: 0;
           .goodsbox {
             background-color: $white;
             padding: 24px 40px 40px;
@@ -58,9 +56,8 @@
               &__main {
                 &--top {
                   width: 560px;
-                  margin: 0 auto;
                   .goods-content__image--url {
-                    width: 100%;
+                    width: 610px;
                   }
                   .picture-sub {
                     display: flex;
