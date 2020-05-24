@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_10_150309) do
+ActiveRecord::Schema.define(version: 2020_05_15_090512) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "destination_family_name", null: false
@@ -37,6 +37,22 @@ ActiveRecord::Schema.define(version: 2020_05_10_150309) do
     t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
+  create_table "goods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "explanation", null: false
+    t.integer "category_id", null: false
+    t.string "brand"
+    t.integer "condition_id", null: false
+    t.integer "prefecture_id", null: false
+    t.integer "derivery_day_id", null: false
+    t.integer "derivery_cost_id", null: false
+    t.integer "price", null: false
+    t.integer "user_id", null: false
+    t.integer "transaction_status_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "identifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "family_name", null: false
     t.string "first_name", null: false
@@ -47,6 +63,13 @@ ActiveRecord::Schema.define(version: 2020_05_10_150309) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_identifications_on_user_id"
+  end
+
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "image", null: false
+    t.integer "good_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "payments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
