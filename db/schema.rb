@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_05_082011) do
+ActiveRecord::Schema.define(version: 2020_05_15_090512) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "destination_family_name", null: false
@@ -38,13 +38,10 @@ ActiveRecord::Schema.define(version: 2020_05_05_082011) do
   end
 
   create_table "goods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "name", null: false
     t.text "explanation", null: false
     t.integer "category_id", null: false
-    t.integer "size_id"
-    t.integer "brand_id"
+    t.string "brand"
     t.integer "condition_id", null: false
     t.integer "prefecture_id", null: false
     t.integer "derivery_day_id", null: false
@@ -59,6 +56,16 @@ ActiveRecord::Schema.define(version: 2020_05_05_082011) do
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "image", null: false
     t.integer "good_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "payments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "card_number", null: false
+    t.string "expiration_data_month", null: false
+    t.string "expiration_data_year", null: false
+    t.string "security_code", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
