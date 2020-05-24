@@ -23,7 +23,7 @@
         = link_to "ブランド", "#", class: "pulldown-list__link"
     - if user_signed_in?
       .header__bottom-contents--right-login
-        = link_to user_likes_path(current_user), class: "user-box" do
+        = link_to like_path(current_user), class: "user-box" do
           いいね！一覧
         = link_to user_path(current_user), class: "user-box" do
           マイページ
