@@ -1,8 +1,7 @@
 class GoodsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
   before_action :category_index
-  before_action :set_good, only: [:show, :edit, :update]
-  before_action :set_message, only: [:show, :edit]
+  before_action :set_good, only: [:show, :edit, :update, :destroy]
 
   def toppage
     @goods = Good.where(transaction_status_id: "1").order(created_at: "DESC").first(3)
@@ -19,7 +18,6 @@ class GoodsController < ApplicationController
     set_parent_category
   end
 
-
   def create
     @good = Good.new(good_params)
     @good.transaction_status_id = 1
@@ -34,15 +32,10 @@ class GoodsController < ApplicationController
     end
   end
 
-
   def show
     @parents = Category.roots.all
     @images = @good.images
   end
-
-  def edit
-  end
-
   
   def edit
     redirect_to good_path(@good.id) unless current_user == @good.user
@@ -51,6 +44,7 @@ class GoodsController < ApplicationController
   end
 
   def update
+    @good.category_id = nil if good_params[:category_id] == nil
     if @good.update(good_params)
       redirect_to root_path
     else
@@ -58,6 +52,17 @@ class GoodsController < ApplicationController
       set_category_data(@good)
       set_parent_category
       render :edit
+    end
+  end
+
+  def destroy
+    redirect_to good_path(@good.id) unless current_user == @good.user
+    if @good.destroy
+      redirect_to user_path(current_user)
+    else
+      @parents = Category.roots.all
+      @images = @good.images
+      render :show
     end
   end
 
@@ -113,7 +118,4 @@ class GoodsController < ApplicationController
     end
   end
 
-  def set_message
-    @good = Good.find(params[:id])
-  end
 end
