@@ -28,18 +28,13 @@
             %h2.goodsbox__name
               =@good.name
             .picture
-              .picture__main
-                .picture__main--top
-                  = image_tag @good.images.first.image.url , alt: "sample_01", class: "goods-content__image--url"
+              = image_tag get_thumbnail(@good) , alt: "main-image", class: "goods-content__image--url"
               .picture-sub
-                - @images.each do |image|
-                  .picturesub--one
-                    .picturesub--one__second
-                      = image_tag image.image.url, class: "sub_img", width: "200px",  height: "200px"
                 - @good.images.each do |image|
+                  = image_tag image.image.url, class: "sub_img"
             .goodsbox__price
               %span.goodsbox__price--money 
-                =@good.price
+                ¥ #{@good.price}
               .goodsbox__price--in
                 %span.goodsbox__price--in--taxincluded (税込)
                 %span.goodsbox__price--in--postageincluded 送料込み
