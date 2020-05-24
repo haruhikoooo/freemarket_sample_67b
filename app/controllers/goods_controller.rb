@@ -33,8 +33,6 @@ class GoodsController < ApplicationController
   end
 
   def show
-    @parents = Category.roots.all
-    @images = @good.images
   end
   
   def edit

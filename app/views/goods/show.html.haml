@@ -36,6 +36,7 @@
                   .picturesub--one
                     .picturesub--one__second
                       = image_tag image.image.url, class: "sub_img", width: "200px",  height: "200px"
+                - @good.images.each do |image|
             .goodsbox__price
               %span.goodsbox__price--money 
                 =@good.price
