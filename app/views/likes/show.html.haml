@@ -1,0 +1,30 @@
+= render "layouts/header"
+.mypage
+  = render "layouts/side-bar"
+  .mypage__contents
+    .mypage__contents__likes-box
+      .mypage__contents__likes-box__top いいね！一覧
+      - unless @goods.empty?
+        %ul.mypage__contents__likes-box__contents__list
+          - @goods.each do |good|
+            %li
+              = link_to good_path(good) do
+                = image_tag get_thumbnail(good), alt: "likes icon", class: "mypage__contents__likes-box__contents__list__image"
+                .mypage__contents__likes-box__contents__list__innerBox
+                  .mypage__contents__likes-box__contents__list__innerBox__name
+                    = good.name
+                  .mypage__contents__likes-box__contents__list__innerBox__price
+                    = good.price
+                    円
+      - else
+        .mypage__contents__likes-box__contents
+          = image_tag "icon/icon_likes-before.png", alt: "likes icon", class: "mypage__contents__likes-box__contents__icon"
+          %p.mypage__contents__likes-box__contents__text いいね！がありません
+            
+
+
+
+
+= render "layouts/footer"
+
+= render "layouts/exhibition-box"

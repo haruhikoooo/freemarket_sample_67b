@@ -41,7 +41,6 @@ Rails.application.routes.draw do
   end
   
   resources :users, only: [:show] do
-    get "/likes" , to: "users#index_likes"
     resources :payments, only: [:index, :new, :create, :destroy, :edit]
   end
 
@@ -55,6 +54,13 @@ Rails.application.routes.draw do
   end
 
   resources :categories, only: [:show]
+
+  resources :likes, only: [:show] do
+    collection do
+      get 'create', defaults: { format: 'json' }
+      get 'destroy', defaults: { format: 'json' }
+    end
+  end
 
 end
 

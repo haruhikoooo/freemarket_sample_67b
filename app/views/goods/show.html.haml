@@ -81,9 +81,17 @@
                     %td.table__body--box--line--item
                       =@good.derivery_day.name
             .option-area
-              %ul.option-area__left
-                %li.option-area__left--button
-                  %i.fa.fa-star お気に入り　０
+              .option-area__left
+                
+                -if @good.likes.find_by(user_id: current_user.id)
+                  .option-area__left--button#option-area__left--button--after{data: {id: @good.id}}
+                    = image_tag "icon/icon_likes-after.png", alt: "likes icon", class: "option-area__left--button__image"
+                    %p いいね！　#{@good.users_likes.length}
+                -else
+                  .option-area__left--button#option-area__left--button--before{data: {id: @good.id}}
+                    = image_tag "icon/icon_likes-before.png", alt: "likes icon", class: "option-area__left--button__image"
+                    %p いいね！　#{@good.users_likes.length}
+              
               %ul.option-area__right
                 %li.option-area__right--button
                   = link_to "#", class: "flag" do
