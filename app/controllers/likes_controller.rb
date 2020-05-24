@@ -2,14 +2,14 @@ class LikesController < ApplicationController
 
   def create
     Like.create(user_id: current_user.id, good_id: "#{params[:good_id]}")
-    @good = Good.find(params[:good_id]).users_likes.length
-    render json: @good
+    @good = Good.find(params[:good_id])
+    render json: { id: @good.id, likes: @good.users_likes.length }
   end
 
   def destroy
     Like.find_by(user_id: current_user.id, good_id: "#{params[:good_id]}").destroy
-    @good = Good.find(params[:good_id]).users_likes.length
-    render json: @good
+    @good = Good.find(params[:good_id])
+    render json: { id: @good.id, likes: @good.users_likes.length }
   end
 
   def show
