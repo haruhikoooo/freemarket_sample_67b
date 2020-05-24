@@ -12,7 +12,4 @@ class UsersController < ApplicationController
     end
   end
 
-  def index_likes
-  end
-
 end
