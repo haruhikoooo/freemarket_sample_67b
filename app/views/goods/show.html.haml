@@ -42,7 +42,7 @@
               .goodsbox__price--in
                 %span.goodsbox__price--in--taxincluded (税込)
                 %span.goodsbox__price--in--postageincluded 送料込み
-                = link_to "購入画面に進む", "1/parchase", class: "item-buy-btn"
+                = link_to "購入画面に進む",goods_purchases_goods_path(@good.id), class: "item-buy-btn"
             .goods--detail
               =@good.explanation
             .table

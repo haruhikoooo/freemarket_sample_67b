@@ -11,8 +11,7 @@
         .big-second__in
           .big-second__in--in
             .big-second__in--in--leftbox
-              = link_to root_path, class: "#" do
-                = image_tag("https://static.mercdn.net/thumb/photos/m30294423968_1.jpg?1582860480" , width: "60px;")
+              = image_tag @good.images.first.image.url , class: "h"
             .big-second__in-in--rightbox
               %p.big-second__in--in--rightbox-top  ヴィトン 20××年製 美品！ 長財布
               %p.big-second__in--in--rightbox-bottom
@@ -53,8 +52,6 @@
                   愛知県名古屋市○○区○×町△△町目  
                   %br 
                   買物太郎
-              - if user_signed_in?
-              - else
                 %section.buybuycontents
                   = link_to "購入する", root_path, class: "buybuycontents__btn", type: submit_tag
   .footerall

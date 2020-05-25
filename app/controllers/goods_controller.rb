@@ -1,13 +1,13 @@
 class GoodsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
   before_action :category_index
-  before_action :set_good, only: [:show, :edit, :update]
+  before_action :set_good, only: [:show, :edit, :update, :purchases]
   before_action :set_message, only: [:show, :edit]
 
   def toppage
     @goods = Good.where(transaction_status_id: "1").order(created_at: "DESC").first(3)
   end
-
+ 
   def index
     @goods = Good.order(created_at: "DESC")
   end
@@ -74,6 +74,9 @@ class GoodsController < ApplicationController
   def get_image
     @image = Image.find(params[:id])
     render json: @image
+  end
+
+  def purchases
   end
 
 

@@ -21,14 +21,22 @@ Rails.application.routes.draw do
   get 'get_image', to: 'goods#get_image', defaults: { format: 'json' }
   
   resources :goods do
-    get 'parchase' => 'goods#parchase'
+    collection do
+     get 'goods/purchases', to: 'goods#purchases'
+    end
   end
   
   resources :users, only: [:show] do
     resources :payments, only: [:index, :new, :create, :destroy, :edit]
   end
 
-  resources :payments, only: [:index, :new, :create, :destroy, :update]
+  resources :payments, only: [:index, :new, :create, :destroy, :edit] do
+    collection do
+      get 'index', to: 'payments#index'
+      post 'pay', to: 'purchase#pay'
+      get 'done', to: 'purchase#done'
+    end
+  end
 
   resources :goods, only: [:new, :create] do
     collection do

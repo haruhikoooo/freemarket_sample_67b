@@ -17,6 +17,9 @@ class PaymentsController < ApplicationController
     redirect_to user_payments_path(current_user)
   end
 
+  def finish
+  end
+
   private
   def only_current_user
     if user = User.find_by_id(params[:user_id])
