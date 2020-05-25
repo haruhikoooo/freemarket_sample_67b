@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  get 'buy/index'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
@@ -36,6 +37,13 @@ Rails.application.routes.draw do
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
   end
+
+  resources :purchase, only: [:show] do
+  end
+
+  resources :buy, only: [:create] do
+  end
+  
 end
 
 
