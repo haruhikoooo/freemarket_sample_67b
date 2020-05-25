@@ -63,10 +63,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def create
   #   # render :new_address 
   # end
-
-  def select_registration
-  end
-
   def new
     super
   end
@@ -79,21 +75,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
     session["devise.regist_data"] = {user: @user.attributes}
     session["devise.regist_data"][:user]["password"] = params[:user][:password]
-    @identification = @user.build_identification
-    render :new_identification
-  end
-
-  def new_identification
-  end
-
-  def create_identification
-    @user = User.new(session["devise.regist_data"]["user"])
-    @identification = Identification.new(identification_params)
-    unless @identification.valid?
-      flash.now[:alert] = @identification.errors.full_messages
-      render :new_identification and return
-    end
-    session["identification_data"] = {identification: @identification.attributes}
     @address = @user.build_address
     render :new_address
   end
@@ -103,14 +84,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create_address
     @user = User.new(session["devise.regist_data"]["user"])
-    @identification = Identification.new(session["identification_data"]["identification"])
     @address = Address.new(address_params)
     unless @address.valid?
     flash.now[:alert] = @address.errors.full_messages
     render :new_address and return
     end
     @user.build_address(@address.attributes)
-    @user.build_identification(@identification.attributes)
     @user.save
     sign_in(:user, @user)
     render :complete
@@ -123,10 +102,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def address_params
     params.require(:address).permit(:destination_family_name, :destination_first_name, :destination_furigana_family, :destination_furigana_first, :zipcode, :prefecture_id, :city, :house_number, :apartment_name, :tel)
-  end
-
-  def identification_params
-    params.require(:identification).permit(:family_name, :first_name, :furigana_family, :furigana_first, :birthday)
   end
 
 end

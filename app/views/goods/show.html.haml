@@ -7,15 +7,15 @@
       %li.sub-main__icon
         %i.fa.fa-angle-right
       %li.sub-main__categories
-        = link_to @good.category.parent.parent.name , category_path(@good.category.parent.parent.id)
+        = link_to @good.category.parent.parent.name , goods_path(@good.category.root.id)
       %li.sub-main__icon
         %i.fa.fa-angle-right
       %li.sub-main__categories
-        = link_to @good.category.parent.name , category_path(@good.category.parent.id)
+        = link_to @good.category.parent.name , goods_path(@good.category.root.id)
       %li.sub-main__icon
         %i.fa.fa-angle-right 
       %li.sub-main__categories
-        = link_to  @good.category.name , category_path(@good.category.id)
+        = link_to  @good.category.name , goods_path(@good.category.root.id)
       %li.sub-main__icon
         %i.fa.fa-angle-right 
       %p.sub-main__categories--name
@@ -52,11 +52,11 @@
                   %tr.table__body--box--line
                     %th.table__body--box--line--headline カテゴリー
                     %td.table__body--box--line--item
-                      = link_to @good.category.parent.parent.name ,  category_path(@good.category.parent.parent.id) , class: "table__body--box--line--item--color"
+                      = link_to @good.category.parent.parent.name , goods_path(@good.category.root.id) , class: "table__body--box--line--item--color"
                       %br/
-                      = link_to @good.category.parent.name , category_path(@good.category.parent.id) , class: "table__body--box--line--item--color"
+                      = link_to @good.category.parent.name , goods_path(@good.category.root.id) , class: "table__body--box--line--item--color"
                       %br/
-                      = link_to  @good.category.name , category_path(@good.category.id) , class: "table__body--box--line--item--color"
+                      = link_to  @good.category.name , goods_path(@good.category.root.id) , class: "table__body--box--line--item--color"
                   %tr.table__body--box--line
                     %th.table__body--box--line--headline ブランド
                     %td.table__body--box--line--item
