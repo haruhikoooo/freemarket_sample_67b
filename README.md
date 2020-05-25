@@ -18,10 +18,14 @@ Things you may want to cover:
 |nickname|string|null: false, unique: true|
 |email|string|null: false, unique: true|
 |password|string|null: false|
+|family_name|string|null: false|
+|first_name|string|null: false|
+|furigana_family|string|null: false|
+|furigana_first|string|null: false|
+|birthday|date|null: false|
 ### Association
 - has_one :payment, dependent: :destroy
 - has_one :address, dependent: :destroy
-- has_one :identification, dependent: :destroy
 - has_many :goods, dependent: :destroy
 - has_many :likes
 - has_many :goods_likes, through: :likes, source: :good, dependent: :destroy
@@ -46,17 +50,6 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - belongs_to_active_hash :prefecture
-
-## identificationsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|family_name|string|null: false|
-|first_name|string|null: false|
-|furigana_family|string|null: false|
-|furigana_first|string|null: false|
-|birthday|date|null: false|
-### Association
-- belongs_to :user
 
 ## goodsテーブル
 |Column|Type|Options|

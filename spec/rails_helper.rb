@@ -30,22 +30,6 @@ rescue ActiveRecord::PendingMigrationError => e
   puts e.to_s.strip
   exit 1
 end
-
-module OmniauthMocks
-  def github_mock
-    OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new(
-      {
-        provider: 'github',
-        uid: '12345678',
-        info: {
-          name: 'mockuser',
-          email: 'sample@test.com'
-        }
-      }
-    )
-  end
-end
-
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -78,8 +62,4 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
   config.include FactoryBot::Syntax::Methods
-
-  OmniAuth.config.test_mode = true
-  config.include OmniauthMocks
-  
 end
