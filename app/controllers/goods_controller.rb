@@ -1,8 +1,8 @@
 class GoodsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
   before_action :category_index
-  before_action :set_good, only: [:show, :edit, :update]
-  before_action :set_message, only: [:show, :edit]
+  before_action :set_good, only: [:show, :edit, :update, :destroy]
+  before_action :exhibitor_only, only: [:edit, :update, :destroy]
 
   def toppage
     @goods = Good.where(transaction_status_id: "1").order(created_at: "DESC").first(3)
@@ -36,8 +36,6 @@ class GoodsController < ApplicationController
 
 
   def show
-    @parents = Category.roots.all
-    @images = @good.images
   end
 
   def edit
@@ -45,7 +43,6 @@ class GoodsController < ApplicationController
 
   
   def edit
-    redirect_to good_path(@good.id) unless current_user == @good.user
     set_category_data(@good)
     set_parent_category
   end
@@ -58,6 +55,16 @@ class GoodsController < ApplicationController
       set_category_data(@good)
       set_parent_category
       render :edit
+    end
+  end
+
+  def destroy
+    if @good.destroy
+      redirect_to user_path(current_user)
+    else
+      @parents = Category.roots.all
+      @images = @good.images
+      render :show
     end
   end
 
@@ -94,6 +101,9 @@ class GoodsController < ApplicationController
     end
   end
 
+  def exhibitor_only
+    redirect_to good_path(@good.id) unless current_user == @good.user
+  end
 
   def set_category_data(good)
     if good.category.nil?

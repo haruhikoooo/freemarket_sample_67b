@@ -53,8 +53,19 @@ ActiveRecord::Schema.define(version: 2020_05_15_090512) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "identifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "family_name", null: false
+    t.string "first_name", null: false
+    t.string "furigana_family", null: false
+    t.string "furigana_first", null: false
+    t.date "birthday", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "image", null: false
+    t.string "image", null: false
     t.integer "good_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
