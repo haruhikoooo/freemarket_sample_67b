@@ -89,6 +89,10 @@ class GoodsController < ApplicationController
     params.require(:good).permit(:name, :explanation, :category_id, :brand, :condition_id, :prefecture_id, :derivery_day_id, :derivery_cost_id, :price, :user_id, :transaction_status_id, images_attributes: [:id, :image, :_destroy]).merge(user_id: current_user.id)
   end
 
+  def set_good
+    @good = Good.find(params[:id])
+  end
+  
   def set_parent_category
     @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|
