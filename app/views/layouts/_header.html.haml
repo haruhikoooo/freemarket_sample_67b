@@ -14,7 +14,7 @@
         .category-list.hidden
           .category-list__item
             - @categories.each do |parent|
-              = link_to "#{parent.name}", "#", class: "category-list__item--link", id: "parent_#{parent.id}"
+              = link_to "#{parent.name}", category_path(parent.id), class: "category-list__item--link", id: "parent_#{parent.id}"
               .second-category-list.hidden
                 .second-category-list__item
                   .third-category-list.hidden
@@ -30,6 +30,6 @@
       - else
         = link_to new_user_session_path, class: "user-box" do
           ログイン
-        = link_to new_user_registration_path, class: "user-box" do
+        = link_to users_select_registration_path, class: "user-box" do
           新規会員登録
       

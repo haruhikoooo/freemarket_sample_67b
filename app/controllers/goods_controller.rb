@@ -19,7 +19,6 @@ class GoodsController < ApplicationController
     set_parent_category
   end
 
-
   def create
     @good = Good.new(good_params)
     @good.transaction_status_id = 1
@@ -34,13 +33,8 @@ class GoodsController < ApplicationController
     end
   end
 
-
   def show
   end
-
-  def edit
-  end
-
   
   def edit
     set_category_data(@good)
@@ -48,6 +42,7 @@ class GoodsController < ApplicationController
   end
 
   def update
+    @good.category_id = nil if good_params[:category_id] == nil
     if @good.update(good_params)
       redirect_to root_path
     else
@@ -59,6 +54,7 @@ class GoodsController < ApplicationController
   end
 
   def destroy
+    redirect_to good_path(@good.id) unless current_user == @good.user
     if @good.destroy
       redirect_to user_path(current_user)
     else
@@ -123,7 +119,4 @@ class GoodsController < ApplicationController
     end
   end
 
-  def set_message
-    @good = Good.find(params[:id])
-  end
 end
