@@ -28,5 +28,8 @@ class ApplicationController < ActionController::Base
     @categories = Category.order("id ASC").limit(13)
   end
 
+  def set_good
+    @good = Good.find(params[:id])
+  end
 
 end
