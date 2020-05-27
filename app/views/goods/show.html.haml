@@ -7,15 +7,15 @@
       %li.sub-main__icon
         %i.fa.fa-angle-right
       %li.sub-main__categories
-        = link_to @good.category.parent.parent.name , goods_path(@good.category.root.id)
+        = link_to @good.category.parent.parent.name , category_path(@good.category.parent.parent.id)
       %li.sub-main__icon
         %i.fa.fa-angle-right
       %li.sub-main__categories
-        = link_to @good.category.parent.name , goods_path(@good.category.root.id)
+        = link_to @good.category.parent.name , category_path(@good.category.parent.id)
       %li.sub-main__icon
         %i.fa.fa-angle-right 
       %li.sub-main__categories
-        = link_to  @good.category.name , goods_path(@good.category.root.id)
+        = link_to  @good.category.name , category_path(@good.category.id)
       %li.sub-main__icon
         %i.fa.fa-angle-right 
       %p.sub-main__categories--name
@@ -28,21 +28,18 @@
             %h2.goodsbox__name
               =@good.name
             .picture
-              .picture__main
-                .picture__main--top
-                  = image_tag @good.images.first.image.url , alt: "sample_01", class: "goods-content__image--url"
+              = image_tag get_thumbnail(@good) , alt: "main-image", class: "goods-content__image--url"
               .picture-sub
-                - @images.each do |image|
-                  .picturesub--one
-                    .picturesub--one__second
-                      = image_tag image.image.url, class: "sub_img", width: "200px",  height: "200px"
+                - @good.images.each do |image|
+                  = image_tag image.image.url, class: "sub_img"
             .goodsbox__price
               %span.goodsbox__price--money 
-                =@good.price
+                ¥#{@good.price}
               .goodsbox__price--in
                 %span.goodsbox__price--in--taxincluded (税込)
                 %span.goodsbox__price--in--postageincluded 送料込み
-                = link_to "購入画面に進む",goods_purchases_goods_path(@good.id), class: "item-buy-btn"
+                - unless user_signed_in? && current_user.id == @good.user_id
+                  = link_to "購入画面に進む", goods_purchases_goods_path(@good.id), class: "item-buy-btn"
             .goods--detail
               =@good.explanation
             .table
@@ -55,11 +52,11 @@
                   %tr.table__body--box--line
                     %th.table__body--box--line--headline カテゴリー
                     %td.table__body--box--line--item
-                      = link_to @good.category.parent.parent.name , goods_path(@good.category.root.id) , class: "table__body--box--line--item--color"
+                      = link_to @good.category.parent.parent.name ,  category_path(@good.category.parent.parent.id) , class: "table__body--box--line--item--color"
                       %br/
-                      = link_to @good.category.parent.name , goods_path(@good.category.root.id) , class: "table__body--box--line--item--color"
+                      = link_to @good.category.parent.name , category_path(@good.category.parent.id) , class: "table__body--box--line--item--color"
                       %br/
-                      = link_to  @good.category.name , goods_path(@good.category.root.id) , class: "table__body--box--line--item--color"
+                      = link_to  @good.category.name , category_path(@good.category.id) , class: "table__body--box--line--item--color"
                   %tr.table__body--box--line
                     %th.table__body--box--line--headline ブランド
                     %td.table__body--box--line--item
