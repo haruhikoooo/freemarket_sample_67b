@@ -49,6 +49,11 @@
               display: flex;
               justify-content: center;
               align-items: center;
+              .h{
+                height: 60px;
+                width: 60px;
+                object-fit: cover;
+              }
               &--rightbox-bottom {
                 margin: 0;
                 text-align: left;
