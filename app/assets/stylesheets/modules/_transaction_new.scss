@@ -49,11 +49,17 @@
               display: flex;
               justify-content: center;
               align-items: center;
-              &--rightbox-bottom {
-                margin: 0;
-                text-align: left;
-                font-size: 1px;
+              .h{
+                height: 80px;
+                width: 80px;
+                object-fit: cover;
+              }
+            }
+            &--rightbox{
+              &--top{
+                font-size: 20px;
                 font-weight: bold;
+                margin-left: 10px;
               }
             }
           }
@@ -63,17 +69,21 @@
         padding: 32px 16px;
         border-top: 1px solid #f5f5f5;
         &__in {
-          max-width: 343px;
+          width: 343px;
           margin: 0 auto;
           .big-third__in {
             display: flex;
+            justify-content: space-between;
             &--left {
               font-weight: bold;
             }
             &--right {
-              margin-left: 160px;
               font-weight: bold;
               font-size: 20px;
+              &__fee{
+                font-weight: normal;
+                font-size: 12px;
+              }
             }
           }
           .buyPointbox {

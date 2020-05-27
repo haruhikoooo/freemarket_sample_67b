@@ -1,4 +1,4 @@
-.allall
+= form_with(model:[@good, @transaction], local: true, class: "allall") do |f|
   .allall__mini
     .header-furima
       .h1
@@ -11,13 +11,10 @@
         .big-second__in
           .big-second__in--in
             .big-second__in--in--leftbox
-              = link_to root_path, class: "#" do
-                = image_tag("https://static.mercdn.net/thumb/photos/m30294423968_1.jpg?1582860480" , width: "60px;")
+              = image_tag get_thumbnail(@good), class: "h"
             .big-second__in-in--rightbox
-              %p.big-second__in--in--rightbox-top  ヴィトン 20××年製 美品！ 長財布
-              %p.big-second__in--in--rightbox-bottom
-                %span ¥50,000
-                %span{"class": ".big-second__in-in--rightbox-bottom-right"}（税込）送料込み
+              %p.big-second__in--in--rightbox--top
+                = @good.name
       %section.bigbigcontents
         .bigbigcontents__in
           %form
@@ -25,7 +22,11 @@
               %li.big-third__in
                 .big-third__in--left  支払い金額
                 .big-third__in--right
-                  %span{data: '50,000'}¥50,000
+                  %span{data: @good.price }¥ #{@good.price}
+                  .big-third__in--right__fee
+                    (税込)
+                  .big-third__in--right__fee
+                    = @good.derivery_cost.name
             %ul.buyPointbox
               %li.buyPointbox__in
                 .buyPointbox__inin
@@ -48,13 +49,18 @@
                     %span.userInfo__in--top-right 変更する
                 %address.userInfo__in--address 
                   %p 
-                  〒000-1111
+                  〒 #{current_user.address.zipcode}
                   %br 
-                  愛知県名古屋市○○区○×町△△町目  
+                  = current_user.address.prefecture.name
+                  = current_user.address.city
+                  = current_user.address.house_number
+                  - if current_user.address.apartment_name
+                    = current_user.address.apartment_name
                   %br 
-                  買物太郎
+                  = current_user.address.destination_family_name
+                  = current_user.address.destination_first_name
                 %section.buybuycontents
-                  = link_to "購入する", buys_path, class: "buybuycontents__btn", type: submit_tag
+                  = f.submit "購入する", class: "buybuycontents__btn"
   .footerall
     .footerall__in
       %a.footerrogo-bottom{href: "/jp/"}
