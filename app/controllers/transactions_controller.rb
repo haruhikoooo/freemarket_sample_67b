@@ -1,7 +1,10 @@
 class TransactionsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_good_id, only: [:new, :create]
 
+
   def new
+    @transaction = Transaction.new
   end
 
   def create
