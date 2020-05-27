@@ -1,0 +1,78 @@
+.buy {
+  display: block;
+  background-color: whitesmoke;
+  &__in{
+    width: 700px;
+    height: 500px;
+    margin: 0 auto;
+    background-color: white;
+
+    &--first {
+      font-weight: bold;
+      text-align: center;
+      font-size: 23px;
+      padding: 32px;
+      width: 600px;
+      height: 35px;
+    }
+    .buy-second {
+      padding: 32px 16px;
+      &__in {
+        max-width: 343px;
+        margin: 0 auto;
+        &--in {
+          display: flex;
+          margin-left: 16px;
+          &--leftbox {
+            height: 80px;
+            width: 80px;
+            min-width: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &--rightbox-bottom {
+              margin: 0;
+              text-align: left;
+              font-size: 1px;
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+    .buybuycontents {
+      padding: 32px 16px;
+      &__in {
+        max-width: 343px;
+        margin: 0 auto;
+        .buy-third__in {
+          display: flex;
+          &--left {
+            font-weight: bold;
+            font-size: 20px;
+          }
+          &--right {
+            margin-left: 160px;
+            font-weight: bold;
+            font-size: 23px;
+          }
+        }
+        .back-btn__in {
+          text-align: center;
+          margin-top: 60px;
+          .btn {
+            line-height: 48px;
+            background-color: #3CCACE;
+            border: 1px solid #3CCACE;
+            width: 60%;
+            font-size: 18px;
+            border-radius: 100px;
+            .btn-color {
+              color: #ffffff;
+            }
+          }
+        }
+      }
+    }
+  }
+}
