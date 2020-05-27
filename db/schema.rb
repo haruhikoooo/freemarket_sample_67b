@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 2020_05_10_150309) do
     t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
-<<<<<<< HEAD
   create_table "goods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "explanation", null: false
@@ -54,8 +53,6 @@ ActiveRecord::Schema.define(version: 2020_05_10_150309) do
     t.datetime "updated_at", null: false
   end
 
-=======
->>>>>>> parent of a9fed82... Revert "Merge branch 'master' into goods-parchase"
   create_table "identifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "family_name", null: false
     t.string "first_name", null: false
@@ -63,7 +60,6 @@ ActiveRecord::Schema.define(version: 2020_05_10_150309) do
     t.string "furigana_first", null: false
     t.date "birthday", null: false
     t.bigint "user_id", null: false
-<<<<<<< HEAD
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -71,8 +67,6 @@ ActiveRecord::Schema.define(version: 2020_05_10_150309) do
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "image", null: false
     t.integer "good_id", null: false
-=======
->>>>>>> parent of a9fed82... Revert "Merge branch 'master' into goods-parchase"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_identifications_on_user_id"

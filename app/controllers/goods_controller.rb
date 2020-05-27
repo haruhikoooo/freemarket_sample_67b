@@ -2,10 +2,7 @@ class GoodsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
   before_action :category_index
   before_action :set_good, only: [:show, :edit, :update, :destroy]
-<<<<<<< HEAD
   before_action :exhibitor_only, only: [:edit, :update, :destroy]
-=======
->>>>>>> parent of a9fed82... Revert "Merge branch 'master' into goods-parchase"
 
   def toppage
     @goods = Good.where(transaction_status_id: "1").order(created_at: "DESC").first(3)
@@ -57,10 +54,7 @@ class GoodsController < ApplicationController
   end
 
   def destroy
-<<<<<<< HEAD
-=======
     redirect_to good_path(@good.id) unless current_user == @good.user
->>>>>>> parent of a9fed82... Revert "Merge branch 'master' into goods-parchase"
     if @good.destroy
       redirect_to user_path(current_user)
     else
