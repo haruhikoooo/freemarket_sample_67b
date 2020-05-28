@@ -1,9 +1,15 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :category_index
   protect_from_forgery with: :exception
   # before_action :move_to_index, except: [:index, :show]
-  
+
+  def category_index
+    @categories = Category.order("id ASC").limit(13)
+  end
+
+
   private
 
   def production?

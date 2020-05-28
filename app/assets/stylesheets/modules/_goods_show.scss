@@ -154,6 +154,16 @@
                   border: 1px solid #ffb340;
                   color: $main-color;
                   border-radius: 40px;
+                  cursor : pointer;
+                  display: flex;
+                  &__image{
+                    width: 18px;
+                    height: 18px;
+                    padding-top: 3px;
+                  }
+                  p {
+                    margin-left: 10px;
+                  }
                 }
               }
               &__right {
