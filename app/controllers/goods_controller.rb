@@ -122,4 +122,9 @@ class GoodsController < ApplicationController
     end
   end
 
+  def set_message
+    @good = Good.find(params[:id])
+  end
+
+  
 end

@@ -62,7 +62,16 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :buys, only: [:index] do
+  end
+
   resources :categories, only: [:show]
+  resources :likes, only: [:show] do
+    collection do
+      get 'create', defaults: { format: 'json' }
+      get 'destroy', defaults: { format: 'json' }
+    end
+  end
 
 end
 
