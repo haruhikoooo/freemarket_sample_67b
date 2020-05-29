@@ -16,7 +16,7 @@ class User < ApplicationRecord
   validates :nickname, presence: true
   validates :email, presence: true
   validates :password, presence: true
-  validates :uid, uniqueness: true
+  validates :uid, uniqueness: true, if: :provider?
   has_one :payment, dependent: :destroy
   has_one :address, dependent: :destroy
   has_one :identification, dependent: :destroy
