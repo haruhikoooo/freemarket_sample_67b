@@ -10,6 +10,7 @@ class Good < ApplicationRecord
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :derivery_cost
   belongs_to_active_hash :derivery_day
+  has_one :deal
 
   validates_associated :images
   validates :images,

@@ -39,7 +39,7 @@
                 %span.goodsbox__price--in--taxincluded (税込)
                 %span.goodsbox__price--in--postageincluded 送料込み
                 - unless user_signed_in? && current_user.id == @good.user_id
-                  = link_to "購入画面に進む", new_good_transaction_path(@good.id), class: "item-buy-btn"
+                  = link_to "購入画面に進む", new_good_deal_path(@good.id), class: "item-buy-btn"
             .goods--detail
               =@good.explanation
             .table

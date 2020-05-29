@@ -1,4 +1,4 @@
-= form_with(model:[@good, @transaction], local: true, class: "allall") do |f|
+.allall
   .allall__mini
     .header-furima
       .h1
@@ -60,7 +60,7 @@
                   = current_user.address.destination_family_name
                   = current_user.address.destination_first_name
                 %section.buybuycontents
-                  = f.submit "購入する", class: "buybuycontents__btn"
+                  = link_to "購入する", good_deals_path(@good.id), method: :post, class: "buybuycontents__btn"
   .footerall
     .footerall__in
       %a.footerrogo-bottom{href: "/jp/"}
