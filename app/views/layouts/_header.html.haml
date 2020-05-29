@@ -21,15 +21,19 @@
                     .third-category-list__item
       .pulldown-list#bland
         = link_to "ブランド", "#", class: "pulldown-list__link"
-    .header__bottom-contents--right
-      - if user_signed_in?
+    - if user_signed_in?
+      .header__bottom-contents--right-login
+        = link_to like_path(current_user), class: "user-box" do
+          いいね！一覧
         = link_to user_path(current_user), class: "user-box" do
           マイページ
         = link_to users_logout_path, class: "user-box" do
           ログアウト
-      - else
+    - else
+      .header__bottom-contents--right-logout
         = link_to new_user_session_path, class: "user-box" do
           ログイン
         = link_to users_select_registration_path, class: "user-box" do
           新規会員登録
+
       

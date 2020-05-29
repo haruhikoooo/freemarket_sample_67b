@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   get 'get_image', to: 'goods#get_image', defaults: { format: 'json' }
   
   resources :goods do
-    resources :transactions, only: [:new, :create]
+    resources :deals, only: [:new, :create]
     # collection do
     #  get 'goods/purchases', to: 'goods#purchases'
     # end
@@ -66,6 +66,13 @@ Rails.application.routes.draw do
   end
 
   resources :categories, only: [:show]
+  resources :likes, only: [:show] do
+    collection do
+      get 'create', defaults: { format: 'json' }
+      get 'destroy', defaults: { format: 'json' }
+    end
+  end
+
 end
 
 
