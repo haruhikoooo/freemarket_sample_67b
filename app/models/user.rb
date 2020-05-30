@@ -27,4 +27,5 @@ class User < ApplicationRecord
   has_many :goods_comments, through: :comments, source: :good, dependent: :destroy
   has_many :trannsactions
   has_many :goods_transactions, through: :transactions, source: :good, dependent: :destroy
+  has_many :payments
 end
