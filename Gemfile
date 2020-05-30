@@ -74,6 +74,7 @@ group :development, :test do
   gem 'capistrano3-unicorn'
   gem 'omniauth-github'
   gem "omniauth-rails_csrf_protection"
+  gem 'omniauth'
 end
 
 gem 'haml-rails'
