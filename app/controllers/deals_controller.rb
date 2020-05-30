@@ -1,13 +1,30 @@
 class DealsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_good_id, only: [:new, :create]
-
+  before_action :set_good_id
 
   def new
-    @deal = Deal.new
+    if @good.transaction_status_id != 1 || @good.user_id == current_user.id
+      redirect_to good_path(@good.id)
+    end
   end
 
   def create
+    @deal = Deal.new
+    @deal.good_id = @good.id
+    @deal.user_id = current_user.id
+    @good.transaction_status_id = 2
+    if @good.valid? && @deal.valid?
+      @good.save
+      @deal.save
+      redirect_to good_deal_path(@good.id, @deal.id)
+    else
+      render :new
+    end
+  end
+
+  def show
+    @deal = Deal.find(params[:id])
+    redirect_to good_path(@good.id) if @deal.user_id != current_user.id
   end
 
   private
