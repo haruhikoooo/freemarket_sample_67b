@@ -37,10 +37,7 @@ Rails.application.routes.draw do
   get 'get_image', to: 'goods#get_image', defaults: { format: 'json' }
   
   resources :goods do
-    resources :transactions, only: [:new, :create]
-    # collection do
-    #  get 'goods/purchases', to: 'goods#purchases'
-    # end
+    resources :deals, only: [:new, :create, :show]
   end
   
   resources :users, only: [:show] do

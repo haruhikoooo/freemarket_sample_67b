@@ -1,0 +1,30 @@
+= render "layouts/header"
+
+.buy
+  .buy__in
+    .buy__in--first 購入が完了しました
+    .buy-second
+      .buy-second__in
+        .buy-second__in--in
+          .buy-second__in--in--leftbox
+            = image_tag get_thumbnail(@good), class: "good-image"
+          .buy-second__in--in--rightbox
+            %p.buy-second__in--in--rightbox-top
+              = @good.name
+    %section.buybuycontents
+      .buybuycontents__in
+        %ul.buy-third
+          %li.buy-third__in
+            .buy-third__in--left  金額
+            .buy-third__in--right
+              %span ¥#{@good.price}
+              .buy-third__in--right--supplement
+                (税込)
+              .buy-third__in--right--supplement
+                = @good.derivery_cost.name
+        %section.back-btn{data: 'pay-method'}
+          .back-btn__in
+            %button.btn{name: "button", type: "submit"}
+              = link_to "トップページに戻る", root_path, class: "btn-color"
+= render "layouts/footer"
+= render "layouts/exhibition-box"
