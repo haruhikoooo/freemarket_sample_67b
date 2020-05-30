@@ -1,16 +1,13 @@
 .buy {
   width: 100%;
-  height: 550px;
   display: block;
-  background-color: whitesmoke;
+  background-color: $background-gray;
+  padding: 25px 0;
   &__in{
-    left: 750px;
+    margin: 0 auto;
     width: 700px;
     height: 500px;
-    margin-top: 25px;
-    position: absolute;
-    background-color: white;
-
+    background-color: $white;
     &--first {
       font-weight: bold;
       text-align: center;
@@ -66,13 +63,13 @@
           margin-top: 60px;
           .btn {
             line-height: 48px;
-            background-color: #3CCACE;
-            border: 1px solid #3CCACE;
+            background-color: $main-color;
+            border: 1px solid $main-color;
             width: 60%;
             font-size: 18px;
             border-radius: 100px;
             .btn-color {
-              color: #ffffff;
+              color: $white;
             }
           }
         }
