@@ -23,7 +23,6 @@
         margin: 0 auto;
         &--in {
           display: flex;
-          margin-left: 16px;
           &--leftbox {
             height: 80px;
             width: 80px;
@@ -31,12 +30,17 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            &--rightbox-bottom {
-              margin: 0;
-              text-align: left;
-              font-size: 1px;
-              font-weight: bold;
+            margin-left: 30px;
+            .good-image{
+              height: 80px;
+              width: 80px;
+              object-fit: cover;
             }
+          }
+          &--rightbox{
+            margin-left: 100px;
+            font-weight: bold;
+            font-size: 20px;
           }
         }
       }
@@ -51,11 +55,17 @@
           &--left {
             font-weight: bold;
             font-size: 20px;
+            width: 80px;
+            margin-left: 30px;
           }
           &--right {
-            margin-left: 160px;
+            margin-left: 100px;
             font-weight: bold;
-            font-size: 23px;
+            font-size: 20px;
+            &--supplement{
+              font-size: 12px;
+              font-weight: normal;
+            }
           }
         }
         .back-btn__in {
