@@ -1,0 +1,15 @@
+= render "layouts/header"
+
+.goods-list
+  .goods-list__title
+    .goods-list__title--black
+      - if params[:keyword].empty?
+        検索結果
+      - else
+        #{params[:keyword]}の検索結果
+  .goods-list__contents
+    = render partial: "/goods/good", collection: @goods
+
+= render "layouts/footer"
+
+= render "layouts/exhibition-box"
