@@ -8,7 +8,7 @@ class PaymentsController < ApplicationController
   
 
 
-  def index
+  def pay #PayjpとPaymentのデータベース作成
     Payjp.api_key = Rails.application.credentials[:PAYJP_PRIVATE_KEY]
     #保管した顧客IDでpayjpから情報取得
     if params['payjp-token'].blank?
@@ -27,17 +27,17 @@ class PaymentsController < ApplicationController
     end
   end
 
-  def new
-    card = Payment.where(user_id: current_user.id)
-    redirect_to card_path(current_user.id) if card.exists?
-  end
+  # def new
+  #   card = Payment.where(user_id: current_user.id)
+  #   redirect_to card_path(current_user.id) if card.exists?
+  # end
 
-  def create
-    redirect_to user_payments_path(current_user)
-  end
+  # def create
+  #   redirect_to user_payments_path(current_user)
+  # end
 
-  def destroy
-    card = Card.find_by(user_id: current_user.id)
+  def destroy #PayjpとPaymentデータベースを削除
+    payment = Payment.find_by(user_id: current_user.id)
     if card.blank?
     else
       Payjp.api_key = Rails.application.credentials[:PAYJP_PRIVATE_KEY]
@@ -48,10 +48,10 @@ class PaymentsController < ApplicationController
     redirect_to user_payments_path(current_user)
   end
 
-  def  #Cardのデータpayjpに送り情報を取り出す
-    card = Card.find_by(user_id: current_user.id)
-    if card.blank?
-      redirect_to new_card_path 
+  def index #Paymentsのデータpayjpに送り情報を取り出す
+    payment = Payment.find_by(user_id: current_user.id)
+    if payment.blank?
+      # redirect_to payments_path 
     else
       Payjp.api_key = Rails.application.credentials[:PAYJP_PRIVATE_KEY]
       customer = Payjp::Customer.retrieve(card.customer_id)
@@ -64,10 +64,10 @@ end
   def only_current_user
     if user = User.find_by_id(params[:user_id])
       unless current_user.id == user.id
-        redirect_to user_payments_path(current_user)
+        # redirect_to user_payments_path(current_user)
       end
     else
-      redirect_to user_payments_path(current_user)
+      # redirect_to user_payments_path(current_user)
     end
   end
   

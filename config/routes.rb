@@ -44,11 +44,13 @@ Rails.application.routes.draw do
     resources :payments, only: [:index, :new, :create, :destroy, :edit]
   end
 
-  resources :payments, only: [:index, :new, :create, :destroy, :edit] do
+  resources :payments, only: [:index, :new, :create, :destroy] do
     collection do
-      get 'index', to: 'payments#index'
-      post 'pay', to: 'purchase#pay'
-      get 'done', to: 'purchase#done'
+      post 'pay', to: 'payments#pay'
+      get 'payments/new' to: 'payments#index'
+      # get 'get_payments_path ', to: 'payments#index'
+      # post 'pay', to: 'purchase#pay'
+      # get 'done', to: 'purchase#done'
     end
   end
 
