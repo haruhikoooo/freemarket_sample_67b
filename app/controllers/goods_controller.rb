@@ -79,7 +79,7 @@ class GoodsController < ApplicationController
     render json: @image
   end
 
-
+  
   private
   
   def good_params

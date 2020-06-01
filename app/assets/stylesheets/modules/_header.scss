@@ -23,16 +23,16 @@
         box-sizing: border-box;
       }
       &__btn{
-        background-color: $main-color;
-        width: 36px;
-        height: 36px;
-        &--icon{
-          height: 20px;
-          line-height: 36px;
-          margin: 8px;
-        }
         &--submit{
-          display: none;
+          width: 36px;
+          height: 36px;
+          border: none;
+          background-color: $main-color;
+          background-image: image-url("icon/icon-search_1.png");
+          background-repeat: no-repeat;
+          background-size: 15px 15px;
+          background-position: center;
+          cursor : pointer;
         }
       }
     }
