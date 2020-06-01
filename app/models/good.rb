@@ -46,4 +46,10 @@ class Good < ApplicationRecord
     numericality: {greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "は¥300 ~ ¥9,999,999です", allow_blank: true}
 
   validates :transaction_status_id, presence: true
+  
+  def self.search(search)
+    return Good.all unless search
+    Good.where('name LIKE(?)', "%#{search}%")
+  end
+
 end

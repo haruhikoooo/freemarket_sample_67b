@@ -25,7 +25,9 @@ Rails.application.routes.draw do
     get 'users/logout' => 'users/sessions#logout'
   end
 
-  
+  namespace :goods do
+    resources :searches, only: :index
+  end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'goods#toppage'
@@ -65,6 +67,13 @@ Rails.application.routes.draw do
   end
 
   resources :categories, only: [:show]
+  resources :likes, only: [:show] do
+    collection do
+      get 'create', defaults: { format: 'json' }
+      get 'destroy', defaults: { format: 'json' }
+    end
+  end
+
   resources :likes, only: [:show] do
     collection do
       get 'create', defaults: { format: 'json' }
