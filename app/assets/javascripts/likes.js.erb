@@ -2,7 +2,7 @@ $(function(){
   function html_after(good){
   let html =
    `<div class="option-area__left--button" data-id="${good.id}" id="option-area__left--button--after">
-      <img alt="likes icon" class="option-area__left--button__image" src="/assets/icon/icon_likes-after.png">
+      <%= image_tag "icon/icon_likes-after.png", alt: "likes icon", class: "option-area__left--button__image" %>
       <p>いいね！　${good.likes}</p>
     </div>`
     return html
@@ -11,7 +11,7 @@ $(function(){
   function html_before(good){
     let html =
      `<div class="option-area__left--button" data-id="${good.id}" id="option-area__left--button--before">
-        <img alt="likes icon" class="option-area__left--button__image" src="/assets/icon/icon_likes-before.png">
+        <%= image_tag "icon/icon_likes-before.png", alt: "likes icon", class: "option-area__left--button__image" %>
         <p>いいね！　${good.likes}</p>
       </div>`
       return html
