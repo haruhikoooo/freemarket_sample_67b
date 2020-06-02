@@ -27,14 +27,15 @@ class PaymentsController < ApplicationController
     end
   end
 
-  # def new
-  #   card = Payment.where(user_id: current_user.id)
-  #   redirect_to card_path(current_user.id) if card.exists?
-  # end
+  def new
+    @payment = Payment.new
+    card = Payment.where(user_id: current_user.id)
+    redirect_to payment_path(current_user.id) if card.exists?
+  end
 
-  # def create
-  #   redirect_to user_payments_path(current_user)
-  # end
+  def create
+    redirect_to user_payments_path(current_user)
+  end
 
   def destroy #PayjpとPaymentデータベースを削除
     payment = Payment.find_by(user_id: current_user.id)
@@ -82,4 +83,9 @@ end
 
   def set_payment
     @payment = Payment.where(user_id: current_user.id).first if Payment.where(user_id: current_user.id).present?
+  end
+
+  # form_withを使用した時ストロングパラメーター
+  def strong_params
+    params.require(`payments`).permit(`card_number`)
   end

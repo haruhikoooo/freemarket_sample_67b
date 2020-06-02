@@ -13,6 +13,7 @@
           %span.credit-registration__item--required
             必須
             %br
+              = form_with model: @payment, local:true do |f| 
           %input.credit-registration__item__card-number{type: "text", placeholder: "半角数字のみ"}
           %ul.signup-card-list
             %li
