@@ -231,23 +231,49 @@
               }
             }
           }
-          .commentbox {
-            padding: 24px;
+          .comment-box {
+            padding: 4px 40px 24px;
+            background-color: $white;
+            margin: 10px 0;
+            .comment{
+              margin-top: 20px;
+              &__username{
+                display: inline-block;
+                font-weight: bold;
+                font-size: 20px;
+                margin-bottom: 2px;
+              }
+              &__contents{
+                border-radius: 10px;
+                background-color: #eee;
+                padding: 10px;
+                &--top{
+                  margin-bottom: 5px;
+                }
+                &--bottom{
+                  font-size: 10px;
+                  color: $dark-gray;
+                }
+              }
+            }
+          }
+          .comment-form {
+            padding: 24px 40px;
             background-color: $white;
             margin: 10px 0;
             text-align: center;
-            .comment {
+            &__area {
               padding: 10px;
-              width: 600px;
+              width: 100%;
               min-height: 104px;
             }
-            .caution {
+            &__caution {
               padding: 8px;
               background-color: $background-gray;
               margin: 10px 0;
               text-align: left;
             }
-            .btn {
+            &__btn {
               display: inline-block;
               line-height: 48px;
               background-color: $main-color;
