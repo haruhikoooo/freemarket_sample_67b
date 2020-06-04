@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   
   resources :goods do
     get 'parchase' => 'goods#parchase'
+    resources :comments, only: :create
   end
   
   resources :users, only: [:show] do
