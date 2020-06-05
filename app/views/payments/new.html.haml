@@ -8,71 +8,46 @@
       .mypage__contents--main__title
         クレジットカードの追加
       .credit-registration
-        .credit-registration__item
-          カード番号
-          %span.credit-registration__item--required
-            必須
-            %br
-              = form_with model: @payment, local:true do |f| 
-          %input.credit-registration__item__card-number{type: "text", placeholder: "半角数字のみ"}
-          %ul.signup-card-list
-            %li
-              = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?238737266",width:"49px",height:"20px", class: "card"
-            %li
-              = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?238737266",width:"34px",height:"20px", class: "card"
-            %li
-              = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?238737266",width:"30px",height:"20px", class: "card"
-            %li
-              = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?238737266",width:"32px",height:"20px", class: "card"
-            %li
-              = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?238737266",width:"21px",height:"20px", class: "card"
-            %li
-              = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?238737266",width:"32px",height:"20px", class: "card"
-            %li
-              = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/discover.svg?238737266",width:"32px",height:"20px", class: "card"
-            %br
-        .credit-registration__item
-          有効期限
-          %span.credit-registration__item--required
-            必須
-            %br
-          %select.credit-registration__item__month
-            %option{value: "1"}01
-            %option{value: "2"}02
-            %option{value: "3"}03
-            %option{value: "4"}04
-            %option{value: "5"}05
-            %option{value: "6"}06
-            %option{value: "7"}07
-            %option{value: "8"}08
-            %option{value: "9"}09
-            %option{value: "10"}10
-            %option{value: "11"}11
-            %option{value: "12"}12
-          %span.credit-registration__item__text
-            月
-          %select.credit-registration__item__year
-            %option{value: "20"}20
-            %option{value: "21"}21
-            %option{value: "22"}22
-            %option{value: "23"}23
-            %option{value: "24"}24
-            %option{value: "25"}25
-            %option{value: "26"}26
-            %option{value: "27"}27
-            %option{value: "28"}28
-            %option{value: "29"}29
-            %option{value: "30"}30
-          %span.credit-registration__item__text
-            年
-        .credit-registration__item
-          セキュリティコード
-          %span.credit-registration__item--required
-            必須
-            %br
-          %input.credit-registration__item__card-number{type: "text", placeholder: "カード背面4桁もしくは3桁の番号"}
-        %input.credit-registration__add-btn
-          = submit_tag "追加する", id: "token_submit"
+        = form_with model: @payment, id: 'charge-form', url: user_payments_path, local:true, html: { name: 'inputForm' } do |f|
+          .credit-registration__item
+            = f.label :カード番号, class: 'label'
+            %span.credit-registration__item--required
+              必須
+            = f.text_field :card_number, class: "credit-registration__item__card-number", placeholder: "半角英数字のみ"
+            %ul.signup-card-list
+              %li
+                = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?238737266",width:"49px",height:"20px", class: "card"
+              %li
+                = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?238737266",width:"34px",height:"20px", class: "card"
+              %li
+                = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?238737266",width:"30px",height:"20px", class: "card"
+              %li
+                = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?238737266",width:"32px",height:"20px", class: "card"
+              %li
+                = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?238737266",width:"21px",height:"20px", class: "card"
+              %li
+                = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?238737266",width:"32px",height:"20px", class: "card"
+              %li
+                = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/discover.svg?238737266",width:"32px",height:"20px", class: "card"
+              %br
+          .credit-registration__item
+            = f.label :有効期限, class: 'label'
+            %span.credit-registration__item--required
+              必須
+              %br
+            = f.select :expiration_data_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]], {}, class: 'credit-registration__item__month'
+            %span.credit-registration__item__text
+              月
+            = f.select :expiration_data_month, [["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]], {}, class: 'credit-registration__item__year'
+            %span.credit-registration__item__text
+              年
+          .credit-registration__item
+            = f.label :セキュリティコード, class: 'label'
+            %span.credit-registration__item--required
+              必須
+              %br
+            = f.text_field :cecurity_code, type: 'text', class: 'credit-registration__item__card-number', placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: "4"
+            = f.submit '登録', id: 'token_submit', class: 'credit-registration__item__card-number'
 
 = render "layouts/footer"
 

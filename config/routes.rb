@@ -43,19 +43,10 @@ Rails.application.routes.draw do
   end
   
   resources :users, only: [:show] do
-    resources :payments, only: [:index, :new, :create, :destroy, :edit]
+    resources :payments, only: [:index, :show, :new, :create, :destroy]
   end
 
-  resources :payments, only: [:index, :new, :create, :destroy] do
-    collection do
-      post 'pay', to: 'payments#pay'
-      get 'payments/new', to: 'payments#index'
-      # get 'get_payments_path ', to: 'payments#index'
-      # post 'pay', to: 'purchase#pay'
-      # get 'done', to: 'purchase#done'
-    end
-  end
-
+  
   resources :goods, only: [:new, :create] do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
