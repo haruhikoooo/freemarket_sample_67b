@@ -4,6 +4,7 @@ class Good < ApplicationRecord
   has_many :images, dependent: :destroy
   has_many :likes
   has_many :users_likes, through: :likes, source: :user, dependent: :destroy
+  has_many :comments, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :transaction_status
