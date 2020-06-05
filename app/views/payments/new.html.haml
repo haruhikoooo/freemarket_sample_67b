@@ -8,6 +8,7 @@
       .mypage__contents--main__title
         クレジットカードの追加
       .credit-registration
+        = form_with model: @payment, id: 'charge-form', value: "1", url: user_payments_path, local:true, html: { name: 'inputForm' } do |f|
           .credit-registration__item
             = f.label :カード番号, class: 'label'
             %span.credit-registration__item--required
