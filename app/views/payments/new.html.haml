@@ -8,7 +8,6 @@
       .mypage__contents--main__title
         クレジットカードの追加
       .credit-registration
-        = form_with model: @payment, id: 'charge-form', url: user_payments_path, local:true, html: { name: 'inputForm' } do |f|
           .credit-registration__item
             = f.label :カード番号, class: 'label'
             %span.credit-registration__item--required
@@ -38,7 +37,7 @@
             = f.select :expiration_data_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]], {}, class: 'credit-registration__item__month'
             %span.credit-registration__item__text
               月
-            = f.select :expiration_data_month, [["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]], {}, class: 'credit-registration__item__year'
+            = f.select :expiration_data_year, [["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]], {}, class: 'credit-registration__item__year'
             %span.credit-registration__item__text
               年
           .credit-registration__item
