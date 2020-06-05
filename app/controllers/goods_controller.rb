@@ -34,6 +34,8 @@ class GoodsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = @good.comments.includes(:user)
   end
   
   def edit

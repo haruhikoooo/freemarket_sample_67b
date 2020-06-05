@@ -1,0 +1,9 @@
+.comment
+  .comment__username
+    = comment.user.nickname
+  .comment__contents
+    .comment__contents--top
+      = comment.comment
+    .comment__contents--bottom
+      = icon('far', 'clock')
+      = comment.created_at.strftime("%m/%d %H:%M")

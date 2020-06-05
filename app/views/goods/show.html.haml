@@ -102,17 +102,19 @@
             .exhibitor-box
               = link_to "商品を編集する", edit_good_path(@good.id), class: "exhibitor-box__update"
               = link_to "商品を削除する", good_path(@good.id), method: :delete, class: "exhibitor-box__delete", data: {confirm: "本当に削除しますか?"}
-          .commentbox
-            %form
-              %textarea.comment
-              %p.caution
+          .comment-box
+            = render partial: "comments/comment", collection: @comments
+          .comment-form
+            = form_with model: [@good, @comment], local:true do |f|
+              = f.text_area :comment, class: "comment-form__area"
+              %p.comment-form__caution
                 相手のことを考え丁寧なコメントを心がけましょう。
                 %br/
                 不快な言葉遣いなどは利用制限や退会処分となることがあります。
               %br/
-              %button.btn{name: "button", type: "submit"}
+              %label.comment-form__btn
                 %i.fa.fa-comment
-                コメントする
+                = f.submit "コメントする", class: "comment-form__btn--submit"
         %ul.links
           %li.links__left
             = link_to "#", class: "links__left--link" do
