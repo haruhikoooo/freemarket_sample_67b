@@ -46,7 +46,7 @@
             %span.credit-registration__item--required
               必須
               %br
-            = f.text_field :cecurity_code, type: 'text', class: 'credit-registration__item__card-number', placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: "4"
+            = f.text_field :cecurity_code, type: 'text', class: 'credit-registration__item__card-number', placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: "4", id: "security_code"
             = f.submit '登録', id: 'token_submit', class: 'credit-registration__item__card-number'
 
 = render "layouts/footer"
