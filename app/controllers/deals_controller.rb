@@ -9,16 +9,27 @@ class DealsController < ApplicationController
   end
 
   def create
-    @deal = Deal.new
-    @deal.good_id = @good.id
-    @deal.user_id = current_user.id
-    @good.transaction_status_id = 2
-    if @good.valid? && @deal.valid?
-      @good.save
-      @deal.save
-      redirect_to good_deal_path(@good.id, @deal.id)
+    @payment = Payment.find_by(user_id: current_user.id)
+    if @payment.blank?
+      redirect_to user_payments_path(current_user.id)
     else
-      render :new
+      Payjp.api_key = ENV["PAYJP_ACCESS_KEY"]
+      Payjp::Charge.create(
+      amount: @good.price,
+      customer: @payment.customer_id,
+      currency: 'jpy',
+      )
+      @deal = Deal.new
+      @deal.good_id = @good.id
+      @deal.user_id = current_user.id
+      @good.transaction_status_id = 2
+      if @good.valid? && @deal.valid?
+        @good.save
+        @deal.save
+        redirect_to good_deal_path(@good.id, @deal.id)
+      else
+        render :new
+      end
     end
   end
 
