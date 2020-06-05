@@ -12,11 +12,11 @@
           = icon('far', 'credit-card', class: "credit-box__item__icon")
         .credit-box__item
           .credit-box__item__number
-            ************0000
+            ************#{@default_card_information.last4}
           .credit-box__item__date
-            04 / 20
+            0#{@default_card_information.exp_month} / #{@default_card_information.exp_year.to_s.slice(2,3) }
         .credit-box__item
-          = link_to "削除する", "#", class: "credit-box__item--delete"
+          = link_to "削除する", user_payment_path(id: current_user.id), method: :delete, class: "credit-box__item--delete"
 
         = link_to new_user_payment_path, class: "credit-box__add-btn" do
           = icon('far', 'credit-card')

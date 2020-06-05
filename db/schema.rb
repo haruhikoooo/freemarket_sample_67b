@@ -81,21 +81,7 @@ ActiveRecord::Schema.define(version: 2020_06_03_110112) do
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "image", null: false
-    t.integer "good_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "good_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.text "image", null: false
     t.integer "good_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -109,10 +95,8 @@ ActiveRecord::Schema.define(version: 2020_06_03_110112) do
   end
 
   create_table "payments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "card_number", null: false
-    t.string "expiration_data_month", null: false
-    t.string "expiration_data_year", null: false
-    t.string "security_code", null: false
+    t.string "card_id", null: false
+    t.string "customer_id", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

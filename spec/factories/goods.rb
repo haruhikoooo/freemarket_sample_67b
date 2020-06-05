@@ -9,6 +9,7 @@ FactoryBot.define do
     prefecture_id         {1}
     derivery_day_id       {1}
     price                 {10000}
+    transaction_status_id    {1}
     images {[build(:image)]}
     user
     after(:build) do |good|
@@ -38,6 +39,7 @@ FactoryBot.define do
       prefecture_id         {1}
       derivery_day_id       {1}
       price                 {10000}
+      transaction_status_id    {1}
       images {[build(:image)]}
       user
      
