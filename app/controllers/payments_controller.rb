@@ -36,7 +36,7 @@ class PaymentsController < ApplicationController
       redirect_to new_user_payment_path
   end
 
-  def show #paymentsのデータpayjpに送り情報を取り出す
+  def index #paymentsのデータpayjpに送り情報を取り出す
     @payment = Payment.find_by(user_id: current_user.id)
     if @payment.blank?
       redirect_to new_user_payment_path 
