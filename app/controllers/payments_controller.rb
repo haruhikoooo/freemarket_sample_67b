@@ -8,11 +8,11 @@ class PaymentsController < ApplicationController
   def create #payjpとCardのデータベース作成
     Payjp.api_key = ENV['PAYJP_ACCESS_KEY']
     #保管した顧客IDでpayjpから情報取得
-    if params['payjp-token'].blank?
+    if params["payjpToken"].blank?
       redirect_to new_user_payment_path
     else
       customer = Payjp::Customer.create(
-        payment: params['payjp-token'],
+        payment: params["payjpToken"],
         metadata: {user_id: current_user.id}
       ) 
       @payment = Payment.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
