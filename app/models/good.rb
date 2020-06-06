@@ -13,6 +13,7 @@ class Good < ApplicationRecord
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :derivery_cost
   belongs_to_active_hash :derivery_day
+  has_one :deal
 
   validates_associated :images
   validates :images,
@@ -45,6 +46,7 @@ class Good < ApplicationRecord
     presence: true,
     numericality: {greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "は¥300 ~ ¥9,999,999です", allow_blank: true}
 
+  validates :transaction_status_id, presence: true
   
   def self.search(search)
     return Good.all unless search

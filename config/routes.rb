@@ -39,16 +39,16 @@ Rails.application.routes.draw do
   get 'get_image', to: 'goods#get_image', defaults: { format: 'json' }
   
   resources :goods do
+    resources :deals, only: [:new, :create, :show]
     get 'parchase' => 'goods#parchase'
     resources :comments, only: :create
   end
   
   resources :users, only: [:show] do
-    resources :payments, only: [:index, :new, :create, :destroy, :edit]
+    resources :payments, only: [:index, :show, :new, :create, :destroy]
   end
 
-  resources :payments, only: [:index, :new, :create, :destroy, :update]
-
+  
   resources :goods, only: [:new, :create] do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
@@ -56,7 +56,23 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :buys, only: [:index] do
+  end
+
   resources :categories, only: [:show]
+  resources :likes, only: [:show] do
+    collection do
+      get 'create', defaults: { format: 'json' }
+      get 'destroy', defaults: { format: 'json' }
+    end
+  end
+
+  resources :likes, only: [:show] do
+    collection do
+      get 'create', defaults: { format: 'json' }
+      get 'destroy', defaults: { format: 'json' }
+    end
+  end
 
   resources :likes, only: [:show] do
     collection do

@@ -7,7 +7,7 @@ class GoodsController < ApplicationController
   def toppage
     @goods = Good.where(transaction_status_id: "1").order(created_at: "DESC").first(3)
   end
-
+ 
   def index
     @goods = Good.order(created_at: "DESC")
   end
@@ -81,7 +81,10 @@ class GoodsController < ApplicationController
     render json: @image
   end
 
-  
+  def purchases
+  end
+
+
   private
   
   def good_params
@@ -91,7 +94,7 @@ class GoodsController < ApplicationController
   def set_good
     @good = Good.find(params[:id])
   end
-
+  
   def set_parent_category
     @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|
@@ -121,4 +124,9 @@ class GoodsController < ApplicationController
     end
   end
 
+  def set_message
+    @good = Good.find(params[:id])
+  end
+
+  
 end
