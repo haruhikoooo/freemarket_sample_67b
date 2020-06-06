@@ -40,6 +40,8 @@ Rails.application.routes.draw do
   
   resources :goods do
     resources :deals, only: [:new, :create, :show]
+    get 'parchase' => 'goods#parchase'
+    resources :comments, only: :create
   end
   
   resources :users, only: [:show] do
