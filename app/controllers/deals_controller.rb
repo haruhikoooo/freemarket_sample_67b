@@ -13,7 +13,7 @@ class DealsController < ApplicationController
     if @payment.blank?
       redirect_to user_payments_path(current_user.id)
     else
-      Payjp.api_key = ENV["PAYJP_ACCESS_KEY"]
+      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
       Payjp::Charge.create(
       amount: @good.price,
       customer: @payment.customer_id,

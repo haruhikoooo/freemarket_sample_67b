@@ -1,6 +1,7 @@
 $(function(){
   var form = $("#charge-form");
   Payjp.setPublicKey('pk_test_708c14c6b540c53a94da7107');
+
   $("#charge-form").on("click", "#token_submit", function(e) {
     
 
@@ -14,6 +15,7 @@ $(function(){
         exp_year: $("#expiration_data_year").val(),
     };
     Payjp.createToken(card, function(s, response) {
+      console.log(response)
       if (response.error) {
         alert('トークン作成エラー発生');
       }
