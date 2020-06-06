@@ -42,7 +42,7 @@ class PaymentsController < ApplicationController
       redirect_to new_user_payment_path 
     else
       #payjpと通信するためのkeyをセットしました
-      Payjp.api_key = ENV['PAYJP_ACCESS_KEY']
+      Payjp.api_key = Rails.application.credentials[:PAYJP_PRIVATE_KEY]
       customer = Payjp::Customer.retrieve(@payment.customer_id)
       @default_card_information = customer.cards.retrieve(@payment.card_id)
     end
