@@ -2,7 +2,7 @@
   .header__top-contents
     = link_to  root_path, class: "title-logo" do
       = image_tag("logo/logo.png", alt: "title-logo", width: "140px")
-    = form_with model:@good, url: goods_searches_path, class: 'search', local: true, method: :get do |f|
+    = form_with model:@search, url: goods_searches_path, class: 'search', local: true, method: :get do |f|
       = f.text_field :keyword, placeholder: "キーワードから探す", class:"search__field"
       .search__btn
         = f.submit "",class:"search__btn--submit"
