@@ -18,6 +18,7 @@ $(function(){
       console.log(response)
       if (response.error) {
         alert('トークン作成エラー発生');
+        $("#token_submit").prop('disabled', false);
       }
       else {
         $(".number").removeAttr("name");
