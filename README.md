@@ -27,7 +27,7 @@ Things you may want to cover:
 - has_many :goods_likes, through: :likes, source: :good, dependent: :destroy
 - has_many :comments
 - has_many :goods_comments, through: :comments, source: :good, dependent: :destroy
-- has_many :trannsactions
+- has_many :deals
 - has_many :goods_transactions, through: :transactions, source: :good, dependent: :destroy
 
 ## addressesテーブル
@@ -65,7 +65,7 @@ Things you may want to cover:
 |explanation|text|null: false|
 |category_id|integer|null: false, foreign_key: true|
 |size_id|integer|null: false, foreign_key: true|
-|brand_id|integer|foreign_key: true|
+|brand|string||
 |condition|integer|null: false, foreign_key: true|
 |prefecture_id|integer|null: false, foreign_key: true|
 |derivery_cost|integer|null: false, foreign_key: true|
@@ -77,7 +77,6 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :category
 - belongs_to_active_hash :size
-- belongs_to :brand
 - belongs_to_active_hash :condition
 - belongs_to_active_hash :derivery_cost
 - belongs_to_active_hash :derivery_day
@@ -100,7 +99,7 @@ Things you may want to cover:
 ### Association
 - belongs_to :good
 
-## transactionsテーブル
+## dealsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
@@ -114,14 +113,11 @@ Things you may want to cover:
 ## paymentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|card_number|string|null: false, unique: true|
-|expiration_date_month|string|null: false|
-|expiration_date_year|string|null: false|
-|security_code|string|null: false|
+|card_id|string|null: false|
+|customer_id|string|null: false|
 |user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- has_many :transactions
 
 ## commentsテーブル
 |Column|Type|Options|
@@ -149,16 +145,6 @@ Things you may want to cover:
 |ancestry|string|null: false unique: true|
 ### Association
 - has_many :goods
-- has_many :brands
-
-## brandsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false unique: true|
-|category_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :category
-- has_many :goods
 
 ## active_hash
 - prefecture
@@ -178,3 +164,4 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
